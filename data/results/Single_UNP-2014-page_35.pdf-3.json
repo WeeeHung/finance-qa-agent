@@ -1,0 +1,520 @@
+{
+  "previous_questions": [],
+  "question": "what was the cash provided by operating activities in 2013?",
+  "final_question": "what was the cash provided by operating activities in 2013?",
+  "can_answer_directly": true,
+  "subproblems": null,
+  "subproblems_dict_lst": null,
+  "final_answer": "6823.00",
+  "errors": {},
+  "step_history": [
+    {
+      "agent": "ClarifierAgent",
+      "input": {
+        "question": "what was the cash provided by operating activities in 2013?",
+        "previous_questions": []
+      },
+      "output": {
+        "final_question": "what was the cash provided by operating activities in 2013?",
+        "errors": null
+      }
+    },
+    {
+      "agent": "DirectQAAgent",
+      "input": {
+        "question": "what was the cash provided by operating activities in 2013?",
+        "previous_questions": [],
+        "final_question": "what was the cash provided by operating activities in 2013?"
+      },
+      "output": {
+        "can_answer_directly": true,
+        "retrieved_chunks": "File Title: Single_UNP/2014/page_35.pdf-3\n\nRelevant table information:\n- 2013 cash provided by operating activities is 6823.00; 2013 cash used in investing activities is -3405.00; 2013 cash used in financing activities is -3049.00; 2013 net change in cash and cashequivalents is 369.00\n- 2012 cash provided by operating activities is 6161.00; 2012 cash used in investing activities is -3633.00; 2012 cash used in financing activities is -2682.00; 2012 net change in cash and cashequivalents is -154.00\n- 2014 cash provided by operating activities is 7385.00; 2014 cash used in investing activities is -4249.00; 2014 cash used in financing activities is -2982.00; 2014 net change in cash and cashequivalents is 154.00\nColumn name: 2013, Value: 369.00\nPre and post lines around table: we have adequate access to capital markets to meet any foreseeable cash requirements , and we have sufficient financial capacity to satisfy our current liabilities . cash flows millions 2014 2013 2012 .\noperating activities higher net income in 2014 increased cash provided by operating activities compared to 2013 , despite higher income tax payments . 2014 income tax payments were higher than 2013 primarily due to higher income , but also because we paid taxes previously deferred by bonus depreciation ( discussed below ) . higher net income in 2013 increased cash provided by operating activities compared to 2012 . in addition , we made payments in 2012 for past wages as a result of national labor negotiations , which reduced cash provided by operating activities in 2012 . lower tax benefits from bonus depreciation ( as discussed below ) partially offset the increases . federal tax law provided for 100% ( 100 % ) bonus depreciation for qualified investments made during 2011 and 50% ( 50 % ) bonus depreciation for qualified investments made during 2012-2013 . as a result , the company deferred a substantial portion of its 2011-2013 income tax expense , contributing to the positive operating cash flow in those years . congress extended 50% ( 50 % ) bonus depreciation for 2014 , but this extension occurred in december and did not have a significant benefit on our income tax payments during 2014 . investing activities higher capital investments , including the early buyout of the long-term operating lease of our headquarters building for approximately $ 261 million , drove the increase in cash used in investing activities compared to 2013 . significant investments also were made for new locomotives , freight cars and containers , and capacity and commercial facility projects . capital investments in 2014 also included $ 99 million for the early buyout of locomotives and freight cars under long-term operating leases , which we exercised due to favorable economic terms and market conditions . lower capital investments in locomotives and freight cars in 2013 drove the decrease in cash used in investing activities compared to 2012 . included in capital investments in 2012 was $ 75 million for the early buyout of 165 locomotives under long-term operating and capital leases during the first quarter of 2012 , which we exercised due to favorable economic terms and market conditions. .\nRelevant textual information:\n- we have adequate access to capital markets to meet any foreseeable cash requirements , and we have sufficient financial capacity to satisfy our current liabilities . cash flows millions 2014 2013 2012 . operating activities higher net income in 2014 increased cash provided by operating activities compared to 2013 , despite higher income tax payments . 2014 income tax payments were higher than 2013 primarily due to higher income , but also because we paid taxes previously deferred by bonus depreciation ( discussed below ) . higher net income in 2013 increased cash provided by operating activities compared to 2012 . in addition , we made payments in 2012 for past wages as a result of national labor negotiations , which reduced cash provided by operating activities in 2012 . lower tax benefits from bonus depreciation ( as discussed below ) partially offset the increases . federal tax law provided for 100% ( 100 % ) bonus depreciation for qualified investments made during 2011 and 50% ( 50 % ) bonus depreciation for qualified investments made during 2012-2013 . as a result , the company deferred a substantial portion of its 2011-2013 income tax expense , contributing to the positive operating cash flow in those years . congress extended 50% ( 50 % ) bonus depreciation for 2014 , but this extension occurred in december and did not have a significant benefit on our income tax payments during 2014 .\n- on our income tax payments during 2014 . investing activities higher capital investments , including the early buyout of the long-term operating lease of our headquarters building for approximately $ 261 million , drove the increase in cash used in investing activities compared to 2013 . significant investments also were made for new locomotives , freight cars and containers , and capacity and commercial facility projects . capital investments in 2014 also included $ 99 million for the early buyout of locomotives and freight cars under long-term operating leases , which we exercised due to favorable economic terms and market conditions . lower capital investments in locomotives and freight cars in 2013 drove the decrease in cash used in investing activities compared to 2012 . included in capital investments in 2012 was $ 75 million for the early buyout of 165 locomotives under long-term operating and capital leases during the first quarter of 2012 , which we exercised due to favorable economic terms and market conditions. .",
+        "final_answer": "6823.00",
+        "errors": null
+      }
+    }
+  ],
+  "current_subproblem": null,
+  "current_subproblem_answer": null,
+  "free_agent_idx": null,
+  "computed_answer": null,
+  "agent_attempts": {
+    "Clarifier": 1,
+    "DirectQA": 1,
+    "Decomposer": 0,
+    "FreeAgents": 0,
+    "Aggregator": 0
+  }
+}
+{
+  "previous_questions": [
+    "what was the cash provided by operating activities in 2013?"
+  ],
+  "question": "and in 2012?",
+  "final_question": "What was the cash provided by operating activities in 2012?",
+  "can_answer_directly": true,
+  "subproblems": null,
+  "subproblems_dict_lst": null,
+  "final_answer": "6161.00",
+  "errors": {},
+  "step_history": [
+    {
+      "agent": "ClarifierAgent",
+      "input": {
+        "question": "and in 2012?",
+        "previous_questions": [
+          "what was the cash provided by operating activities in 2013?"
+        ]
+      },
+      "output": {
+        "final_question": "What was the cash provided by operating activities in 2012?",
+        "errors": null
+      }
+    },
+    {
+      "agent": "DirectQAAgent",
+      "input": {
+        "question": "and in 2012?",
+        "previous_questions": [
+          "what was the cash provided by operating activities in 2013?"
+        ],
+        "final_question": "What was the cash provided by operating activities in 2012?"
+      },
+      "output": {
+        "can_answer_directly": true,
+        "retrieved_chunks": "File Title: Single_UNP/2014/page_35.pdf-3\n\nRelevant table information:\n- 2012 cash provided by operating activities is 6161.00; 2012 cash used in investing activities is -3633.00; 2012 cash used in financing activities is -2682.00; 2012 net change in cash and cashequivalents is -154.00\n- 2013 cash provided by operating activities is 6823.00; 2013 cash used in investing activities is -3405.00; 2013 cash used in financing activities is -3049.00; 2013 net change in cash and cashequivalents is 369.00\n- 2014 cash provided by operating activities is 7385.00; 2014 cash used in investing activities is -4249.00; 2014 cash used in financing activities is -2982.00; 2014 net change in cash and cashequivalents is 154.00\nColumn name: 2012, Value: -154.00\nPre and post lines around table: we have adequate access to capital markets to meet any foreseeable cash requirements , and we have sufficient financial capacity to satisfy our current liabilities . cash flows millions 2014 2013 2012 .\noperating activities higher net income in 2014 increased cash provided by operating activities compared to 2013 , despite higher income tax payments . 2014 income tax payments were higher than 2013 primarily due to higher income , but also because we paid taxes previously deferred by bonus depreciation ( discussed below ) . higher net income in 2013 increased cash provided by operating activities compared to 2012 . in addition , we made payments in 2012 for past wages as a result of national labor negotiations , which reduced cash provided by operating activities in 2012 . lower tax benefits from bonus depreciation ( as discussed below ) partially offset the increases . federal tax law provided for 100% ( 100 % ) bonus depreciation for qualified investments made during 2011 and 50% ( 50 % ) bonus depreciation for qualified investments made during 2012-2013 . as a result , the company deferred a substantial portion of its 2011-2013 income tax expense , contributing to the positive operating cash flow in those years . congress extended 50% ( 50 % ) bonus depreciation for 2014 , but this extension occurred in december and did not have a significant benefit on our income tax payments during 2014 . investing activities higher capital investments , including the early buyout of the long-term operating lease of our headquarters building for approximately $ 261 million , drove the increase in cash used in investing activities compared to 2013 . significant investments also were made for new locomotives , freight cars and containers , and capacity and commercial facility projects . capital investments in 2014 also included $ 99 million for the early buyout of locomotives and freight cars under long-term operating leases , which we exercised due to favorable economic terms and market conditions . lower capital investments in locomotives and freight cars in 2013 drove the decrease in cash used in investing activities compared to 2012 . included in capital investments in 2012 was $ 75 million for the early buyout of 165 locomotives under long-term operating and capital leases during the first quarter of 2012 , which we exercised due to favorable economic terms and market conditions. .\nRelevant textual information:\n- we have adequate access to capital markets to meet any foreseeable cash requirements , and we have sufficient financial capacity to satisfy our current liabilities . cash flows millions 2014 2013 2012 . operating activities higher net income in 2014 increased cash provided by operating activities compared to 2013 , despite higher income tax payments . 2014 income tax payments were higher than 2013 primarily due to higher income , but also because we paid taxes previously deferred by bonus depreciation ( discussed below ) . higher net income in 2013 increased cash provided by operating activities compared to 2012 . in addition , we made payments in 2012 for past wages as a result of national labor negotiations , which reduced cash provided by operating activities in 2012 . lower tax benefits from bonus depreciation ( as discussed below ) partially offset the increases . federal tax law provided for 100% ( 100 % ) bonus depreciation for qualified investments made during 2011 and 50% ( 50 % ) bonus depreciation for qualified investments made during 2012-2013 . as a result , the company deferred a substantial portion of its 2011-2013 income tax expense , contributing to the positive operating cash flow in those years . congress extended 50% ( 50 % ) bonus depreciation for 2014 , but this extension occurred in december and did not have a significant benefit on our income tax payments during 2014 .\n- on our income tax payments during 2014 . investing activities higher capital investments , including the early buyout of the long-term operating lease of our headquarters building for approximately $ 261 million , drove the increase in cash used in investing activities compared to 2013 . significant investments also were made for new locomotives , freight cars and containers , and capacity and commercial facility projects . capital investments in 2014 also included $ 99 million for the early buyout of locomotives and freight cars under long-term operating leases , which we exercised due to favorable economic terms and market conditions . lower capital investments in locomotives and freight cars in 2013 drove the decrease in cash used in investing activities compared to 2012 . included in capital investments in 2012 was $ 75 million for the early buyout of 165 locomotives under long-term operating and capital leases during the first quarter of 2012 , which we exercised due to favorable economic terms and market conditions. .",
+        "final_answer": "6161.00",
+        "errors": null
+      }
+    }
+  ],
+  "current_subproblem": null,
+  "current_subproblem_answer": null,
+  "free_agent_idx": null,
+  "computed_answer": null,
+  "agent_attempts": {
+    "Clarifier": 1,
+    "DirectQA": 1,
+    "Decomposer": 0,
+    "FreeAgents": 0,
+    "Aggregator": 0
+  }
+}
+{
+  "previous_questions": [
+    "what was the cash provided by operating activities in 2013?",
+    "and in 2012?"
+  ],
+  "question": "so what was the difference in this value between the years?",
+  "final_question": "What was the difference in cash provided by operating activities between 2013 and 2012?",
+  "can_answer_directly": false,
+  "subproblems": [
+    "Find the cash provided by operating activities for 2013 (in dollars).",
+    "Find the cash provided by operating activities for 2012 (in dollars)."
+  ],
+  "subproblems_dict_lst": [
+    {
+      "subproblem": "Find the cash provided by operating activities for 2013 (in dollars).",
+      "answer": "6823000000.00"
+    },
+    {
+      "subproblem": "Find the cash provided by operating activities for 2012 (in dollars).",
+      "answer": "6161000000.00"
+    }
+  ],
+  "final_answer": 662000000.0,
+  "errors": {},
+  "step_history": [
+    {
+      "agent": "ClarifierAgent",
+      "input": {
+        "question": "so what was the difference in this value between the years?",
+        "previous_questions": [
+          "what was the cash provided by operating activities in 2013?",
+          "and in 2012?"
+        ]
+      },
+      "output": {
+        "final_question": "What was the difference in cash provided by operating activities between 2013 and 2012?",
+        "errors": null
+      }
+    },
+    {
+      "agent": "DirectQAAgent",
+      "input": {
+        "question": "so what was the difference in this value between the years?",
+        "previous_questions": [
+          "what was the cash provided by operating activities in 2013?",
+          "and in 2012?"
+        ],
+        "final_question": "What was the difference in cash provided by operating activities between 2013 and 2012?"
+      },
+      "output": {
+        "can_answer_directly": false,
+        "retrieved_chunks": "File Title: Single_UNP/2014/page_35.pdf-3\n\nRelevant table information:\n- 2013 cash provided by operating activities is 6823.00; 2013 cash used in investing activities is -3405.00; 2013 cash used in financing activities is -3049.00; 2013 net change in cash and cashequivalents is 369.00\n- 2012 cash provided by operating activities is 6161.00; 2012 cash used in investing activities is -3633.00; 2012 cash used in financing activities is -2682.00; 2012 net change in cash and cashequivalents is -154.00\n- 2014 cash provided by operating activities is 7385.00; 2014 cash used in investing activities is -4249.00; 2014 cash used in financing activities is -2982.00; 2014 net change in cash and cashequivalents is 154.00\nColumn name: 2013, Value: 369.00\nPre and post lines around table: we have adequate access to capital markets to meet any foreseeable cash requirements , and we have sufficient financial capacity to satisfy our current liabilities . cash flows millions 2014 2013 2012 .\noperating activities higher net income in 2014 increased cash provided by operating activities compared to 2013 , despite higher income tax payments . 2014 income tax payments were higher than 2013 primarily due to higher income , but also because we paid taxes previously deferred by bonus depreciation ( discussed below ) . higher net income in 2013 increased cash provided by operating activities compared to 2012 . in addition , we made payments in 2012 for past wages as a result of national labor negotiations , which reduced cash provided by operating activities in 2012 . lower tax benefits from bonus depreciation ( as discussed below ) partially offset the increases . federal tax law provided for 100% ( 100 % ) bonus depreciation for qualified investments made during 2011 and 50% ( 50 % ) bonus depreciation for qualified investments made during 2012-2013 . as a result , the company deferred a substantial portion of its 2011-2013 income tax expense , contributing to the positive operating cash flow in those years . congress extended 50% ( 50 % ) bonus depreciation for 2014 , but this extension occurred in december and did not have a significant benefit on our income tax payments during 2014 . investing activities higher capital investments , including the early buyout of the long-term operating lease of our headquarters building for approximately $ 261 million , drove the increase in cash used in investing activities compared to 2013 . significant investments also were made for new locomotives , freight cars and containers , and capacity and commercial facility projects . capital investments in 2014 also included $ 99 million for the early buyout of locomotives and freight cars under long-term operating leases , which we exercised due to favorable economic terms and market conditions . lower capital investments in locomotives and freight cars in 2013 drove the decrease in cash used in investing activities compared to 2012 . included in capital investments in 2012 was $ 75 million for the early buyout of 165 locomotives under long-term operating and capital leases during the first quarter of 2012 , which we exercised due to favorable economic terms and market conditions. .\nRelevant textual information:\n- we have adequate access to capital markets to meet any foreseeable cash requirements , and we have sufficient financial capacity to satisfy our current liabilities . cash flows millions 2014 2013 2012 . operating activities higher net income in 2014 increased cash provided by operating activities compared to 2013 , despite higher income tax payments . 2014 income tax payments were higher than 2013 primarily due to higher income , but also because we paid taxes previously deferred by bonus depreciation ( discussed below ) . higher net income in 2013 increased cash provided by operating activities compared to 2012 . in addition , we made payments in 2012 for past wages as a result of national labor negotiations , which reduced cash provided by operating activities in 2012 . lower tax benefits from bonus depreciation ( as discussed below ) partially offset the increases . federal tax law provided for 100% ( 100 % ) bonus depreciation for qualified investments made during 2011 and 50% ( 50 % ) bonus depreciation for qualified investments made during 2012-2013 . as a result , the company deferred a substantial portion of its 2011-2013 income tax expense , contributing to the positive operating cash flow in those years . congress extended 50% ( 50 % ) bonus depreciation for 2014 , but this extension occurred in december and did not have a significant benefit on our income tax payments during 2014 .\n- on our income tax payments during 2014 . investing activities higher capital investments , including the early buyout of the long-term operating lease of our headquarters building for approximately $ 261 million , drove the increase in cash used in investing activities compared to 2013 . significant investments also were made for new locomotives , freight cars and containers , and capacity and commercial facility projects . capital investments in 2014 also included $ 99 million for the early buyout of locomotives and freight cars under long-term operating leases , which we exercised due to favorable economic terms and market conditions . lower capital investments in locomotives and freight cars in 2013 drove the decrease in cash used in investing activities compared to 2012 . included in capital investments in 2012 was $ 75 million for the early buyout of 165 locomotives under long-term operating and capital leases during the first quarter of 2012 , which we exercised due to favorable economic terms and market conditions. .",
+        "final_answer": null,
+        "errors": null
+      }
+    },
+    {
+      "agent": "DecomposerAgent",
+      "input": {
+        "final_question": "What was the difference in cash provided by operating activities between 2013 and 2012?"
+      },
+      "output": {
+        "subproblems": [
+          "Find the cash provided by operating activities for 2013 (in dollars).",
+          "Find the cash provided by operating activities for 2012 (in dollars)."
+        ],
+        "errors": null
+      }
+    },
+    [
+      {
+        "agent": "FreeAgent",
+        "input": {
+          "subproblem": "Find the cash provided by operating activities for 2013 (in dollars)."
+        },
+        "output": {
+          "answer": "6823.00 dollars",
+          "retrieved_chunks": "File Title: Single_UNP/2014/page_35.pdf-3\n\nRelevant table information:\n- 2013 cash provided by operating activities is 6823.00; 2013 cash used in investing activities is -3405.00; 2013 cash used in financing activities is -3049.00; 2013 net change in cash and cashequivalents is 369.00\n- 2012 cash provided by operating activities is 6161.00; 2012 cash used in investing activities is -3633.00; 2012 cash used in financing activities is -2682.00; 2012 net change in cash and cashequivalents is -154.00\n- 2014 cash provided by operating activities is 7385.00; 2014 cash used in investing activities is -4249.00; 2014 cash used in financing activities is -2982.00; 2014 net change in cash and cashequivalents is 154.00\nColumn name: 2013, Value: 369.00\nPre and post lines around table: we have adequate access to capital markets to meet any foreseeable cash requirements , and we have sufficient financial capacity to satisfy our current liabilities . cash flows millions 2014 2013 2012 .\noperating activities higher net income in 2014 increased cash provided by operating activities compared to 2013 , despite higher income tax payments . 2014 income tax payments were higher than 2013 primarily due to higher income , but also because we paid taxes previously deferred by bonus depreciation ( discussed below ) . higher net income in 2013 increased cash provided by operating activities compared to 2012 . in addition , we made payments in 2012 for past wages as a result of national labor negotiations , which reduced cash provided by operating activities in 2012 . lower tax benefits from bonus depreciation ( as discussed below ) partially offset the increases . federal tax law provided for 100% ( 100 % ) bonus depreciation for qualified investments made during 2011 and 50% ( 50 % ) bonus depreciation for qualified investments made during 2012-2013 . as a result , the company deferred a substantial portion of its 2011-2013 income tax expense , contributing to the positive operating cash flow in those years . congress extended 50% ( 50 % ) bonus depreciation for 2014 , but this extension occurred in december and did not have a significant benefit on our income tax payments during 2014 . investing activities higher capital investments , including the early buyout of the long-term operating lease of our headquarters building for approximately $ 261 million , drove the increase in cash used in investing activities compared to 2013 . significant investments also were made for new locomotives , freight cars and containers , and capacity and commercial facility projects . capital investments in 2014 also included $ 99 million for the early buyout of locomotives and freight cars under long-term operating leases , which we exercised due to favorable economic terms and market conditions . lower capital investments in locomotives and freight cars in 2013 drove the decrease in cash used in investing activities compared to 2012 . included in capital investments in 2012 was $ 75 million for the early buyout of 165 locomotives under long-term operating and capital leases during the first quarter of 2012 , which we exercised due to favorable economic terms and market conditions. .\nRelevant textual information:\n- we have adequate access to capital markets to meet any foreseeable cash requirements , and we have sufficient financial capacity to satisfy our current liabilities . cash flows millions 2014 2013 2012 . operating activities higher net income in 2014 increased cash provided by operating activities compared to 2013 , despite higher income tax payments . 2014 income tax payments were higher than 2013 primarily due to higher income , but also because we paid taxes previously deferred by bonus depreciation ( discussed below ) . higher net income in 2013 increased cash provided by operating activities compared to 2012 . in addition , we made payments in 2012 for past wages as a result of national labor negotiations , which reduced cash provided by operating activities in 2012 . lower tax benefits from bonus depreciation ( as discussed below ) partially offset the increases . federal tax law provided for 100% ( 100 % ) bonus depreciation for qualified investments made during 2011 and 50% ( 50 % ) bonus depreciation for qualified investments made during 2012-2013 . as a result , the company deferred a substantial portion of its 2011-2013 income tax expense , contributing to the positive operating cash flow in those years . congress extended 50% ( 50 % ) bonus depreciation for 2014 , but this extension occurred in december and did not have a significant benefit on our income tax payments during 2014 .\n- on our income tax payments during 2014 . investing activities higher capital investments , including the early buyout of the long-term operating lease of our headquarters building for approximately $ 261 million , drove the increase in cash used in investing activities compared to 2013 . significant investments also were made for new locomotives , freight cars and containers , and capacity and commercial facility projects . capital investments in 2014 also included $ 99 million for the early buyout of locomotives and freight cars under long-term operating leases , which we exercised due to favorable economic terms and market conditions . lower capital investments in locomotives and freight cars in 2013 drove the decrease in cash used in investing activities compared to 2012 . included in capital investments in 2012 was $ 75 million for the early buyout of 165 locomotives under long-term operating and capital leases during the first quarter of 2012 , which we exercised due to favorable economic terms and market conditions. .",
+          "errors": null
+        }
+      },
+      {
+        "agent": "FreeAgent",
+        "input": {
+          "subproblem": "Find the cash provided by operating activities for 2012 (in dollars)."
+        },
+        "output": {
+          "answer": "Cash provided by operating activities for 2012 = $6,161,000,000 (reported as 6161.00, in millions).",
+          "retrieved_chunks": "File Title: Single_UNP/2014/page_35.pdf-3\n\nRelevant table information:\n- 2012 cash provided by operating activities is 6161.00; 2012 cash used in investing activities is -3633.00; 2012 cash used in financing activities is -2682.00; 2012 net change in cash and cashequivalents is -154.00\n- 2013 cash provided by operating activities is 6823.00; 2013 cash used in investing activities is -3405.00; 2013 cash used in financing activities is -3049.00; 2013 net change in cash and cashequivalents is 369.00\n- 2014 cash provided by operating activities is 7385.00; 2014 cash used in investing activities is -4249.00; 2014 cash used in financing activities is -2982.00; 2014 net change in cash and cashequivalents is 154.00\nColumn name: 2012, Value: -154.00\nPre and post lines around table: we have adequate access to capital markets to meet any foreseeable cash requirements , and we have sufficient financial capacity to satisfy our current liabilities . cash flows millions 2014 2013 2012 .\noperating activities higher net income in 2014 increased cash provided by operating activities compared to 2013 , despite higher income tax payments . 2014 income tax payments were higher than 2013 primarily due to higher income , but also because we paid taxes previously deferred by bonus depreciation ( discussed below ) . higher net income in 2013 increased cash provided by operating activities compared to 2012 . in addition , we made payments in 2012 for past wages as a result of national labor negotiations , which reduced cash provided by operating activities in 2012 . lower tax benefits from bonus depreciation ( as discussed below ) partially offset the increases . federal tax law provided for 100% ( 100 % ) bonus depreciation for qualified investments made during 2011 and 50% ( 50 % ) bonus depreciation for qualified investments made during 2012-2013 . as a result , the company deferred a substantial portion of its 2011-2013 income tax expense , contributing to the positive operating cash flow in those years . congress extended 50% ( 50 % ) bonus depreciation for 2014 , but this extension occurred in december and did not have a significant benefit on our income tax payments during 2014 . investing activities higher capital investments , including the early buyout of the long-term operating lease of our headquarters building for approximately $ 261 million , drove the increase in cash used in investing activities compared to 2013 . significant investments also were made for new locomotives , freight cars and containers , and capacity and commercial facility projects . capital investments in 2014 also included $ 99 million for the early buyout of locomotives and freight cars under long-term operating leases , which we exercised due to favorable economic terms and market conditions . lower capital investments in locomotives and freight cars in 2013 drove the decrease in cash used in investing activities compared to 2012 . included in capital investments in 2012 was $ 75 million for the early buyout of 165 locomotives under long-term operating and capital leases during the first quarter of 2012 , which we exercised due to favorable economic terms and market conditions. .\nRelevant textual information:\n- we have adequate access to capital markets to meet any foreseeable cash requirements , and we have sufficient financial capacity to satisfy our current liabilities . cash flows millions 2014 2013 2012 . operating activities higher net income in 2014 increased cash provided by operating activities compared to 2013 , despite higher income tax payments . 2014 income tax payments were higher than 2013 primarily due to higher income , but also because we paid taxes previously deferred by bonus depreciation ( discussed below ) . higher net income in 2013 increased cash provided by operating activities compared to 2012 . in addition , we made payments in 2012 for past wages as a result of national labor negotiations , which reduced cash provided by operating activities in 2012 . lower tax benefits from bonus depreciation ( as discussed below ) partially offset the increases . federal tax law provided for 100% ( 100 % ) bonus depreciation for qualified investments made during 2011 and 50% ( 50 % ) bonus depreciation for qualified investments made during 2012-2013 . as a result , the company deferred a substantial portion of its 2011-2013 income tax expense , contributing to the positive operating cash flow in those years . congress extended 50% ( 50 % ) bonus depreciation for 2014 , but this extension occurred in december and did not have a significant benefit on our income tax payments during 2014 .\n- on our income tax payments during 2014 . investing activities higher capital investments , including the early buyout of the long-term operating lease of our headquarters building for approximately $ 261 million , drove the increase in cash used in investing activities compared to 2013 . significant investments also were made for new locomotives , freight cars and containers , and capacity and commercial facility projects . capital investments in 2014 also included $ 99 million for the early buyout of locomotives and freight cars under long-term operating leases , which we exercised due to favorable economic terms and market conditions . lower capital investments in locomotives and freight cars in 2013 drove the decrease in cash used in investing activities compared to 2012 . included in capital investments in 2012 was $ 75 million for the early buyout of 165 locomotives under long-term operating and capital leases during the first quarter of 2012 , which we exercised due to favorable economic terms and market conditions. .",
+          "errors": null
+        }
+      }
+    ],
+    [
+      {
+        "agent": "FreeAgent",
+        "input": {
+          "subproblem": "Find the cash provided by operating activities for 2013 (in dollars)."
+        },
+        "output": {
+          "answer": "6823000000.00",
+          "retrieved_chunks": "File Title: Single_UNP/2014/page_35.pdf-3\n\nRelevant table information:\n- 2013 cash provided by operating activities is 6823.00; 2013 cash used in investing activities is -3405.00; 2013 cash used in financing activities is -3049.00; 2013 net change in cash and cashequivalents is 369.00\n- 2012 cash provided by operating activities is 6161.00; 2012 cash used in investing activities is -3633.00; 2012 cash used in financing activities is -2682.00; 2012 net change in cash and cashequivalents is -154.00\n- 2014 cash provided by operating activities is 7385.00; 2014 cash used in investing activities is -4249.00; 2014 cash used in financing activities is -2982.00; 2014 net change in cash and cashequivalents is 154.00\nColumn name: 2013, Value: 369.00\nPre and post lines around table: we have adequate access to capital markets to meet any foreseeable cash requirements , and we have sufficient financial capacity to satisfy our current liabilities . cash flows millions 2014 2013 2012 .\noperating activities higher net income in 2014 increased cash provided by operating activities compared to 2013 , despite higher income tax payments . 2014 income tax payments were higher than 2013 primarily due to higher income , but also because we paid taxes previously deferred by bonus depreciation ( discussed below ) . higher net income in 2013 increased cash provided by operating activities compared to 2012 . in addition , we made payments in 2012 for past wages as a result of national labor negotiations , which reduced cash provided by operating activities in 2012 . lower tax benefits from bonus depreciation ( as discussed below ) partially offset the increases . federal tax law provided for 100% ( 100 % ) bonus depreciation for qualified investments made during 2011 and 50% ( 50 % ) bonus depreciation for qualified investments made during 2012-2013 . as a result , the company deferred a substantial portion of its 2011-2013 income tax expense , contributing to the positive operating cash flow in those years . congress extended 50% ( 50 % ) bonus depreciation for 2014 , but this extension occurred in december and did not have a significant benefit on our income tax payments during 2014 . investing activities higher capital investments , including the early buyout of the long-term operating lease of our headquarters building for approximately $ 261 million , drove the increase in cash used in investing activities compared to 2013 . significant investments also were made for new locomotives , freight cars and containers , and capacity and commercial facility projects . capital investments in 2014 also included $ 99 million for the early buyout of locomotives and freight cars under long-term operating leases , which we exercised due to favorable economic terms and market conditions . lower capital investments in locomotives and freight cars in 2013 drove the decrease in cash used in investing activities compared to 2012 . included in capital investments in 2012 was $ 75 million for the early buyout of 165 locomotives under long-term operating and capital leases during the first quarter of 2012 , which we exercised due to favorable economic terms and market conditions. .\nRelevant textual information:\n- we have adequate access to capital markets to meet any foreseeable cash requirements , and we have sufficient financial capacity to satisfy our current liabilities . cash flows millions 2014 2013 2012 . operating activities higher net income in 2014 increased cash provided by operating activities compared to 2013 , despite higher income tax payments . 2014 income tax payments were higher than 2013 primarily due to higher income , but also because we paid taxes previously deferred by bonus depreciation ( discussed below ) . higher net income in 2013 increased cash provided by operating activities compared to 2012 . in addition , we made payments in 2012 for past wages as a result of national labor negotiations , which reduced cash provided by operating activities in 2012 . lower tax benefits from bonus depreciation ( as discussed below ) partially offset the increases . federal tax law provided for 100% ( 100 % ) bonus depreciation for qualified investments made during 2011 and 50% ( 50 % ) bonus depreciation for qualified investments made during 2012-2013 . as a result , the company deferred a substantial portion of its 2011-2013 income tax expense , contributing to the positive operating cash flow in those years . congress extended 50% ( 50 % ) bonus depreciation for 2014 , but this extension occurred in december and did not have a significant benefit on our income tax payments during 2014 .\n- on our income tax payments during 2014 . investing activities higher capital investments , including the early buyout of the long-term operating lease of our headquarters building for approximately $ 261 million , drove the increase in cash used in investing activities compared to 2013 . significant investments also were made for new locomotives , freight cars and containers , and capacity and commercial facility projects . capital investments in 2014 also included $ 99 million for the early buyout of locomotives and freight cars under long-term operating leases , which we exercised due to favorable economic terms and market conditions . lower capital investments in locomotives and freight cars in 2013 drove the decrease in cash used in investing activities compared to 2012 . included in capital investments in 2012 was $ 75 million for the early buyout of 165 locomotives under long-term operating and capital leases during the first quarter of 2012 , which we exercised due to favorable economic terms and market conditions. .",
+          "errors": null
+        }
+      },
+      {
+        "agent": "FreeAgent",
+        "input": {
+          "subproblem": "Find the cash provided by operating activities for 2012 (in dollars)."
+        },
+        "output": {
+          "answer": "6161000000.00",
+          "retrieved_chunks": "File Title: Single_UNP/2014/page_35.pdf-3\n\nRelevant table information:\n- 2012 cash provided by operating activities is 6161.00; 2012 cash used in investing activities is -3633.00; 2012 cash used in financing activities is -2682.00; 2012 net change in cash and cashequivalents is -154.00\n- 2013 cash provided by operating activities is 6823.00; 2013 cash used in investing activities is -3405.00; 2013 cash used in financing activities is -3049.00; 2013 net change in cash and cashequivalents is 369.00\n- 2014 cash provided by operating activities is 7385.00; 2014 cash used in investing activities is -4249.00; 2014 cash used in financing activities is -2982.00; 2014 net change in cash and cashequivalents is 154.00\nColumn name: 2012, Value: -154.00\nPre and post lines around table: we have adequate access to capital markets to meet any foreseeable cash requirements , and we have sufficient financial capacity to satisfy our current liabilities . cash flows millions 2014 2013 2012 .\noperating activities higher net income in 2014 increased cash provided by operating activities compared to 2013 , despite higher income tax payments . 2014 income tax payments were higher than 2013 primarily due to higher income , but also because we paid taxes previously deferred by bonus depreciation ( discussed below ) . higher net income in 2013 increased cash provided by operating activities compared to 2012 . in addition , we made payments in 2012 for past wages as a result of national labor negotiations , which reduced cash provided by operating activities in 2012 . lower tax benefits from bonus depreciation ( as discussed below ) partially offset the increases . federal tax law provided for 100% ( 100 % ) bonus depreciation for qualified investments made during 2011 and 50% ( 50 % ) bonus depreciation for qualified investments made during 2012-2013 . as a result , the company deferred a substantial portion of its 2011-2013 income tax expense , contributing to the positive operating cash flow in those years . congress extended 50% ( 50 % ) bonus depreciation for 2014 , but this extension occurred in december and did not have a significant benefit on our income tax payments during 2014 . investing activities higher capital investments , including the early buyout of the long-term operating lease of our headquarters building for approximately $ 261 million , drove the increase in cash used in investing activities compared to 2013 . significant investments also were made for new locomotives , freight cars and containers , and capacity and commercial facility projects . capital investments in 2014 also included $ 99 million for the early buyout of locomotives and freight cars under long-term operating leases , which we exercised due to favorable economic terms and market conditions . lower capital investments in locomotives and freight cars in 2013 drove the decrease in cash used in investing activities compared to 2012 . included in capital investments in 2012 was $ 75 million for the early buyout of 165 locomotives under long-term operating and capital leases during the first quarter of 2012 , which we exercised due to favorable economic terms and market conditions. .\nRelevant textual information:\n- we have adequate access to capital markets to meet any foreseeable cash requirements , and we have sufficient financial capacity to satisfy our current liabilities . cash flows millions 2014 2013 2012 . operating activities higher net income in 2014 increased cash provided by operating activities compared to 2013 , despite higher income tax payments . 2014 income tax payments were higher than 2013 primarily due to higher income , but also because we paid taxes previously deferred by bonus depreciation ( discussed below ) . higher net income in 2013 increased cash provided by operating activities compared to 2012 . in addition , we made payments in 2012 for past wages as a result of national labor negotiations , which reduced cash provided by operating activities in 2012 . lower tax benefits from bonus depreciation ( as discussed below ) partially offset the increases . federal tax law provided for 100% ( 100 % ) bonus depreciation for qualified investments made during 2011 and 50% ( 50 % ) bonus depreciation for qualified investments made during 2012-2013 . as a result , the company deferred a substantial portion of its 2011-2013 income tax expense , contributing to the positive operating cash flow in those years . congress extended 50% ( 50 % ) bonus depreciation for 2014 , but this extension occurred in december and did not have a significant benefit on our income tax payments during 2014 .\n- on our income tax payments during 2014 . investing activities higher capital investments , including the early buyout of the long-term operating lease of our headquarters building for approximately $ 261 million , drove the increase in cash used in investing activities compared to 2013 . significant investments also were made for new locomotives , freight cars and containers , and capacity and commercial facility projects . capital investments in 2014 also included $ 99 million for the early buyout of locomotives and freight cars under long-term operating leases , which we exercised due to favorable economic terms and market conditions . lower capital investments in locomotives and freight cars in 2013 drove the decrease in cash used in investing activities compared to 2012 . included in capital investments in 2012 was $ 75 million for the early buyout of 165 locomotives under long-term operating and capital leases during the first quarter of 2012 , which we exercised due to favorable economic terms and market conditions. .",
+          "errors": null
+        }
+      }
+    ],
+    {
+      "agent": "AggregatorAgent",
+      "input": {
+        "subproblem_answers": [
+          {
+            "subproblem": "Find the cash provided by operating activities for 2013 (in dollars).",
+            "answer": "6823000000.00"
+          },
+          {
+            "subproblem": "Find the cash provided by operating activities for 2012 (in dollars).",
+            "answer": "6161000000.00"
+          }
+        ]
+      },
+      "output": {
+        "aggregator_code": "def compute():\n    return 6823000000.0 - 6161000000.0",
+        "computed_answer": 662000000.0,
+        "errors": null
+      }
+    }
+  ],
+  "current_subproblem": null,
+  "current_subproblem_answer": null,
+  "free_agent_idx": null,
+  "computed_answer": 662000000.0,
+  "agent_attempts": {
+    "Clarifier": 1,
+    "DirectQA": 1,
+    "Decomposer": 1,
+    "FreeAgents": 2,
+    "Aggregator": 1
+  }
+}
+{
+  "previous_questions": [
+    "what was the cash provided by operating activities in 2013?",
+    "and in 2012?",
+    "so what was the difference in this value between the years?"
+  ],
+  "question": "and the value for 2012 again?",
+  "final_question": "What was cash provided by operating activities in 2012?",
+  "can_answer_directly": true,
+  "subproblems": [
+    "Find cash provided by operating activities for the year 2012 (dollars) as reported in the company's consolidated statements of cash flows."
+  ],
+  "subproblems_dict_lst": null,
+  "final_answer": "6161000000.00",
+  "errors": {},
+  "step_history": [
+    {
+      "agent": "ClarifierAgent",
+      "input": {
+        "question": "and the value for 2012 again?",
+        "previous_questions": [
+          "what was the cash provided by operating activities in 2013?",
+          "and in 2012?",
+          "so what was the difference in this value between the years?"
+        ]
+      },
+      "output": {
+        "final_question": "What was cash provided by operating activities in 2012?",
+        "errors": null
+      }
+    },
+    {
+      "agent": "DirectQAAgent",
+      "input": {
+        "question": "and the value for 2012 again?",
+        "previous_questions": [
+          "what was the cash provided by operating activities in 2013?",
+          "and in 2012?",
+          "so what was the difference in this value between the years?"
+        ],
+        "final_question": "What was cash provided by operating activities in 2012?"
+      },
+      "output": {
+        "can_answer_directly": true,
+        "retrieved_chunks": "File Title: Single_UNP/2014/page_35.pdf-3\n\nRelevant table information:\n- 2012 cash provided by operating activities is 6161.00; 2012 cash used in investing activities is -3633.00; 2012 cash used in financing activities is -2682.00; 2012 net change in cash and cashequivalents is -154.00\n- 2013 cash provided by operating activities is 6823.00; 2013 cash used in investing activities is -3405.00; 2013 cash used in financing activities is -3049.00; 2013 net change in cash and cashequivalents is 369.00\n- 2014 cash provided by operating activities is 7385.00; 2014 cash used in investing activities is -4249.00; 2014 cash used in financing activities is -2982.00; 2014 net change in cash and cashequivalents is 154.00\nColumn name: 2012, Value: -154.00\nPre and post lines around table: we have adequate access to capital markets to meet any foreseeable cash requirements , and we have sufficient financial capacity to satisfy our current liabilities . cash flows millions 2014 2013 2012 .\noperating activities higher net income in 2014 increased cash provided by operating activities compared to 2013 , despite higher income tax payments . 2014 income tax payments were higher than 2013 primarily due to higher income , but also because we paid taxes previously deferred by bonus depreciation ( discussed below ) . higher net income in 2013 increased cash provided by operating activities compared to 2012 . in addition , we made payments in 2012 for past wages as a result of national labor negotiations , which reduced cash provided by operating activities in 2012 . lower tax benefits from bonus depreciation ( as discussed below ) partially offset the increases . federal tax law provided for 100% ( 100 % ) bonus depreciation for qualified investments made during 2011 and 50% ( 50 % ) bonus depreciation for qualified investments made during 2012-2013 . as a result , the company deferred a substantial portion of its 2011-2013 income tax expense , contributing to the positive operating cash flow in those years . congress extended 50% ( 50 % ) bonus depreciation for 2014 , but this extension occurred in december and did not have a significant benefit on our income tax payments during 2014 . investing activities higher capital investments , including the early buyout of the long-term operating lease of our headquarters building for approximately $ 261 million , drove the increase in cash used in investing activities compared to 2013 . significant investments also were made for new locomotives , freight cars and containers , and capacity and commercial facility projects . capital investments in 2014 also included $ 99 million for the early buyout of locomotives and freight cars under long-term operating leases , which we exercised due to favorable economic terms and market conditions . lower capital investments in locomotives and freight cars in 2013 drove the decrease in cash used in investing activities compared to 2012 . included in capital investments in 2012 was $ 75 million for the early buyout of 165 locomotives under long-term operating and capital leases during the first quarter of 2012 , which we exercised due to favorable economic terms and market conditions. .\nRelevant textual information:\n- we have adequate access to capital markets to meet any foreseeable cash requirements , and we have sufficient financial capacity to satisfy our current liabilities . cash flows millions 2014 2013 2012 . operating activities higher net income in 2014 increased cash provided by operating activities compared to 2013 , despite higher income tax payments . 2014 income tax payments were higher than 2013 primarily due to higher income , but also because we paid taxes previously deferred by bonus depreciation ( discussed below ) . higher net income in 2013 increased cash provided by operating activities compared to 2012 . in addition , we made payments in 2012 for past wages as a result of national labor negotiations , which reduced cash provided by operating activities in 2012 . lower tax benefits from bonus depreciation ( as discussed below ) partially offset the increases . federal tax law provided for 100% ( 100 % ) bonus depreciation for qualified investments made during 2011 and 50% ( 50 % ) bonus depreciation for qualified investments made during 2012-2013 . as a result , the company deferred a substantial portion of its 2011-2013 income tax expense , contributing to the positive operating cash flow in those years . congress extended 50% ( 50 % ) bonus depreciation for 2014 , but this extension occurred in december and did not have a significant benefit on our income tax payments during 2014 .\n- on our income tax payments during 2014 . investing activities higher capital investments , including the early buyout of the long-term operating lease of our headquarters building for approximately $ 261 million , drove the increase in cash used in investing activities compared to 2013 . significant investments also were made for new locomotives , freight cars and containers , and capacity and commercial facility projects . capital investments in 2014 also included $ 99 million for the early buyout of locomotives and freight cars under long-term operating leases , which we exercised due to favorable economic terms and market conditions . lower capital investments in locomotives and freight cars in 2013 drove the decrease in cash used in investing activities compared to 2012 . included in capital investments in 2012 was $ 75 million for the early buyout of 165 locomotives under long-term operating and capital leases during the first quarter of 2012 , which we exercised due to favorable economic terms and market conditions. .",
+        "final_answer": "6161.00",
+        "errors": null
+      }
+    },
+    {
+      "agent": "DirectQAAgent",
+      "input": {
+        "question": "and the value for 2012 again?",
+        "previous_questions": [
+          "what was the cash provided by operating activities in 2013?",
+          "and in 2012?",
+          "so what was the difference in this value between the years?"
+        ],
+        "final_question": "What was cash provided by operating activities in 2012?"
+      },
+      "output": {
+        "can_answer_directly": true,
+        "retrieved_chunks": "File Title: Single_UNP/2014/page_35.pdf-3\n\nRelevant table information:\n- 2012 cash provided by operating activities is 6161.00; 2012 cash used in investing activities is -3633.00; 2012 cash used in financing activities is -2682.00; 2012 net change in cash and cashequivalents is -154.00\n- 2013 cash provided by operating activities is 6823.00; 2013 cash used in investing activities is -3405.00; 2013 cash used in financing activities is -3049.00; 2013 net change in cash and cashequivalents is 369.00\n- 2014 cash provided by operating activities is 7385.00; 2014 cash used in investing activities is -4249.00; 2014 cash used in financing activities is -2982.00; 2014 net change in cash and cashequivalents is 154.00\nColumn name: 2012, Value: -154.00\nPre and post lines around table: we have adequate access to capital markets to meet any foreseeable cash requirements , and we have sufficient financial capacity to satisfy our current liabilities . cash flows millions 2014 2013 2012 .\noperating activities higher net income in 2014 increased cash provided by operating activities compared to 2013 , despite higher income tax payments . 2014 income tax payments were higher than 2013 primarily due to higher income , but also because we paid taxes previously deferred by bonus depreciation ( discussed below ) . higher net income in 2013 increased cash provided by operating activities compared to 2012 . in addition , we made payments in 2012 for past wages as a result of national labor negotiations , which reduced cash provided by operating activities in 2012 . lower tax benefits from bonus depreciation ( as discussed below ) partially offset the increases . federal tax law provided for 100% ( 100 % ) bonus depreciation for qualified investments made during 2011 and 50% ( 50 % ) bonus depreciation for qualified investments made during 2012-2013 . as a result , the company deferred a substantial portion of its 2011-2013 income tax expense , contributing to the positive operating cash flow in those years . congress extended 50% ( 50 % ) bonus depreciation for 2014 , but this extension occurred in december and did not have a significant benefit on our income tax payments during 2014 . investing activities higher capital investments , including the early buyout of the long-term operating lease of our headquarters building for approximately $ 261 million , drove the increase in cash used in investing activities compared to 2013 . significant investments also were made for new locomotives , freight cars and containers , and capacity and commercial facility projects . capital investments in 2014 also included $ 99 million for the early buyout of locomotives and freight cars under long-term operating leases , which we exercised due to favorable economic terms and market conditions . lower capital investments in locomotives and freight cars in 2013 drove the decrease in cash used in investing activities compared to 2012 . included in capital investments in 2012 was $ 75 million for the early buyout of 165 locomotives under long-term operating and capital leases during the first quarter of 2012 , which we exercised due to favorable economic terms and market conditions. .\nRelevant textual information:\n- we have adequate access to capital markets to meet any foreseeable cash requirements , and we have sufficient financial capacity to satisfy our current liabilities . cash flows millions 2014 2013 2012 . operating activities higher net income in 2014 increased cash provided by operating activities compared to 2013 , despite higher income tax payments . 2014 income tax payments were higher than 2013 primarily due to higher income , but also because we paid taxes previously deferred by bonus depreciation ( discussed below ) . higher net income in 2013 increased cash provided by operating activities compared to 2012 . in addition , we made payments in 2012 for past wages as a result of national labor negotiations , which reduced cash provided by operating activities in 2012 . lower tax benefits from bonus depreciation ( as discussed below ) partially offset the increases . federal tax law provided for 100% ( 100 % ) bonus depreciation for qualified investments made during 2011 and 50% ( 50 % ) bonus depreciation for qualified investments made during 2012-2013 . as a result , the company deferred a substantial portion of its 2011-2013 income tax expense , contributing to the positive operating cash flow in those years . congress extended 50% ( 50 % ) bonus depreciation for 2014 , but this extension occurred in december and did not have a significant benefit on our income tax payments during 2014 .\n- on our income tax payments during 2014 . investing activities higher capital investments , including the early buyout of the long-term operating lease of our headquarters building for approximately $ 261 million , drove the increase in cash used in investing activities compared to 2013 . significant investments also were made for new locomotives , freight cars and containers , and capacity and commercial facility projects . capital investments in 2014 also included $ 99 million for the early buyout of locomotives and freight cars under long-term operating leases , which we exercised due to favorable economic terms and market conditions . lower capital investments in locomotives and freight cars in 2013 drove the decrease in cash used in investing activities compared to 2012 . included in capital investments in 2012 was $ 75 million for the early buyout of 165 locomotives under long-term operating and capital leases during the first quarter of 2012 , which we exercised due to favorable economic terms and market conditions. .",
+        "final_answer": "6161000000.00",
+        "errors": null
+      }
+    },
+    {
+      "agent": "DecomposerAgent",
+      "input": {
+        "final_question": "What was cash provided by operating activities in 2012?"
+      },
+      "output": {
+        "subproblems": [
+          "Find cash provided by operating activities for the year 2012 (dollars) as reported in the company's consolidated statements of cash flows."
+        ],
+        "errors": null
+      }
+    }
+  ],
+  "current_subproblem": null,
+  "current_subproblem_answer": null,
+  "free_agent_idx": null,
+  "computed_answer": null,
+  "agent_attempts": {
+    "Clarifier": 1,
+    "DirectQA": 2,
+    "Decomposer": 1,
+    "FreeAgents": 0,
+    "Aggregator": 0
+  }
+}
+{
+  "previous_questions": [
+    "what was the cash provided by operating activities in 2013?",
+    "and in 2012?",
+    "so what was the difference in this value between the years?",
+    "and the value for 2012 again?"
+  ],
+  "question": "so what was the percentage change during this time?",
+  "final_question": "What was the % change in cash provided by operating activities from 2012 to 2013?",
+  "can_answer_directly": false,
+  "subproblems": [
+    "Find cash provided by operating activities for 2012 (in dollars).",
+    "Find cash provided by operating activities for 2013 (in dollars)."
+  ],
+  "subproblems_dict_lst": [
+    {
+      "subproblem": "Find cash provided by operating activities for 2012 (in dollars).",
+      "answer": "6161000000.00"
+    },
+    {
+      "subproblem": "Find cash provided by operating activities for 2013 (in dollars).",
+      "answer": "6823000000.00"
+    }
+  ],
+  "final_answer": 0.10745008927122221,
+  "errors": {},
+  "step_history": [
+    {
+      "agent": "ClarifierAgent",
+      "input": {
+        "question": "so what was the percentage change during this time?",
+        "previous_questions": [
+          "what was the cash provided by operating activities in 2013?",
+          "and in 2012?",
+          "so what was the difference in this value between the years?",
+          "and the value for 2012 again?"
+        ]
+      },
+      "output": {
+        "final_question": "What was the % change in cash provided by operating activities from 2012 to 2013?",
+        "errors": null
+      }
+    },
+    {
+      "agent": "DirectQAAgent",
+      "input": {
+        "question": "so what was the percentage change during this time?",
+        "previous_questions": [
+          "what was the cash provided by operating activities in 2013?",
+          "and in 2012?",
+          "so what was the difference in this value between the years?",
+          "and the value for 2012 again?"
+        ],
+        "final_question": "What was the % change in cash provided by operating activities from 2012 to 2013?"
+      },
+      "output": {
+        "can_answer_directly": false,
+        "retrieved_chunks": "File Title: Single_UNP/2014/page_35.pdf-3\n\nRelevant table information:\n- 2013 cash provided by operating activities is 6823.00; 2013 cash used in investing activities is -3405.00; 2013 cash used in financing activities is -3049.00; 2013 net change in cash and cashequivalents is 369.00\n- 2012 cash provided by operating activities is 6161.00; 2012 cash used in investing activities is -3633.00; 2012 cash used in financing activities is -2682.00; 2012 net change in cash and cashequivalents is -154.00\n- 2014 cash provided by operating activities is 7385.00; 2014 cash used in investing activities is -4249.00; 2014 cash used in financing activities is -2982.00; 2014 net change in cash and cashequivalents is 154.00\nColumn name: 2013, Value: 369.00\nPre and post lines around table: we have adequate access to capital markets to meet any foreseeable cash requirements , and we have sufficient financial capacity to satisfy our current liabilities . cash flows millions 2014 2013 2012 .\noperating activities higher net income in 2014 increased cash provided by operating activities compared to 2013 , despite higher income tax payments . 2014 income tax payments were higher than 2013 primarily due to higher income , but also because we paid taxes previously deferred by bonus depreciation ( discussed below ) . higher net income in 2013 increased cash provided by operating activities compared to 2012 . in addition , we made payments in 2012 for past wages as a result of national labor negotiations , which reduced cash provided by operating activities in 2012 . lower tax benefits from bonus depreciation ( as discussed below ) partially offset the increases . federal tax law provided for 100% ( 100 % ) bonus depreciation for qualified investments made during 2011 and 50% ( 50 % ) bonus depreciation for qualified investments made during 2012-2013 . as a result , the company deferred a substantial portion of its 2011-2013 income tax expense , contributing to the positive operating cash flow in those years . congress extended 50% ( 50 % ) bonus depreciation for 2014 , but this extension occurred in december and did not have a significant benefit on our income tax payments during 2014 . investing activities higher capital investments , including the early buyout of the long-term operating lease of our headquarters building for approximately $ 261 million , drove the increase in cash used in investing activities compared to 2013 . significant investments also were made for new locomotives , freight cars and containers , and capacity and commercial facility projects . capital investments in 2014 also included $ 99 million for the early buyout of locomotives and freight cars under long-term operating leases , which we exercised due to favorable economic terms and market conditions . lower capital investments in locomotives and freight cars in 2013 drove the decrease in cash used in investing activities compared to 2012 . included in capital investments in 2012 was $ 75 million for the early buyout of 165 locomotives under long-term operating and capital leases during the first quarter of 2012 , which we exercised due to favorable economic terms and market conditions. .\nRelevant textual information:\n- we have adequate access to capital markets to meet any foreseeable cash requirements , and we have sufficient financial capacity to satisfy our current liabilities . cash flows millions 2014 2013 2012 . operating activities higher net income in 2014 increased cash provided by operating activities compared to 2013 , despite higher income tax payments . 2014 income tax payments were higher than 2013 primarily due to higher income , but also because we paid taxes previously deferred by bonus depreciation ( discussed below ) . higher net income in 2013 increased cash provided by operating activities compared to 2012 . in addition , we made payments in 2012 for past wages as a result of national labor negotiations , which reduced cash provided by operating activities in 2012 . lower tax benefits from bonus depreciation ( as discussed below ) partially offset the increases . federal tax law provided for 100% ( 100 % ) bonus depreciation for qualified investments made during 2011 and 50% ( 50 % ) bonus depreciation for qualified investments made during 2012-2013 . as a result , the company deferred a substantial portion of its 2011-2013 income tax expense , contributing to the positive operating cash flow in those years . congress extended 50% ( 50 % ) bonus depreciation for 2014 , but this extension occurred in december and did not have a significant benefit on our income tax payments during 2014 .\n- on our income tax payments during 2014 . investing activities higher capital investments , including the early buyout of the long-term operating lease of our headquarters building for approximately $ 261 million , drove the increase in cash used in investing activities compared to 2013 . significant investments also were made for new locomotives , freight cars and containers , and capacity and commercial facility projects . capital investments in 2014 also included $ 99 million for the early buyout of locomotives and freight cars under long-term operating leases , which we exercised due to favorable economic terms and market conditions . lower capital investments in locomotives and freight cars in 2013 drove the decrease in cash used in investing activities compared to 2012 . included in capital investments in 2012 was $ 75 million for the early buyout of 165 locomotives under long-term operating and capital leases during the first quarter of 2012 , which we exercised due to favorable economic terms and market conditions. .",
+        "final_answer": null,
+        "errors": null
+      }
+    },
+    {
+      "agent": "DecomposerAgent",
+      "input": {
+        "final_question": "What was the % change in cash provided by operating activities from 2012 to 2013?"
+      },
+      "output": {
+        "subproblems": [
+          "Find cash provided by operating activities for 2012 (in dollars).",
+          "Find cash provided by operating activities for 2013 (in dollars)."
+        ],
+        "errors": null
+      }
+    },
+    [
+      {
+        "agent": "FreeAgent",
+        "input": {
+          "subproblem": "Find cash provided by operating activities for 2013 (in dollars)."
+        },
+        "output": {
+          "answer": "6823.00 (dollars)",
+          "retrieved_chunks": "File Title: Single_UNP/2014/page_35.pdf-3\n\nRelevant table information:\n- 2013 cash provided by operating activities is 6823.00; 2013 cash used in investing activities is -3405.00; 2013 cash used in financing activities is -3049.00; 2013 net change in cash and cashequivalents is 369.00\n- 2012 cash provided by operating activities is 6161.00; 2012 cash used in investing activities is -3633.00; 2012 cash used in financing activities is -2682.00; 2012 net change in cash and cashequivalents is -154.00\n- 2014 cash provided by operating activities is 7385.00; 2014 cash used in investing activities is -4249.00; 2014 cash used in financing activities is -2982.00; 2014 net change in cash and cashequivalents is 154.00\nColumn name: 2013, Value: 369.00\nPre and post lines around table: we have adequate access to capital markets to meet any foreseeable cash requirements , and we have sufficient financial capacity to satisfy our current liabilities . cash flows millions 2014 2013 2012 .\noperating activities higher net income in 2014 increased cash provided by operating activities compared to 2013 , despite higher income tax payments . 2014 income tax payments were higher than 2013 primarily due to higher income , but also because we paid taxes previously deferred by bonus depreciation ( discussed below ) . higher net income in 2013 increased cash provided by operating activities compared to 2012 . in addition , we made payments in 2012 for past wages as a result of national labor negotiations , which reduced cash provided by operating activities in 2012 . lower tax benefits from bonus depreciation ( as discussed below ) partially offset the increases . federal tax law provided for 100% ( 100 % ) bonus depreciation for qualified investments made during 2011 and 50% ( 50 % ) bonus depreciation for qualified investments made during 2012-2013 . as a result , the company deferred a substantial portion of its 2011-2013 income tax expense , contributing to the positive operating cash flow in those years . congress extended 50% ( 50 % ) bonus depreciation for 2014 , but this extension occurred in december and did not have a significant benefit on our income tax payments during 2014 . investing activities higher capital investments , including the early buyout of the long-term operating lease of our headquarters building for approximately $ 261 million , drove the increase in cash used in investing activities compared to 2013 . significant investments also were made for new locomotives , freight cars and containers , and capacity and commercial facility projects . capital investments in 2014 also included $ 99 million for the early buyout of locomotives and freight cars under long-term operating leases , which we exercised due to favorable economic terms and market conditions . lower capital investments in locomotives and freight cars in 2013 drove the decrease in cash used in investing activities compared to 2012 . included in capital investments in 2012 was $ 75 million for the early buyout of 165 locomotives under long-term operating and capital leases during the first quarter of 2012 , which we exercised due to favorable economic terms and market conditions. .\nRelevant textual information:\n- we have adequate access to capital markets to meet any foreseeable cash requirements , and we have sufficient financial capacity to satisfy our current liabilities . cash flows millions 2014 2013 2012 . operating activities higher net income in 2014 increased cash provided by operating activities compared to 2013 , despite higher income tax payments . 2014 income tax payments were higher than 2013 primarily due to higher income , but also because we paid taxes previously deferred by bonus depreciation ( discussed below ) . higher net income in 2013 increased cash provided by operating activities compared to 2012 . in addition , we made payments in 2012 for past wages as a result of national labor negotiations , which reduced cash provided by operating activities in 2012 . lower tax benefits from bonus depreciation ( as discussed below ) partially offset the increases . federal tax law provided for 100% ( 100 % ) bonus depreciation for qualified investments made during 2011 and 50% ( 50 % ) bonus depreciation for qualified investments made during 2012-2013 . as a result , the company deferred a substantial portion of its 2011-2013 income tax expense , contributing to the positive operating cash flow in those years . congress extended 50% ( 50 % ) bonus depreciation for 2014 , but this extension occurred in december and did not have a significant benefit on our income tax payments during 2014 .\n- on our income tax payments during 2014 . investing activities higher capital investments , including the early buyout of the long-term operating lease of our headquarters building for approximately $ 261 million , drove the increase in cash used in investing activities compared to 2013 . significant investments also were made for new locomotives , freight cars and containers , and capacity and commercial facility projects . capital investments in 2014 also included $ 99 million for the early buyout of locomotives and freight cars under long-term operating leases , which we exercised due to favorable economic terms and market conditions . lower capital investments in locomotives and freight cars in 2013 drove the decrease in cash used in investing activities compared to 2012 . included in capital investments in 2012 was $ 75 million for the early buyout of 165 locomotives under long-term operating and capital leases during the first quarter of 2012 , which we exercised due to favorable economic terms and market conditions. .",
+          "errors": null
+        }
+      },
+      {
+        "agent": "FreeAgent",
+        "input": {
+          "subproblem": "Find cash provided by operating activities for 2012 (in dollars)."
+        },
+        "output": {
+          "answer": "6161.00 dollars",
+          "retrieved_chunks": "File Title: Single_UNP/2014/page_35.pdf-3\n\nRelevant table information:\n- 2012 cash provided by operating activities is 6161.00; 2012 cash used in investing activities is -3633.00; 2012 cash used in financing activities is -2682.00; 2012 net change in cash and cashequivalents is -154.00\n- 2013 cash provided by operating activities is 6823.00; 2013 cash used in investing activities is -3405.00; 2013 cash used in financing activities is -3049.00; 2013 net change in cash and cashequivalents is 369.00\n- 2014 cash provided by operating activities is 7385.00; 2014 cash used in investing activities is -4249.00; 2014 cash used in financing activities is -2982.00; 2014 net change in cash and cashequivalents is 154.00\nColumn name: 2012, Value: -154.00\nPre and post lines around table: we have adequate access to capital markets to meet any foreseeable cash requirements , and we have sufficient financial capacity to satisfy our current liabilities . cash flows millions 2014 2013 2012 .\noperating activities higher net income in 2014 increased cash provided by operating activities compared to 2013 , despite higher income tax payments . 2014 income tax payments were higher than 2013 primarily due to higher income , but also because we paid taxes previously deferred by bonus depreciation ( discussed below ) . higher net income in 2013 increased cash provided by operating activities compared to 2012 . in addition , we made payments in 2012 for past wages as a result of national labor negotiations , which reduced cash provided by operating activities in 2012 . lower tax benefits from bonus depreciation ( as discussed below ) partially offset the increases . federal tax law provided for 100% ( 100 % ) bonus depreciation for qualified investments made during 2011 and 50% ( 50 % ) bonus depreciation for qualified investments made during 2012-2013 . as a result , the company deferred a substantial portion of its 2011-2013 income tax expense , contributing to the positive operating cash flow in those years . congress extended 50% ( 50 % ) bonus depreciation for 2014 , but this extension occurred in december and did not have a significant benefit on our income tax payments during 2014 . investing activities higher capital investments , including the early buyout of the long-term operating lease of our headquarters building for approximately $ 261 million , drove the increase in cash used in investing activities compared to 2013 . significant investments also were made for new locomotives , freight cars and containers , and capacity and commercial facility projects . capital investments in 2014 also included $ 99 million for the early buyout of locomotives and freight cars under long-term operating leases , which we exercised due to favorable economic terms and market conditions . lower capital investments in locomotives and freight cars in 2013 drove the decrease in cash used in investing activities compared to 2012 . included in capital investments in 2012 was $ 75 million for the early buyout of 165 locomotives under long-term operating and capital leases during the first quarter of 2012 , which we exercised due to favorable economic terms and market conditions. .\nRelevant textual information:\n- we have adequate access to capital markets to meet any foreseeable cash requirements , and we have sufficient financial capacity to satisfy our current liabilities . cash flows millions 2014 2013 2012 . operating activities higher net income in 2014 increased cash provided by operating activities compared to 2013 , despite higher income tax payments . 2014 income tax payments were higher than 2013 primarily due to higher income , but also because we paid taxes previously deferred by bonus depreciation ( discussed below ) . higher net income in 2013 increased cash provided by operating activities compared to 2012 . in addition , we made payments in 2012 for past wages as a result of national labor negotiations , which reduced cash provided by operating activities in 2012 . lower tax benefits from bonus depreciation ( as discussed below ) partially offset the increases . federal tax law provided for 100% ( 100 % ) bonus depreciation for qualified investments made during 2011 and 50% ( 50 % ) bonus depreciation for qualified investments made during 2012-2013 . as a result , the company deferred a substantial portion of its 2011-2013 income tax expense , contributing to the positive operating cash flow in those years . congress extended 50% ( 50 % ) bonus depreciation for 2014 , but this extension occurred in december and did not have a significant benefit on our income tax payments during 2014 .\n- on our income tax payments during 2014 . investing activities higher capital investments , including the early buyout of the long-term operating lease of our headquarters building for approximately $ 261 million , drove the increase in cash used in investing activities compared to 2013 . significant investments also were made for new locomotives , freight cars and containers , and capacity and commercial facility projects . capital investments in 2014 also included $ 99 million for the early buyout of locomotives and freight cars under long-term operating leases , which we exercised due to favorable economic terms and market conditions . lower capital investments in locomotives and freight cars in 2013 drove the decrease in cash used in investing activities compared to 2012 . included in capital investments in 2012 was $ 75 million for the early buyout of 165 locomotives under long-term operating and capital leases during the first quarter of 2012 , which we exercised due to favorable economic terms and market conditions. .",
+          "errors": null
+        }
+      }
+    ],
+    [
+      {
+        "agent": "FreeAgent",
+        "input": {
+          "subproblem": "Find cash provided by operating activities for 2013 (in dollars)."
+        },
+        "output": {
+          "answer": "6823000000.00",
+          "retrieved_chunks": "File Title: Single_UNP/2014/page_35.pdf-3\n\nRelevant table information:\n- 2013 cash provided by operating activities is 6823.00; 2013 cash used in investing activities is -3405.00; 2013 cash used in financing activities is -3049.00; 2013 net change in cash and cashequivalents is 369.00\n- 2012 cash provided by operating activities is 6161.00; 2012 cash used in investing activities is -3633.00; 2012 cash used in financing activities is -2682.00; 2012 net change in cash and cashequivalents is -154.00\n- 2014 cash provided by operating activities is 7385.00; 2014 cash used in investing activities is -4249.00; 2014 cash used in financing activities is -2982.00; 2014 net change in cash and cashequivalents is 154.00\nColumn name: 2013, Value: 369.00\nPre and post lines around table: we have adequate access to capital markets to meet any foreseeable cash requirements , and we have sufficient financial capacity to satisfy our current liabilities . cash flows millions 2014 2013 2012 .\noperating activities higher net income in 2014 increased cash provided by operating activities compared to 2013 , despite higher income tax payments . 2014 income tax payments were higher than 2013 primarily due to higher income , but also because we paid taxes previously deferred by bonus depreciation ( discussed below ) . higher net income in 2013 increased cash provided by operating activities compared to 2012 . in addition , we made payments in 2012 for past wages as a result of national labor negotiations , which reduced cash provided by operating activities in 2012 . lower tax benefits from bonus depreciation ( as discussed below ) partially offset the increases . federal tax law provided for 100% ( 100 % ) bonus depreciation for qualified investments made during 2011 and 50% ( 50 % ) bonus depreciation for qualified investments made during 2012-2013 . as a result , the company deferred a substantial portion of its 2011-2013 income tax expense , contributing to the positive operating cash flow in those years . congress extended 50% ( 50 % ) bonus depreciation for 2014 , but this extension occurred in december and did not have a significant benefit on our income tax payments during 2014 . investing activities higher capital investments , including the early buyout of the long-term operating lease of our headquarters building for approximately $ 261 million , drove the increase in cash used in investing activities compared to 2013 . significant investments also were made for new locomotives , freight cars and containers , and capacity and commercial facility projects . capital investments in 2014 also included $ 99 million for the early buyout of locomotives and freight cars under long-term operating leases , which we exercised due to favorable economic terms and market conditions . lower capital investments in locomotives and freight cars in 2013 drove the decrease in cash used in investing activities compared to 2012 . included in capital investments in 2012 was $ 75 million for the early buyout of 165 locomotives under long-term operating and capital leases during the first quarter of 2012 , which we exercised due to favorable economic terms and market conditions. .\nRelevant textual information:\n- we have adequate access to capital markets to meet any foreseeable cash requirements , and we have sufficient financial capacity to satisfy our current liabilities . cash flows millions 2014 2013 2012 . operating activities higher net income in 2014 increased cash provided by operating activities compared to 2013 , despite higher income tax payments . 2014 income tax payments were higher than 2013 primarily due to higher income , but also because we paid taxes previously deferred by bonus depreciation ( discussed below ) . higher net income in 2013 increased cash provided by operating activities compared to 2012 . in addition , we made payments in 2012 for past wages as a result of national labor negotiations , which reduced cash provided by operating activities in 2012 . lower tax benefits from bonus depreciation ( as discussed below ) partially offset the increases . federal tax law provided for 100% ( 100 % ) bonus depreciation for qualified investments made during 2011 and 50% ( 50 % ) bonus depreciation for qualified investments made during 2012-2013 . as a result , the company deferred a substantial portion of its 2011-2013 income tax expense , contributing to the positive operating cash flow in those years . congress extended 50% ( 50 % ) bonus depreciation for 2014 , but this extension occurred in december and did not have a significant benefit on our income tax payments during 2014 .\n- on our income tax payments during 2014 . investing activities higher capital investments , including the early buyout of the long-term operating lease of our headquarters building for approximately $ 261 million , drove the increase in cash used in investing activities compared to 2013 . significant investments also were made for new locomotives , freight cars and containers , and capacity and commercial facility projects . capital investments in 2014 also included $ 99 million for the early buyout of locomotives and freight cars under long-term operating leases , which we exercised due to favorable economic terms and market conditions . lower capital investments in locomotives and freight cars in 2013 drove the decrease in cash used in investing activities compared to 2012 . included in capital investments in 2012 was $ 75 million for the early buyout of 165 locomotives under long-term operating and capital leases during the first quarter of 2012 , which we exercised due to favorable economic terms and market conditions. .",
+          "errors": null
+        }
+      },
+      {
+        "agent": "FreeAgent",
+        "input": {
+          "subproblem": "Find cash provided by operating activities for 2012 (in dollars)."
+        },
+        "output": {
+          "answer": "6161000000.00",
+          "retrieved_chunks": "File Title: Single_UNP/2014/page_35.pdf-3\n\nRelevant table information:\n- 2012 cash provided by operating activities is 6161.00; 2012 cash used in investing activities is -3633.00; 2012 cash used in financing activities is -2682.00; 2012 net change in cash and cashequivalents is -154.00\n- 2013 cash provided by operating activities is 6823.00; 2013 cash used in investing activities is -3405.00; 2013 cash used in financing activities is -3049.00; 2013 net change in cash and cashequivalents is 369.00\n- 2014 cash provided by operating activities is 7385.00; 2014 cash used in investing activities is -4249.00; 2014 cash used in financing activities is -2982.00; 2014 net change in cash and cashequivalents is 154.00\nColumn name: 2012, Value: -154.00\nPre and post lines around table: we have adequate access to capital markets to meet any foreseeable cash requirements , and we have sufficient financial capacity to satisfy our current liabilities . cash flows millions 2014 2013 2012 .\noperating activities higher net income in 2014 increased cash provided by operating activities compared to 2013 , despite higher income tax payments . 2014 income tax payments were higher than 2013 primarily due to higher income , but also because we paid taxes previously deferred by bonus depreciation ( discussed below ) . higher net income in 2013 increased cash provided by operating activities compared to 2012 . in addition , we made payments in 2012 for past wages as a result of national labor negotiations , which reduced cash provided by operating activities in 2012 . lower tax benefits from bonus depreciation ( as discussed below ) partially offset the increases . federal tax law provided for 100% ( 100 % ) bonus depreciation for qualified investments made during 2011 and 50% ( 50 % ) bonus depreciation for qualified investments made during 2012-2013 . as a result , the company deferred a substantial portion of its 2011-2013 income tax expense , contributing to the positive operating cash flow in those years . congress extended 50% ( 50 % ) bonus depreciation for 2014 , but this extension occurred in december and did not have a significant benefit on our income tax payments during 2014 . investing activities higher capital investments , including the early buyout of the long-term operating lease of our headquarters building for approximately $ 261 million , drove the increase in cash used in investing activities compared to 2013 . significant investments also were made for new locomotives , freight cars and containers , and capacity and commercial facility projects . capital investments in 2014 also included $ 99 million for the early buyout of locomotives and freight cars under long-term operating leases , which we exercised due to favorable economic terms and market conditions . lower capital investments in locomotives and freight cars in 2013 drove the decrease in cash used in investing activities compared to 2012 . included in capital investments in 2012 was $ 75 million for the early buyout of 165 locomotives under long-term operating and capital leases during the first quarter of 2012 , which we exercised due to favorable economic terms and market conditions. .\nRelevant textual information:\n- we have adequate access to capital markets to meet any foreseeable cash requirements , and we have sufficient financial capacity to satisfy our current liabilities . cash flows millions 2014 2013 2012 . operating activities higher net income in 2014 increased cash provided by operating activities compared to 2013 , despite higher income tax payments . 2014 income tax payments were higher than 2013 primarily due to higher income , but also because we paid taxes previously deferred by bonus depreciation ( discussed below ) . higher net income in 2013 increased cash provided by operating activities compared to 2012 . in addition , we made payments in 2012 for past wages as a result of national labor negotiations , which reduced cash provided by operating activities in 2012 . lower tax benefits from bonus depreciation ( as discussed below ) partially offset the increases . federal tax law provided for 100% ( 100 % ) bonus depreciation for qualified investments made during 2011 and 50% ( 50 % ) bonus depreciation for qualified investments made during 2012-2013 . as a result , the company deferred a substantial portion of its 2011-2013 income tax expense , contributing to the positive operating cash flow in those years . congress extended 50% ( 50 % ) bonus depreciation for 2014 , but this extension occurred in december and did not have a significant benefit on our income tax payments during 2014 .\n- on our income tax payments during 2014 . investing activities higher capital investments , including the early buyout of the long-term operating lease of our headquarters building for approximately $ 261 million , drove the increase in cash used in investing activities compared to 2013 . significant investments also were made for new locomotives , freight cars and containers , and capacity and commercial facility projects . capital investments in 2014 also included $ 99 million for the early buyout of locomotives and freight cars under long-term operating leases , which we exercised due to favorable economic terms and market conditions . lower capital investments in locomotives and freight cars in 2013 drove the decrease in cash used in investing activities compared to 2012 . included in capital investments in 2012 was $ 75 million for the early buyout of 165 locomotives under long-term operating and capital leases during the first quarter of 2012 , which we exercised due to favorable economic terms and market conditions. .",
+          "errors": null
+        }
+      }
+    ],
+    {
+      "agent": "AggregatorAgent",
+      "input": {
+        "subproblem_answers": [
+          {
+            "subproblem": "Find cash provided by operating activities for 2012 (in dollars).",
+            "answer": "6161000000.00"
+          },
+          {
+            "subproblem": "Find cash provided by operating activities for 2013 (in dollars).",
+            "answer": "6823000000.00"
+          }
+        ]
+      },
+      "output": {
+        "aggregator_code": "def compute():\n    a = 6161000000.00\n    b = 6823000000.00\n    return b - a",
+        "computed_answer": 662000000.0,
+        "errors": null
+      }
+    },
+    {
+      "agent": "AggregatorAgent",
+      "input": {
+        "subproblem_answers": [
+          {
+            "subproblem": "Find cash provided by operating activities for 2012 (in dollars).",
+            "answer": "6161000000.00"
+          },
+          {
+            "subproblem": "Find cash provided by operating activities for 2013 (in dollars).",
+            "answer": "6823000000.00"
+          }
+        ]
+      },
+      "output": {
+        "aggregator_code": "def compute():\n    a = 6161000000.0\n    b = 6823000000.0\n    return (b - a) / a",
+        "computed_answer": 0.10745008927122221,
+        "errors": null
+      }
+    }
+  ],
+  "current_subproblem": null,
+  "current_subproblem_answer": null,
+  "free_agent_idx": null,
+  "computed_answer": 0.10745008927122221,
+  "agent_attempts": {
+    "Clarifier": 1,
+    "DirectQA": 1,
+    "Decomposer": 1,
+    "FreeAgents": 2,
+    "Aggregator": 2
+  }
+}

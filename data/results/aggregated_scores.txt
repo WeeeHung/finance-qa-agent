@@ -1,0 +1,7 @@
+ClarifierAgent_score     0.862069
+DirectQAAgent_score      0.890805
+DecomposerAgent_score    0.947368
+FreeAgent_score          0.645833
+AggregatorAgent_score    0.312500
+final_score              0.583908
+correct                  0.689655

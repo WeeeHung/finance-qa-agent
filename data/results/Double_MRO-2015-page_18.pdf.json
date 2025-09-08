@@ -1,0 +1,203 @@
+{
+  "previous_questions": [],
+  "question": "what was the total african and us net undeveloped acres expiring in 2016?",
+  "final_question": "What was the combined total of net undeveloped acres in Africa and the U.S. that expired in 2016?",
+  "can_answer_directly": true,
+  "subproblems": null,
+  "subproblems_dict_lst": null,
+  "final_answer": "257.00",
+  "errors": {},
+  "step_history": [
+    {
+      "agent": "ClarifierAgent",
+      "input": {
+        "question": "what was the total african and us net undeveloped acres expiring in 2016?",
+        "previous_questions": []
+      },
+      "output": {
+        "final_question": "What was the combined total of net undeveloped acres in Africa and the U.S. that expired in 2016?",
+        "errors": null
+      }
+    },
+    {
+      "agent": "DirectQAAgent",
+      "input": {
+        "question": "what was the total african and us net undeveloped acres expiring in 2016?",
+        "previous_questions": [],
+        "final_question": "What was the combined total of net undeveloped acres in Africa and the U.S. that expired in 2016?"
+      },
+      "output": {
+        "can_answer_directly": true,
+        "retrieved_chunks": "File Title: Double_MRO/2015/page_18.pdf\n\nRelevant table information:\n- net undeveloped acres expiring year ended december 31 , 2016 u.s . is 68.00; net undeveloped acres expiring year ended december 31 , 2016 e.g . is 2014.00; net undeveloped acres expiring year ended december 31 , 2016 other africa is 189.00; net undeveloped acres expiring year ended december 31 , 2016 total africa is 189.00; net undeveloped acres expiring year ended december 31 , 2016 other international is 2014.00; net undeveloped acres expiring year ended december 31 , 2016 total is 257.00\n- net undeveloped acres expiring year ended december 31 , 2017 u.s . is 89.00; net undeveloped acres expiring year ended december 31 , 2017 e.g . is 92.00; net undeveloped acres expiring year ended december 31 , 2017 other africa is 4352.00; net undeveloped acres expiring year ended december 31 , 2017 total africa is 4444.00; net undeveloped acres expiring year ended december 31 , 2017 other international is 2014.00; net undeveloped acres expiring year ended december 31 , 2017 total is 4533.00\n- net undeveloped acres expiring year ended december 31 , 2018 u.s . is 128.00; net undeveloped acres expiring year ended december 31 , 2018 e.g . is 36.00; net undeveloped acres expiring year ended december 31 , 2018 other africa is 854.00; net undeveloped acres expiring year ended december 31 , 2018 total africa is 890.00; net undeveloped acres expiring year ended december 31 , 2018 other international is 2014.00; net undeveloped acres expiring year ended december 31 , 2018 total is 1018.00\n- net undeveloped acres expiring year ended december 31 , 2018 u.s . is 128.00; net undeveloped acres expiring year ended december 31 , 2018 e.g . is 36.00; net undeveloped acres expiring year ended december 31 , 2018 other africa is 854.00; net undeveloped acres expiring year ended december 31 , 2018 total africa is 890.00; net undeveloped acres expiring year ended december 31 , 2018 other international is 2014.00; net undeveloped acres expiring year ended december 31 , 2018 total is 1018.00\nColumn name: net undeveloped acres expiring year ended december 31 , 2016, Value: 257.00\nPre and post lines around table: in the ordinary course of business , based on our evaluations of certain geologic trends and prospective economics , we have allowed certain lease acreage to expire and may allow additional acreage to expire in the future . if production is not established or we take no other action to extend the terms of the leases , licenses or concessions , undeveloped acreage listed in the table below will expire over the next three years . we plan to continue the terms of certain of these licenses and concession areas or retain leases through operational or administrative actions ; however , the majority of the undeveloped acres associated with other africa as listed in the table below pertains to our licenses in ethiopia and kenya , for which we executed agreements in 2015 to sell . the kenya transaction closed in february 2016 and the ethiopia transaction is expected to close in the first quarter of 2016 . see item 8 . financial statements and supplementary data - note 5 to the consolidated financial statements for additional information about this disposition . net undeveloped acres expiring year ended december 31 .\n.\nRelevant textual information:\n- in the ordinary course of business , based on our evaluations of certain geologic trends and prospective economics , we have allowed certain lease acreage to expire and may allow additional acreage to expire in the future . if production is not established or we take no other action to extend the terms of the leases , licenses or concessions , undeveloped acreage listed in the table below will expire over the next three years . we plan to continue the terms of certain of these licenses and concession areas or retain leases through operational or administrative actions ; however , the majority of the undeveloped acres associated with other africa as listed in the table below pertains to our licenses in ethiopia and kenya , for which we executed agreements in 2015 to sell . the kenya transaction closed in february 2016 and the ethiopia transaction is expected to close in the first quarter of 2016 . see item 8 . financial statements and supplementary data - note 5 to the consolidated financial statements for additional information about this disposition . net undeveloped acres expiring year ended december 31 . .",
+        "final_answer": "257.00",
+        "errors": null
+      }
+    }
+  ],
+  "current_subproblem": null,
+  "current_subproblem_answer": null,
+  "free_agent_idx": null,
+  "computed_answer": null,
+  "agent_attempts": {
+    "Clarifier": 1,
+    "DirectQA": 1,
+    "Decomposer": 0,
+    "FreeAgents": 0,
+    "Aggregator": 0
+  }
+}
+{
+  "previous_questions": [
+    "what was the total african and us net undeveloped acres expiring in 2016?"
+  ],
+  "question": "what percentage of undeveloped acres were in the us in 2018?",
+  "final_question": "What % of the total net undeveloped acres in 2018 were located in the US?",
+  "can_answer_directly": false,
+  "subproblems": [
+    "Find the net undeveloped acres located in the United States for the year ended December 31, 2018.",
+    "Find the total net undeveloped acres for the year ended December 31, 2018."
+  ],
+  "subproblems_dict_lst": [
+    {
+      "subproblem": "Find the net undeveloped acres located in the United States for the year ended December 31, 2018.",
+      "answer": "128.00"
+    },
+    {
+      "subproblem": "Find the total net undeveloped acres for the year ended December 31, 2018.",
+      "answer": "Total net undeveloped acres for the year ended December 31, 2018: 1018.00 acres."
+    }
+  ],
+  "final_answer": 12.573673870333987,
+  "errors": {},
+  "step_history": [
+    {
+      "agent": "ClarifierAgent",
+      "input": {
+        "question": "what percentage of undeveloped acres were in the us in 2018?",
+        "previous_questions": [
+          "what was the total african and us net undeveloped acres expiring in 2016?"
+        ]
+      },
+      "output": {
+        "final_question": "What % of the total net undeveloped acres in 2018 were located in the US?",
+        "errors": null
+      }
+    },
+    {
+      "agent": "DirectQAAgent",
+      "input": {
+        "question": "what percentage of undeveloped acres were in the us in 2018?",
+        "previous_questions": [
+          "what was the total african and us net undeveloped acres expiring in 2016?"
+        ],
+        "final_question": "What % of the total net undeveloped acres in 2018 were located in the US?"
+      },
+      "output": {
+        "can_answer_directly": false,
+        "retrieved_chunks": "File Title: Double_MRO/2015/page_18.pdf\n\nRelevant table information:\n- net undeveloped acres expiring year ended december 31 , 2018 u.s . is 128.00; net undeveloped acres expiring year ended december 31 , 2018 e.g . is 36.00; net undeveloped acres expiring year ended december 31 , 2018 other africa is 854.00; net undeveloped acres expiring year ended december 31 , 2018 total africa is 890.00; net undeveloped acres expiring year ended december 31 , 2018 other international is 2014.00; net undeveloped acres expiring year ended december 31 , 2018 total is 1018.00\n- net undeveloped acres expiring year ended december 31 , 2017 u.s . is 89.00; net undeveloped acres expiring year ended december 31 , 2017 e.g . is 92.00; net undeveloped acres expiring year ended december 31 , 2017 other africa is 4352.00; net undeveloped acres expiring year ended december 31 , 2017 total africa is 4444.00; net undeveloped acres expiring year ended december 31 , 2017 other international is 2014.00; net undeveloped acres expiring year ended december 31 , 2017 total is 4533.00\n- net undeveloped acres expiring year ended december 31 , 2016 u.s . is 68.00; net undeveloped acres expiring year ended december 31 , 2016 e.g . is 2014.00; net undeveloped acres expiring year ended december 31 , 2016 other africa is 189.00; net undeveloped acres expiring year ended december 31 , 2016 total africa is 189.00; net undeveloped acres expiring year ended december 31 , 2016 other international is 2014.00; net undeveloped acres expiring year ended december 31 , 2016 total is 257.00\n- net undeveloped acres expiring year ended december 31 , 2018 u.s . is 128.00; net undeveloped acres expiring year ended december 31 , 2018 e.g . is 36.00; net undeveloped acres expiring year ended december 31 , 2018 other africa is 854.00; net undeveloped acres expiring year ended december 31 , 2018 total africa is 890.00; net undeveloped acres expiring year ended december 31 , 2018 other international is 2014.00; net undeveloped acres expiring year ended december 31 , 2018 total is 1018.00\nColumn name: net undeveloped acres expiring year ended december 31 , 2018, Value: 1018.00\nPre and post lines around table: in the ordinary course of business , based on our evaluations of certain geologic trends and prospective economics , we have allowed certain lease acreage to expire and may allow additional acreage to expire in the future . if production is not established or we take no other action to extend the terms of the leases , licenses or concessions , undeveloped acreage listed in the table below will expire over the next three years . we plan to continue the terms of certain of these licenses and concession areas or retain leases through operational or administrative actions ; however , the majority of the undeveloped acres associated with other africa as listed in the table below pertains to our licenses in ethiopia and kenya , for which we executed agreements in 2015 to sell . the kenya transaction closed in february 2016 and the ethiopia transaction is expected to close in the first quarter of 2016 . see item 8 . financial statements and supplementary data - note 5 to the consolidated financial statements for additional information about this disposition . net undeveloped acres expiring year ended december 31 .\n.\nRelevant textual information:\n- in the ordinary course of business , based on our evaluations of certain geologic trends and prospective economics , we have allowed certain lease acreage to expire and may allow additional acreage to expire in the future . if production is not established or we take no other action to extend the terms of the leases , licenses or concessions , undeveloped acreage listed in the table below will expire over the next three years . we plan to continue the terms of certain of these licenses and concession areas or retain leases through operational or administrative actions ; however , the majority of the undeveloped acres associated with other africa as listed in the table below pertains to our licenses in ethiopia and kenya , for which we executed agreements in 2015 to sell . the kenya transaction closed in february 2016 and the ethiopia transaction is expected to close in the first quarter of 2016 . see item 8 . financial statements and supplementary data - note 5 to the consolidated financial statements for additional information about this disposition . net undeveloped acres expiring year ended december 31 . .",
+        "final_answer": null,
+        "errors": null
+      }
+    },
+    {
+      "agent": "DecomposerAgent",
+      "input": {
+        "final_question": "What % of the total net undeveloped acres in 2018 were located in the US?"
+      },
+      "output": {
+        "subproblems": [
+          "Find the percentage of the total net undeveloped acres in 2018 that were located in the United States."
+        ],
+        "errors": null
+      }
+    },
+    {
+      "agent": "DecomposerAgent",
+      "input": {
+        "final_question": "What % of the total net undeveloped acres in 2018 were located in the US?"
+      },
+      "output": {
+        "subproblems": [
+          "Find the net undeveloped acres located in the United States for the year ended December 31, 2018.",
+          "Find the total net undeveloped acres for the year ended December 31, 2018."
+        ],
+        "errors": null
+      }
+    },
+    [
+      {
+        "agent": "FreeAgent",
+        "input": {
+          "subproblem": "Find the net undeveloped acres located in the United States for the year ended December 31, 2018."
+        },
+        "output": {
+          "answer": "128.00",
+          "retrieved_chunks": "File Title: Double_MRO/2015/page_18.pdf\n\nRelevant table information:\n- net undeveloped acres expiring year ended december 31 , 2018 u.s . is 128.00; net undeveloped acres expiring year ended december 31 , 2018 e.g . is 36.00; net undeveloped acres expiring year ended december 31 , 2018 other africa is 854.00; net undeveloped acres expiring year ended december 31 , 2018 total africa is 890.00; net undeveloped acres expiring year ended december 31 , 2018 other international is 2014.00; net undeveloped acres expiring year ended december 31 , 2018 total is 1018.00\n- net undeveloped acres expiring year ended december 31 , 2017 u.s . is 89.00; net undeveloped acres expiring year ended december 31 , 2017 e.g . is 92.00; net undeveloped acres expiring year ended december 31 , 2017 other africa is 4352.00; net undeveloped acres expiring year ended december 31 , 2017 total africa is 4444.00; net undeveloped acres expiring year ended december 31 , 2017 other international is 2014.00; net undeveloped acres expiring year ended december 31 , 2017 total is 4533.00\n- net undeveloped acres expiring year ended december 31 , 2016 u.s . is 68.00; net undeveloped acres expiring year ended december 31 , 2016 e.g . is 2014.00; net undeveloped acres expiring year ended december 31 , 2016 other africa is 189.00; net undeveloped acres expiring year ended december 31 , 2016 total africa is 189.00; net undeveloped acres expiring year ended december 31 , 2016 other international is 2014.00; net undeveloped acres expiring year ended december 31 , 2016 total is 257.00\n- net undeveloped acres expiring year ended december 31 , 2018 u.s . is 128.00; net undeveloped acres expiring year ended december 31 , 2018 e.g . is 36.00; net undeveloped acres expiring year ended december 31 , 2018 other africa is 854.00; net undeveloped acres expiring year ended december 31 , 2018 total africa is 890.00; net undeveloped acres expiring year ended december 31 , 2018 other international is 2014.00; net undeveloped acres expiring year ended december 31 , 2018 total is 1018.00\nColumn name: net undeveloped acres expiring year ended december 31 , 2018, Value: 1018.00\nPre and post lines around table: in the ordinary course of business , based on our evaluations of certain geologic trends and prospective economics , we have allowed certain lease acreage to expire and may allow additional acreage to expire in the future . if production is not established or we take no other action to extend the terms of the leases , licenses or concessions , undeveloped acreage listed in the table below will expire over the next three years . we plan to continue the terms of certain of these licenses and concession areas or retain leases through operational or administrative actions ; however , the majority of the undeveloped acres associated with other africa as listed in the table below pertains to our licenses in ethiopia and kenya , for which we executed agreements in 2015 to sell . the kenya transaction closed in february 2016 and the ethiopia transaction is expected to close in the first quarter of 2016 . see item 8 . financial statements and supplementary data - note 5 to the consolidated financial statements for additional information about this disposition . net undeveloped acres expiring year ended december 31 .\n.\nRelevant textual information:\n- in the ordinary course of business , based on our evaluations of certain geologic trends and prospective economics , we have allowed certain lease acreage to expire and may allow additional acreage to expire in the future . if production is not established or we take no other action to extend the terms of the leases , licenses or concessions , undeveloped acreage listed in the table below will expire over the next three years . we plan to continue the terms of certain of these licenses and concession areas or retain leases through operational or administrative actions ; however , the majority of the undeveloped acres associated with other africa as listed in the table below pertains to our licenses in ethiopia and kenya , for which we executed agreements in 2015 to sell . the kenya transaction closed in february 2016 and the ethiopia transaction is expected to close in the first quarter of 2016 . see item 8 . financial statements and supplementary data - note 5 to the consolidated financial statements for additional information about this disposition . net undeveloped acres expiring year ended december 31 . .",
+          "errors": null
+        }
+      },
+      {
+        "agent": "FreeAgent",
+        "input": {
+          "subproblem": "Find the total net undeveloped acres for the year ended December 31, 2018."
+        },
+        "output": {
+          "answer": "Total net undeveloped acres for the year ended December 31, 2018: 1018.00 acres.",
+          "retrieved_chunks": "File Title: Double_MRO/2015/page_18.pdf\n\nRelevant table information:\n- net undeveloped acres expiring year ended december 31 , 2018 u.s . is 128.00; net undeveloped acres expiring year ended december 31 , 2018 e.g . is 36.00; net undeveloped acres expiring year ended december 31 , 2018 other africa is 854.00; net undeveloped acres expiring year ended december 31 , 2018 total africa is 890.00; net undeveloped acres expiring year ended december 31 , 2018 other international is 2014.00; net undeveloped acres expiring year ended december 31 , 2018 total is 1018.00\n- net undeveloped acres expiring year ended december 31 , 2017 u.s . is 89.00; net undeveloped acres expiring year ended december 31 , 2017 e.g . is 92.00; net undeveloped acres expiring year ended december 31 , 2017 other africa is 4352.00; net undeveloped acres expiring year ended december 31 , 2017 total africa is 4444.00; net undeveloped acres expiring year ended december 31 , 2017 other international is 2014.00; net undeveloped acres expiring year ended december 31 , 2017 total is 4533.00\n- net undeveloped acres expiring year ended december 31 , 2016 u.s . is 68.00; net undeveloped acres expiring year ended december 31 , 2016 e.g . is 2014.00; net undeveloped acres expiring year ended december 31 , 2016 other africa is 189.00; net undeveloped acres expiring year ended december 31 , 2016 total africa is 189.00; net undeveloped acres expiring year ended december 31 , 2016 other international is 2014.00; net undeveloped acres expiring year ended december 31 , 2016 total is 257.00\n- net undeveloped acres expiring year ended december 31 , 2018 u.s . is 128.00; net undeveloped acres expiring year ended december 31 , 2018 e.g . is 36.00; net undeveloped acres expiring year ended december 31 , 2018 other africa is 854.00; net undeveloped acres expiring year ended december 31 , 2018 total africa is 890.00; net undeveloped acres expiring year ended december 31 , 2018 other international is 2014.00; net undeveloped acres expiring year ended december 31 , 2018 total is 1018.00\nColumn name: net undeveloped acres expiring year ended december 31 , 2018, Value: 1018.00\nPre and post lines around table: in the ordinary course of business , based on our evaluations of certain geologic trends and prospective economics , we have allowed certain lease acreage to expire and may allow additional acreage to expire in the future . if production is not established or we take no other action to extend the terms of the leases , licenses or concessions , undeveloped acreage listed in the table below will expire over the next three years . we plan to continue the terms of certain of these licenses and concession areas or retain leases through operational or administrative actions ; however , the majority of the undeveloped acres associated with other africa as listed in the table below pertains to our licenses in ethiopia and kenya , for which we executed agreements in 2015 to sell . the kenya transaction closed in february 2016 and the ethiopia transaction is expected to close in the first quarter of 2016 . see item 8 . financial statements and supplementary data - note 5 to the consolidated financial statements for additional information about this disposition . net undeveloped acres expiring year ended december 31 .\n.\nRelevant textual information:\n- in the ordinary course of business , based on our evaluations of certain geologic trends and prospective economics , we have allowed certain lease acreage to expire and may allow additional acreage to expire in the future . if production is not established or we take no other action to extend the terms of the leases , licenses or concessions , undeveloped acreage listed in the table below will expire over the next three years . we plan to continue the terms of certain of these licenses and concession areas or retain leases through operational or administrative actions ; however , the majority of the undeveloped acres associated with other africa as listed in the table below pertains to our licenses in ethiopia and kenya , for which we executed agreements in 2015 to sell . the kenya transaction closed in february 2016 and the ethiopia transaction is expected to close in the first quarter of 2016 . see item 8 . financial statements and supplementary data - note 5 to the consolidated financial statements for additional information about this disposition . net undeveloped acres expiring year ended december 31 . .",
+          "errors": null
+        }
+      }
+    ],
+    {
+      "agent": "AggregatorAgent",
+      "input": {
+        "subproblem_answers": [
+          {
+            "subproblem": "Find the net undeveloped acres located in the United States for the year ended December 31, 2018.",
+            "answer": "128.00"
+          },
+          {
+            "subproblem": "Find the total net undeveloped acres for the year ended December 31, 2018.",
+            "answer": "Total net undeveloped acres for the year ended December 31, 2018: 1018.00 acres."
+          }
+        ]
+      },
+      "output": {
+        "aggregator_code": "def compute():\n    return 1018.0 - 128.0",
+        "computed_answer": 890.0,
+        "errors": null
+      }
+    },
+    {
+      "agent": "AggregatorAgent",
+      "input": {
+        "subproblem_answers": [
+          {
+            "subproblem": "Find the net undeveloped acres located in the United States for the year ended December 31, 2018.",
+            "answer": "128.00"
+          },
+          {
+            "subproblem": "Find the total net undeveloped acres for the year ended December 31, 2018.",
+            "answer": "Total net undeveloped acres for the year ended December 31, 2018: 1018.00 acres."
+          }
+        ]
+      },
+      "output": {
+        "aggregator_code": "def compute():\n    return (128.0 / 1018.0) * 100.0",
+        "computed_answer": 12.573673870333987,
+        "errors": null
+      }
+    }
+  ],
+  "current_subproblem": null,
+  "current_subproblem_answer": null,
+  "free_agent_idx": null,
+  "computed_answer": 12.573673870333987,
+  "agent_attempts": {
+    "Clarifier": 1,
+    "DirectQA": 1,
+    "Decomposer": 2,
+    "FreeAgents": 1,
+    "Aggregator": 2
+  }
+}
