@@ -23,6 +23,7 @@
 
 ## Run chatbot
 1. Run `src.app.cli`
+   
    ```python
    python path/to/src/app/cli.py record_file_name
    ```
@@ -45,7 +46,7 @@ where:
 ## Results
 1. The pipeline was run on the top 8 records of the `ConvFinQA` dataset to get the agent outputs, before being scored by the scorer. The scores are as follows:
 
-    | Agent/Metric             | Score    |
+    | Agent/Metric              | Score    |
     |---------------------------|----------|
     | ClarifierAgent_score      | 0.862069 |
     | DirectQAAgent_score       | 0.890805 |
