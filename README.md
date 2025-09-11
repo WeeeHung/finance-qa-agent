@@ -46,7 +46,7 @@ Breaks complex queries into subproblems and runs parallel retrieval agents to ga
 ### 4️⃣ Aggregate
 Generates a deterministic Python function to compute the final answer, ensuring reproducibility and auditability.
 
-### 5️⃣ Reflect & Terminate
+### 5️⃣ Planner
 A planner agent monitors outputs and injects immediate feedback for retries if needed, ending the pipeline when a direct or aggregated answer is produced.
  
 
