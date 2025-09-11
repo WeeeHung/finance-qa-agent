@@ -29,6 +29,27 @@
    ```
    where `record_file_name` is the filename of the record (e.g. `Single_UNP/2014/page_35.pdf-3`)
 
+# How it works
+## Agentic Pipeline
+![Agentic Framework diagram](https://raw.githubusercontent.com/lemousehunter/CRDFAgent/main/diagrams/agentic_framework.png)
+
+## Agents
+### 1️⃣ Clarify
+Detects ambiguity and reformulates vague user questions into precise, self-contained forms using conversation history.
+
+### 2️⃣ Route
+Implements a “short-circuit” mechanism to directly answer questions when sufficient context is already available, reducing latency.
+
+### 3️⃣ Decompose & Retrieve
+Breaks complex queries into subproblems and runs parallel retrieval agents to gather supporting facts.
+
+### 4️⃣ Aggregate
+Generates a deterministic Python function to compute the final answer, ensuring reproducibility and auditability.
+
+### 5️⃣ Reflect & Terminate
+A planner agent monitors outputs and injects immediate feedback for retries if needed, ending the pipeline when a direct or aggregated answer is produced.
+ 
+
 
  # Results
  ## Metrics Used
@@ -54,8 +75,7 @@ The pipeline was run on the top 8 records of the `ConvFinQA` dataset to get the 
  | FreeAgent_score           | 0.645833 |
  | AggregatorAgent_score     | 0.312500 |
  | `SQ_METRIC`               | 0.583908 |
- | CorrectNess               | 0.689655 |
- 
+ | Correctness               | 0.689655 |
  
 
 
