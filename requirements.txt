@@ -7,3 +7,5 @@ langchain-openai
 tqdm~=4.67.1
 vectordb2
 typer
+tensorflow_hub
+python-dotenv~=1.0

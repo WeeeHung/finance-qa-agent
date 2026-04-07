@@ -3,6 +3,10 @@ import os
 import re
 from typing import Dict, Tuple, Union, List
 
+from src.bootstrap_env import load_project_env
+
+load_project_env()
+
 import pandas as pd
 from langgraph.prebuilt import create_react_agent
 from pydantic import BaseModel, Field

@@ -1,5 +1,9 @@
 import os
 
+from src.bootstrap_env import load_project_env
+
+load_project_env()
+
 from langgraph.checkpoint.memory import InMemorySaver
 from tqdm import tqdm
 
@@ -12,7 +16,7 @@ from src.utils.filepaths import dataset_fpath, results_dir
 
 def run():
     ds = DatasetDict(dataset_fpath)
-    for rec in tqdm(ds.get_subset('dev').get_records()[:10]): # get only 8 records for testing
+    for rec in tqdm(ds.get_subset('dev').get_records()[10:12]): # get only 8 records for testing
         if not os.path.isfile(f'{results_dir}/{rec.file_id}.json'):
             print("Processing record:", rec.file_id)
             # rec = ds.get_record('Single_ADBE/2018/page_86.pdf-1', subset='dev')

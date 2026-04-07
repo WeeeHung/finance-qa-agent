@@ -2,6 +2,10 @@
 Main typer app for ConvFinQA
 """
 
+from src.bootstrap_env import load_project_env
+
+load_project_env()
+
 import typer
 from langgraph.checkpoint.memory import InMemorySaver
 from rich import print as rich_print
@@ -45,7 +49,7 @@ def chat(
     rich_print("[yellow][bold]Starting chat session. Type 'exit' or 'quit' to end.[/bold][/yellow]")
 
     mem = InMemorySaver()
-    planner_agent = Planner(rec, mem, 0, self_consistency=True)
+    planner_agent = Planner(rec, mem, 0, verbose_mode='info', self_consistency=True)
 
     while True:
         message = input(">>> ")

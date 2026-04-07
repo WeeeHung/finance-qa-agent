@@ -34,7 +34,7 @@ class FreeAgentWrapper:
 
         max_workers = min(os.cpu_count(), len(subproblems))
         futures = []
-        if max_workers < 1:
+        if max_workers >= 1:
             with ThreadPoolExecutor(max_workers=max_workers) as ex:
                 for i, sp in enumerate(subproblems):
                     futures.append(ex.submit(_run_one, (i, sp)))
