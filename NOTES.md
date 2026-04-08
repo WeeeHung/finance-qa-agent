@@ -1,3 +1,53 @@
+## Submission
+
+**Flow:** 1. Analysis → 2. Research → 3. Improvements → 4. Next steps
+
+---
+
+## 1. Analysis
+
+### Current architecture and data flow (agents, retrieval, persistence)
+
+### Pros of this approach (code + design)
+
+### Cons, risks, and failure modes (code + runs)
+
+### Data and context (text, tables, splits); implications for chunking, retrieval, and prompting
+
+---
+
+## 2. Research
+
+### ConvFinQA (paper / task) and relation to this pipeline
+
+### ReAct-style agents here — when justified vs overkill
+
+### Evaluation (correctness, pipeline metrics, LLM-as-judge tradeoffs)
+
+### Explainability (traceability, citations, computation steps)
+
+---
+
+## 3. Improvements
+
+### Changes, builds, or documentation delivered
+
+### Measurement, profiling, validation
+
+### Backlog
+
+---
+
+## 4. Next steps
+
+### Model adaptation (LoRA / similar): specialization, data, signals
+
+### Product / platform (e.g. Manus): intent routing and adapter switching for task-specific stacks
+
+---
+
+## Braindump
+
 Initial Code Deep Dive
 
 - many pydantic warnings (can clean up but not serious)
@@ -25,12 +75,9 @@ Initial Code Deep Dive
 - what does feedback for each agent return us?
 - grading agent uses langgraph react agent again + uses LLM as a judge most of the time. maybe for golden numerical answer, we can expect LLM judge as fallback but use actual text matching? (do some leniency, like numerically equal but string not exact match, for text matching before doing llm judging)
 - improve llm as a judge;
-- invest time into preprocessing + embedding+chunking the data
+- could invest time into preprocessing + embedding+chunking the data
 - what are some types of questions + how can we scale from there
-
-todo:
-
-- try fixing 'max_workers < 1:' and rerun cli for results.
+- 'max_workers < 1:' should be changed to 'max_workers >= 1:'.
 - inspect dataset for text length and table size
 
 ## CRDFAgent/data/convfinqa_dataset.json
@@ -65,9 +112,19 @@ todo:
 
 - spend first half of time understanding the objective, data, codebase. This allows me to pick up pros and cons of current implementation to brainstorm on improvements in architecture
 
-[CurrentGoal]
-
-- List out pros and cons of
+Phase 1 (MVP — do this)
+1 LLM planner
+DSL output
+Python executor
+Trace output
+Phase 2 (improve accuracy)
+Add schema constraints
+Improve table grounding
+Add simple verifier
+Phase 3 (research-level)
+Train/fine-tune planner on ConvFinQA
+Add program-of-thought supervision
+Beam search over programs
 
 - Redesign the agent pipeline to achieve
 
@@ -79,3 +136,5 @@ todo:
 
 1. Caching Queries (need to refetch doc qa queries) + calculations (most steps seem to contain duplicates -- might be unnecessary if calculation latency is negligible) (Conversational + Multi-turn Dependency)
 2. Do actual self-consistency (by cross checking answers)
+
+---
