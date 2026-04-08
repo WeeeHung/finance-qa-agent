@@ -77,5 +77,5 @@ todo:
 
 - Optimization
 
-1. Caching Queries (need to refetch doc qa queries)
+1. Caching Queries (need to refetch doc qa queries) + calculations (most steps seem to contain duplicates -- might be unnecessary if calculation latency is negligible) (Conversational + Multi-turn Dependency)
 2. Do actual self-consistency (by cross checking answers)

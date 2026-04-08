@@ -2,12 +2,12 @@
 ## Setting up Environment
 1. Use python=3.10
 2. pip install packages from requirements.txt
+3. Copy [.env.example](.env.example) to `.env` in the project root. Set `OPENAI_API_KEY`. Optionally set `CRDF_SRC_DIR` and `CRDF_DATA_DIR` if your `src` or `data` directories are not the default paths next to the repo root (see comments in `.env.example`).
 
 # Running the framework
 ## Pre-Run Instructions
 1. Set / export the parent folder of `src` to `PYTHONPATH`.
-2. Update the `src_dir` and `data_dir` of `src.utils.filepaths` accordingly (should point to your `src` folder and your `data` folder accordingly.
-3. Set / export the OPENAI_API_KEY variable
+2. Configure paths and secrets via environment variables as described in [.env.example](.env.example). `runme.py`, `app/cli.py`, and `utils/scoring.py` call `load_project_env()`, which loads `.env` from the project root; you can also `export` the same variables in your shell.
 
 ## Run on ConFinQA Dataset
 1. Run `src.runme`
