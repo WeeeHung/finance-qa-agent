@@ -11,7 +11,9 @@ from src.utils.data.build_vector_db import VectorDB
 
 class SubProblemAnswer(pydantic.BaseModel):
     #relevant_information: str = pydantic.Field(description="Relevant information retrieved from the context.")
-    answer: str = pydantic.Field(description="The answer to the subproblem.")
+    answer: str = pydantic.Field(
+        description="Subproblem answer: prefer a single numeric literal in full magnitude (plain digits, no shorthand millions/billions labels, no formulas like a/b, no extra prose) when the subproblem calls for a number."
+    )
 
 
 class FreeAgent(AgentBase):
@@ -35,6 +37,7 @@ class FreeAgent(AgentBase):
                     Subproblem: {subproblem}
                     Context: {retrieved}
                     Remember, all numeric values has no scaling factor unless explicitly stated in words, do not assume that a number is in thousands or millions. By default, all non-date numbers are in float form, with the '.' representing the decimal point.
+                    When the answer is numeric, return only that number as digits (full scale, no 'millions of dollars' shorthand, no arithmetic showing work).
                     """
             response = self._call_agent(prompt)
 

@@ -82,7 +82,13 @@ class Scorer:
                 "gold_answer": gold,
                 "predicted_answer": pred
             }
-            prompt = f"You are an expert evaluator. Determine if the predicted answer matches the gold answer and explain why. If any computation other than rounding operations of the predicted answer is required, then the predicted answer is not correct. However if the difference in answer is just a matter of percentage (decimal vs its percentage equivalent), it can be considered correct. {ans}"
+            prompt = (
+                "You are an expert evaluator. Gold is the final ground-truth value.\n"
+                "If the gold is numeric, the prediction must be a single final scalar, not an expression (e.g. a/b), "
+                "not intermediate steps. If further computation is needed beyond trivial rounding, incorrect. "
+                "Percentage vs decimal of the same value is acceptable. "
+                f"Data: {ans}"
+            )
             response = self.answer_comparator.invoke({
                 "messages": [{"role": "user", "content": prompt}],
             })

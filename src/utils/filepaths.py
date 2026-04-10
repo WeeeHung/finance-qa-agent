@@ -29,4 +29,5 @@ dataset_fpath = str(Path(data_dir) / "convfinqa_dataset.json")
 
 vector_db_dir = str(Path(data_dir) / "vector_db")
 
-results_dir = str(Path(data_dir) / "results")
+results_dir = str(Path(data_dir) / "results_original")
+results_v1_dir = str(Path(data_dir) / "results_v1")

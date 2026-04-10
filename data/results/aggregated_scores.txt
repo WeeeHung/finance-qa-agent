@@ -1,3 +1,4 @@
+Previous Data (on 8 Docs)
 ClarifierAgent_score     0.862069
 DirectQAAgent_score      0.890805
 DecomposerAgent_score    0.947368
@@ -5,3 +6,13 @@ FreeAgent_score          0.645833
 AggregatorAgent_score    0.312500
 final_score              0.583908
 correct                  0.689655
+
+Current Data (on 20 Docs) (reran using old src)
+ClarifierAgent_score     0.867647
+DirectQAAgent_score      0.906863
+DecomposerAgent_score    0.920455
+FreeAgent_score          0.570175
+AggregatorAgent_score    0.263158
+final_score              0.605392
+correct                  0.735294
+

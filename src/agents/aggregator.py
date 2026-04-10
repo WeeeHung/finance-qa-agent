@@ -1,11 +1,25 @@
 from __future__ import annotations
 
+import logging
+import os
+
 from langgraph.checkpoint.memory import InMemorySaver
 from pydantic import BaseModel, Field
 
 from src.agents.base import AgentBase
 from src.agents.types import State
 from src.utils.data.build_vector_db import VectorDB
+
+logger = logging.getLogger(__name__)
+
+
+def _ensure_logging_configured() -> None:
+    root = logging.getLogger()
+    if root.handlers:
+        return
+    level_name = os.environ.get("CRDF_LOG_LEVEL", "INFO").upper()
+    level = getattr(logging, level_name, logging.INFO)
+    logging.basicConfig(level=level, format="%(levelname)s [%(name)s] %(message)s")
 
 
 class AggregatorResponse(BaseModel):
@@ -18,6 +32,8 @@ def safe_exec(code: str) -> dict:
     Returns the local execution environment (variables, results).
     Generated using ChatGPT
     """
+    _ensure_logging_configured()
+    logger.debug("safe_exec: running generated source:\n%s", code)
 
     # Allowed builtins (you can expand this list if needed)
     allowed_builtins = {
@@ -40,6 +56,7 @@ def safe_exec(code: str) -> dict:
     try:
         exec(code, safe_globals, safe_locals)
     except Exception as e:
+        logger.warning("safe_exec: exec() failed: %s: %s", type(e).__name__, e)
         return {"error": str(e)}
 
     return safe_locals
@@ -51,9 +68,10 @@ class Aggregator(AgentBase):
         super().__init__(memory=memory, llm=llm, response_format=AggregatorResponse, memory_thread=memory_thread, **kwargs)
 
     def run(self, state: State, feedback: str = '') -> State:
+        _ensure_logging_configured()
+        generated_fn: str | None = None
+        subproblems_dict_lst = state.subproblems_dict_lst
         try:
-            subproblems_dict_lst = state.subproblems_dict_lst
-
             if not subproblems_dict_lst:
                 raise ValueError("No subproblem answers provided in the state.")
 
@@ -66,6 +84,7 @@ class Aggregator(AgentBase):
             prompt = "You are an Aggregator Agent."
             prompt += f'User feedback on previous output: {feedback}\n' if feedback else ""
             prompt += f"""Your task is to generate a python program to compute the answer to the main question based on the answers of the multiple subproblems. You should think step by step, as some of the problems may require more complicated math to solve. The python program must be deterministic and should not involve any randomness. The python program must be contained within a function named "compute", and return the float value of the result. The python program should use only basic arithmetic operations (addition, subtraction, multiplication, division) and should not use any external libraries or functions. The python program should not include any explanations or comments.
+            The float returned by compute() must be the final scalar in true magnitude (e.g. -4000000.0 not -4.0 for negative four million; 93000000.0 not 93.0 with implied millions). Perform all unit/scale adjustments inside compute().
 
             {combined_answers}
             """
@@ -73,11 +92,13 @@ class Aggregator(AgentBase):
             response = self._call_agent(prompt)
 
             generated_fn = response['structured_response'].code
+            logger.info("Aggregator generated Python:\n%s", generated_fn)
             namespace = safe_exec(generated_fn)
 
             # get the function from the name space and execute it
             func_handle = namespace[list(namespace.keys())[0]]
             state.computed_answer = func_handle()
+            logger.info("Aggregator compute() returned: %r", state.computed_answer)
             state.step_history.append({
                 "agent": "AggregatorAgent",
                 "input": {
@@ -91,6 +112,12 @@ class Aggregator(AgentBase):
             })
             return state
         except Exception as e:
+            logger.error(
+                "Aggregator run failed (%s: %s). Last generated code:\n%s",
+                type(e).__name__,
+                e,
+                generated_fn if generated_fn is not None else "(none - failed before code generation)",
+            )
             state.errors['aggregator_error'] = e
             state.step_history.append({
                 "agent": "AggregatorAgent",
@@ -98,9 +125,9 @@ class Aggregator(AgentBase):
                     "subproblem_answers": state.subproblems_dict_lst,
                 },
                 "output": {
-                    "aggregator_code": None,
+                    "aggregator_code": generated_fn,
                     "computed_answer": None,
-                    "errors": state.errors['aggregator_error'],
+                    "errors": {"type": type(e).__name__, "message": str(e)},
                 }
             })
             return state

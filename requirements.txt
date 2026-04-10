@@ -1,11 +1,28 @@
+# --- Data & config ---
 pandas~=2.3.2
 pydantic~=2.11.7
 typing_extensions~=4.15.0
+python-dotenv~=1.0.0
+
+# --- LangGraph / LangChain (src/agents planner, src/utils/scoring; src_v1 = LangChain only) ---
 langgraph~=0.6.6
-langchain
-langchain-openai
+langgraph-checkpoint>=2.1.0,<3.0.0
+langgraph-prebuilt>=0.6.0,<0.7.0
+langgraph-sdk>=0.2.2,<0.3.0
+
+langchain-core>=0.3.74,<0.4.0
+langchain>=0.3.27,<0.4.0
+langchain-openai>=0.3.0,<0.4.0
+openai>=1.0.0,<2.0.0
+tiktoken>=0.7.0,<1.0.0
+xxhash>=3.5.0
+
+# --- CLI & UX ---
+typer>=0.12.0,<0.20.0
+rich>=13.0.0,<15.0.0
 tqdm~=4.67.1
-vectordb2
-typer
-tensorflow_hub
-python-dotenv~=1.0
+
+# --- Vector store & embeddings (src/utils/data/build_vector_db.py) ---
+# vectordb2 pulls torch, transformers, faiss-cpu, etc. via pip metadata.
+vectordb2~=0.1.9
+tensorflow_hub>=0.16.0

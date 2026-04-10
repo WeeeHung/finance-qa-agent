@@ -1,0 +1,669 @@
+{
+    "dev": [
+        {
+            "id": "Single_MRO/2007/page_134.pdf-1",
+            "doc": {
+                "pre_text": "stock-based awards under the plan stock options 2013 marathon grants stock options under the 2007 plan and previously granted options under the 2003 plan . marathon 2019s stock options represent the right to purchase shares of common stock at the fair market value of the common stock on the date of grant . through 2004 , certain stock options were granted under the 2003 plan with a tandem stock appreciation right , which allows the recipient to instead elect to receive cash and/or common stock equal to the excess of the fair market value of shares of common stock , as determined in accordance with the 2003 plan , over the option price of the shares . in general , stock options granted under the 2007 plan and the 2003 plan vest ratably over a three-year period and have a maximum term of ten years from the date they are granted . stock appreciation rights 2013 prior to 2005 , marathon granted sars under the 2003 plan . no stock appreciation rights have been granted under the 2007 plan . similar to stock options , stock appreciation rights represent the right to receive a payment equal to the excess of the fair market value of shares of common stock on the date the right is exercised over the grant price . under the 2003 plan , certain sars were granted as stock-settled sars and others were granted in tandem with stock options . in general , sars granted under the 2003 plan vest ratably over a three-year period and have a maximum term of ten years from the date they are granted . stock-based performance awards 2013 prior to 2005 , marathon granted stock-based performance awards under the 2003 plan . no stock-based performance awards have been granted under the 2007 plan . beginning in 2005 , marathon discontinued granting stock-based performance awards and instead now grants cash-settled performance units to officers . all stock-based performance awards granted under the 2003 plan have either vested or been forfeited . as a result , there are no outstanding stock-based performance awards . restricted stock 2013 marathon grants restricted stock and restricted stock units under the 2007 plan and previously granted such awards under the 2003 plan . in 2005 , the compensation committee began granting time-based restricted stock to certain u.s.-based officers of marathon and its consolidated subsidiaries as part of their annual long-term incentive package . the restricted stock awards to officers vest three years from the date of grant , contingent on the recipient 2019s continued employment . marathon also grants restricted stock to certain non-officer employees and restricted stock units to certain international employees ( 201crestricted stock awards 201d ) , based on their performance within certain guidelines and for retention purposes . the restricted stock awards to non-officers generally vest in one-third increments over a three-year period , contingent on the recipient 2019s continued employment . prior to vesting , all restricted stock recipients have the right to vote such stock and receive dividends thereon . the non-vested shares are not transferable and are held by marathon 2019s transfer agent . common stock units 2013 marathon maintains an equity compensation program for its non-employee directors under the 2007 plan and previously maintained such a program under the 2003 plan . all non-employee directors other than the chairman receive annual grants of common stock units , and they are required to hold those units until they leave the board of directors . when dividends are paid on marathon common stock , directors receive dividend equivalents in the form of additional common stock units . stock-based compensation expense 2013 total employee stock-based compensation expense was $ 80 million , $ 83 million and $ 111 million in 2007 , 2006 and 2005 . the total related income tax benefits were $ 29 million , $ 31 million and $ 39 million . in 2007 and 2006 , cash received upon exercise of stock option awards was $ 27 million and $ 50 million . tax benefits realized for deductions during 2007 and 2006 that were in excess of the stock-based compensation expense recorded for options exercised and other stock-based awards vested during the period totaled $ 30 million and $ 36 million . cash settlements of stock option awards totaled $ 1 million and $ 3 million in 2007 and 2006 . stock option awards granted 2013 during 2007 , 2006 and 2005 , marathon granted stock option awards to both officer and non-officer employees . the weighted average grant date fair value of these awards was based on the following black-scholes assumptions: .",
+                "post_text": ".",
+                "table": {
+                    "2007": {
+                        "weighted average exercise price per share": 60.94,
+                        "expected annual dividends per share": 0.96,
+                        "expected life in years": 5.0,
+                        "expected volatility": -27.0,
+                        "risk-free interest rate": -4.1,
+                        "weighted average grant date fair value of stock option awards granted": 17.24
+                    },
+                    "2006": {
+                        "weighted average exercise price per share": 37.84,
+                        "expected annual dividends per share": 0.8,
+                        "expected life in years": 5.1,
+                        "expected volatility": -28.0,
+                        "risk-free interest rate": -5.0,
+                        "weighted average grant date fair value of stock option awards granted": 10.19
+                    },
+                    "2005": {
+                        "weighted average exercise price per share": 25.14,
+                        "expected annual dividends per share": 0.66,
+                        "expected life in years": 5.5,
+                        "expected volatility": -28.0,
+                        "risk-free interest rate": -3.8,
+                        "weighted average grant date fair value of stock option awards granted": 6.15
+                    }
+                }
+            },
+            "dialogue": {
+                "conv_questions": [
+                    "what was the weighted average exercise price per share in 2007?",
+                    "and what was it in 2005?",
+                    "what was, then, the change over the years?",
+                    "what was the weighted average exercise price per share in 2005?",
+                    "and how much does that change represent in relation to this 2005 weighted average exercise price?"
+                ],
+                "conv_answers": [
+                    "60.94",
+                    "25.14",
+                    "35.80",
+                    "25.14",
+                    "142.4%"
+                ],
+                "turn_program": [
+                    "60.94",
+                    "25.14",
+                    "subtract(60.94, 25.14)",
+                    "25.14",
+                    "subtract(60.94, 25.14), divide(#0, 25.14)"
+                ],
+                "executed_answers": [
+                    60.94,
+                    25.14,
+                    35.8,
+                    25.14,
+                    1.42403
+                ],
+                "qa_split": [
+                    false,
+                    false,
+                    false,
+                    false,
+                    false
+                ]
+            },
+            "features": {
+                "num_dialogue_turns": 5,
+                "has_type2_question": false,
+                "has_duplicate_columns": false,
+                "has_non_numeric_values": false
+            }
+        },
+        {
+            "id": "Double_HII/2017/page_104.pdf",
+            "doc": {
+                "pre_text": "as of december 31 , 2017 , the company had gross state income tax credit carry-forwards of approximately $ 20 million , which expire from 2018 through 2020 . a deferred tax asset of approximately $ 16 million ( net of federal benefit ) has been established related to these state income tax credit carry-forwards , with a valuation allowance of $ 7 million against such deferred tax asset as of december 31 , 2017 . the company had a gross state net operating loss carry-forward of $ 39 million , which expires in 2027 . a deferred tax asset of approximately $ 3 million ( net of federal benefit ) has been established for the net operating loss carry-forward , with a full valuation allowance as of december 31 , 2017 . other state and foreign net operating loss carry-forwards are separately and cumulatively immaterial to the company 2019s deferred tax balances and expire between 2026 and 2036 . 14 . debt long-term debt consisted of the following: .",
+                "post_text": "credit facility - in november 2017 , the company terminated its second amended and restated credit agreement and entered into a new credit agreement ( the \"credit facility\" ) with third-party lenders . the credit facility includes a revolving credit facility of $ 1250 million , which may be drawn upon during a period of five years from november 22 , 2017 . the revolving credit facility includes a letter of credit subfacility of $ 500 million . the revolving credit facility has a variable interest rate on outstanding borrowings based on the london interbank offered rate ( \"libor\" ) plus a spread based upon the company's credit rating , which may vary between 1.125% ( 1.125 % ) and 1.500% ( 1.500 % ) . the revolving credit facility also has a commitment fee rate on the unutilized balance based on the company 2019s leverage ratio . the commitment fee rate as of december 31 , 2017 was 0.25% ( 0.25 % ) and may vary between 0.20% ( 0.20 % ) and 0.30% ( 0.30 % ) . the credit facility contains customary affirmative and negative covenants , as well as a financial covenant based on a maximum total leverage ratio . each of the company's existing and future material wholly owned domestic subsidiaries , except those that are specifically designated as unrestricted subsidiaries , are and will be guarantors under the credit facility . in july 2015 , the company used cash on hand to repay all amounts outstanding under a prior credit facility , including $ 345 million in principal amount of outstanding term loans . as of december 31 , 2017 , $ 15 million in letters of credit were issued but undrawn , and the remaining $ 1235 million of the revolving credit facility was unutilized . the company had unamortized debt issuance costs associated with its credit facilities of $ 11 million and $ 8 million as of december 31 , 2017 and 2016 , respectively . senior notes - in december 2017 , the company issued $ 600 million aggregate principal amount of unregistered 3.483% ( 3.483 % ) senior notes with registration rights due december 2027 , the net proceeds of which were used to repurchase the company's 5.000% ( 5.000 % ) senior notes due in 2021 in connection with the 2017 redemption described below . in november 2015 , the company issued $ 600 million aggregate principal amount of unregistered 5.000% ( 5.000 % ) senior notes due november 2025 , the net proceeds of which were used to repurchase the company's 7.125% ( 7.125 % ) senior notes due in 2021 in connection with the 2015 tender offer and redemption described below . interest on the company's senior notes is payable semi-annually . the terms of the 5.000% ( 5.000 % ) and 3.483% ( 3.483 % ) senior notes limit the company 2019s ability and the ability of certain of its subsidiaries to create liens , enter into sale and leaseback transactions , sell assets , and effect consolidations or mergers . the company had unamortized debt issuance costs associated with the senior notes of $ 15 million and $ 19 million as of december 31 , 2017 and 2016 , respectively. .",
+                "table": {
+                    "december 31 2017": {
+                        "senior notes due december 15 2021 5.000% ( 5.000 % )": 2014.0,
+                        "senior notes due november 15 2025 5.000% ( 5.000 % )": 600.0,
+                        "senior notes due december 1 2027 3.483% ( 3.483 % )": 600.0,
+                        "mississippi economic development revenue bonds due may 1 2024 7.81% ( 7.81 % )": 84.0,
+                        "gulf opportunity zone industrial development revenue bonds due december 1 2028 4.55% ( 4.55 % )": 21.0,
+                        "less unamortized debt issuance costs": -26.0,
+                        "total long-term debt": 1279.0
+                    },
+                    "december 31 2016": {
+                        "senior notes due december 15 2021 5.000% ( 5.000 % )": 600.0,
+                        "senior notes due november 15 2025 5.000% ( 5.000 % )": 600.0,
+                        "senior notes due december 1 2027 3.483% ( 3.483 % )": 2014.0,
+                        "mississippi economic development revenue bonds due may 1 2024 7.81% ( 7.81 % )": 84.0,
+                        "gulf opportunity zone industrial development revenue bonds due december 1 2028 4.55% ( 4.55 % )": 21.0,
+                        "less unamortized debt issuance costs": -27.0,
+                        "total long-term debt": 1278.0
+                    }
+                }
+            },
+            "dialogue": {
+                "conv_questions": [
+                    "what was the change in the unamortized debt issuance costs associated with the senior notes between 2016 and 2017?",
+                    "so what was the percentage change during this time?",
+                    "what was the change associated with credit facilities during that time?",
+                    "so what was the percentage change?"
+                ],
+                "conv_answers": [
+                    "-4",
+                    "-21.1%",
+                    "3",
+                    "37.5%"
+                ],
+                "turn_program": [
+                    "subtract(15, 19)",
+                    "subtract(15, 19), divide(#0, 19)",
+                    "subtract(11, 8)",
+                    "subtract(11, 8), divide(#0, 8)"
+                ],
+                "executed_answers": [
+                    -4000000.0,
+                    -0.21053,
+                    3000000.0,
+                    0.375
+                ],
+                "qa_split": [
+                    false,
+                    false,
+                    true,
+                    true
+                ]
+            },
+            "features": {
+                "num_dialogue_turns": 4,
+                "has_type2_question": true,
+                "has_duplicate_columns": false,
+                "has_non_numeric_values": false
+            }
+        },
+        {
+            "id": "Single_IPG/2009/page_85.pdf-3",
+            "doc": {
+                "pre_text": "notes to consolidated financial statements 2013 ( continued ) ( amounts in millions , except per share amounts ) cash flows for 2010 , we expect to contribute $ 25.2 and $ 9.2 to our foreign pension plans and domestic pension plans , respectively . a significant portion of our contributions to the foreign pension plans relate to the u.k . pension plan . additionally , we are in the process of modifying the schedule of employer contributions for the u.k . pension plan and we expect to finalize this during 2010 . as a result , we expect our contributions to our foreign pension plans to increase from current levels in 2010 and subsequent years . during 2009 , we contributed $ 31.9 to our foreign pension plans and contributions to the domestic pension plan were negligible . the following estimated future benefit payments , which reflect future service , as appropriate , are expected to be paid in the years indicated below . domestic pension plans foreign pension plans postretirement benefit plans .",
+                "post_text": "the estimated future payments for our postretirement benefit plans are before any estimated federal subsidies expected to be received under the medicare prescription drug , improvement and modernization act of 2003 . federal subsidies are estimated to range from $ 0.5 in 2010 to $ 0.6 in 2014 and are estimated to be $ 2.4 for the period 2015-2019 . savings plans we sponsor defined contribution plans ( the 201csavings plans 201d ) that cover substantially all domestic employees . the savings plans permit participants to make contributions on a pre-tax and/or after-tax basis and allows participants to choose among various investment alternatives . we match a portion of participant contributions based upon their years of service . amounts expensed for the savings plans for 2009 , 2008 and 2007 were $ 35.1 , $ 29.6 and $ 31.4 , respectively . expense includes a discretionary company contribution of $ 3.8 , $ 4.0 and $ 4.9 offset by participant forfeitures of $ 2.7 , $ 7.8 , $ 6.0 in 2009 , 2008 and 2007 , respectively . in addition , we maintain defined contribution plans in various foreign countries and contributed $ 25.0 , $ 28.7 and $ 26.7 to these plans in 2009 , 2008 and 2007 , respectively . deferred compensation and benefit arrangements we have deferred compensation arrangements which ( i ) permit certain of our key officers and employees to defer a portion of their salary or incentive compensation , or ( ii ) require us to contribute an amount to the participant 2019s account . the arrangements typically provide that the participant will receive the amounts deferred plus interest upon attaining certain conditions , such as completing a certain number of years of service or upon retirement or termination . as of december 31 , 2009 and 2008 , the deferred compensation liability balance was $ 100.3 and $ 107.6 , respectively . amounts expensed for deferred compensation arrangements in 2009 , 2008 and 2007 were $ 11.6 , $ 5.7 and $ 11.9 , respectively . we have deferred benefit arrangements with certain key officers and employees that provide participants with an annual payment , payable when the participant attains a certain age and after the participant 2019s employment has terminated . the deferred benefit liability was $ 178.2 and $ 182.1 as of december 31 , 2009 and 2008 , respectively . amounts expensed for deferred benefit arrangements in 2009 , 2008 and 2007 were $ 12.0 , $ 14.9 and $ 15.5 , respectively . we have purchased life insurance policies on participants 2019 lives to assist in the funding of the related deferred compensation and deferred benefit liabilities . as of december 31 , 2009 and 2008 , the cash surrender value of these policies was $ 119.4 and $ 100.2 , respectively . in addition to the life insurance policies , certain investments are held for the purpose of paying the deferred compensation and deferred benefit liabilities . these investments , along with the life insurance policies , are held in a separate revocable trust for the purpose of paying the deferred compensation and the deferred benefit .",
+                "table": {
+                    "domestic pension plans": {
+                        "2010": 17.2,
+                        "2011": 11.1,
+                        "2012": 10.8,
+                        "2013": 10.5,
+                        "2014": 10.5,
+                        "2015 2013 2019": 48.5
+                    },
+                    "foreign pension plans": {
+                        "2010": 23.5,
+                        "2011": 24.7,
+                        "2012": 26.4,
+                        "2013": 28.2,
+                        "2014": 32.4,
+                        "2015 2013 2019": 175.3
+                    },
+                    "postretirement benefit plans": {
+                        "2010": 5.8,
+                        "2011": 5.7,
+                        "2012": 5.7,
+                        "2013": 5.6,
+                        "2014": 5.5,
+                        "2015 2013 2019": 24.8
+                    }
+                }
+            },
+            "dialogue": {
+                "conv_questions": [
+                    "what is the ratio of discretionary company contributions to total expensed amounts for savings plans in 2009?",
+                    "what is that times 100?"
+                ],
+                "conv_answers": [
+                    "0.1083",
+                    "10.83"
+                ],
+                "turn_program": [
+                    "divide(3.8, 35.1)",
+                    "divide(3.8, 35.1), multiply(#0, const_100)"
+                ],
+                "executed_answers": [
+                    0.10826,
+                    10.82621
+                ],
+                "qa_split": [
+                    false,
+                    false
+                ]
+            },
+            "features": {
+                "num_dialogue_turns": 2,
+                "has_type2_question": false,
+                "has_duplicate_columns": false,
+                "has_non_numeric_values": false
+            }
+        },
+        {
+            "id": "Single_UNP/2008/page_77.pdf-2",
+            "doc": {
+                "pre_text": "when we purchase an asset , we capitalize all costs necessary to make the asset ready for its intended use . however , many of our assets are self-constructed . a large portion of our capital expenditures is for track structure expansion ( capacity projects ) and replacement ( program projects ) , which is typically performed by our employees . approximately 13% ( 13 % ) of our full-time equivalent employees are dedicated to the construction of capital assets . costs that are directly attributable or overhead costs that relate directly to capital projects are capitalized . direct costs that are capitalized as part of self-constructed assets include material , labor , and work equipment . indirect costs are capitalized if they clearly relate to the construction of the asset . these costs are allocated using appropriate statistical bases . the capitalization of indirect costs is consistent with fasb statement no . 67 , accounting for costs and initial rental operations of real estate projects . general and administrative expenditures are expensed as incurred . normal repairs and maintenance are also expensed as incurred , while costs incurred that extend the useful life of an asset , improve the safety of our operations or improve operating efficiency are capitalized . assets held under capital leases are recorded at the lower of the net present value of the minimum lease payments or the fair value of the leased asset at the inception of the lease . amortization expense is computed using the straight-line method over the shorter of the estimated useful lives of the assets or the period of the related lease . 10 . accounts payable and other current liabilities dec . 31 , dec . 31 , millions of dollars 2008 2007 .",
+                "post_text": "11 . fair value measurements during the first quarter of 2008 , we fully adopted fasb statement no . 157 , fair value measurements ( fas 157 ) . fas 157 established a framework for measuring fair value and expanded disclosures about fair value measurements . the adoption of fas 157 had no impact on our financial position or results of operations . fas 157 applies to all assets and liabilities that are measured and reported on a fair value basis . this enables the reader of the financial statements to assess the inputs used to develop those measurements by establishing a hierarchy for ranking the quality and reliability of the information used to determine fair values . the statement requires that each asset and liability carried at fair value be classified into one of the following categories : level 1 : quoted market prices in active markets for identical assets or liabilities . level 2 : observable market based inputs or unobservable inputs that are corroborated by market data . level 3 : unobservable inputs that are not corroborated by market data. .",
+                "table": {
+                    "dec . 31 2008": {
+                        "accounts payable": 629.0,
+                        "accrued wages and vacation": 367.0,
+                        "accrued casualty costs": 390.0,
+                        "income and other taxes": 207.0,
+                        "dividends and interest": 328.0,
+                        "equipment rents payable": 93.0,
+                        "other": 546.0,
+                        "total accounts payable and other current liabilities": 2560.0
+                    },
+                    "dec . 31 2007": {
+                        "accounts payable": 732.0,
+                        "accrued wages and vacation": 394.0,
+                        "accrued casualty costs": 371.0,
+                        "income and other taxes": 343.0,
+                        "dividends and interest": 284.0,
+                        "equipment rents payable": 103.0,
+                        "other": 675.0,
+                        "total accounts payable and other current liabilities": 2902.0
+                    }
+                }
+            },
+            "dialogue": {
+                "conv_questions": [
+                    "what was the equipment rents payable in 2008?",
+                    "and in 2007?",
+                    "so what was the difference between the two years?",
+                    "and the value for 2007 again?",
+                    "so what was the percentage change during this time?"
+                ],
+                "conv_answers": [
+                    "93",
+                    "103",
+                    "-10",
+                    "103",
+                    "10%"
+                ],
+                "turn_program": [
+                    "93",
+                    "103",
+                    "subtract(93, 103)",
+                    "103",
+                    "subtract(93, 103), divide(#0, 103)"
+                ],
+                "executed_answers": [
+                    93000000.0,
+                    103000000.0,
+                    -10000000.0,
+                    103000000.0,
+                    -0.09709
+                ],
+                "qa_split": [
+                    false,
+                    false,
+                    false,
+                    false,
+                    false
+                ]
+            },
+            "features": {
+                "num_dialogue_turns": 5,
+                "has_type2_question": false,
+                "has_duplicate_columns": false,
+                "has_non_numeric_values": false
+            }
+        },
+        {
+            "id": "Double_RSG/2016/page_144.pdf",
+            "doc": {
+                "pre_text": "republic services , inc . notes to consolidated financial statements 2014 ( continued ) 16 . financial instruments fuel hedges we have entered into multiple swap agreements designated as cash flow hedges to mitigate some of our exposure related to changes in diesel fuel prices . these swaps qualified for , and were designated as , effective hedges of changes in the prices of forecasted diesel fuel purchases ( fuel hedges ) . the following table summarizes our outstanding fuel hedges as of december 31 , 2016 : year gallons hedged weighted average contract price per gallon .",
+                "post_text": "if the national u.s . on-highway average price for a gallon of diesel fuel as published by the department of energy exceeds the contract price per gallon , we receive the difference between the average price and the contract price ( multiplied by the notional gallons ) from the counterparty . if the average price is less than the contract price per gallon , we pay the difference to the counterparty . the fair values of our fuel hedges are determined using standard option valuation models with assumptions about commodity prices based on those observed in underlying markets ( level 2 in the fair value hierarchy ) . the aggregate fair values of our outstanding fuel hedges as of december 31 , 2016 and 2015 were current liabilities of $ 2.7 million and $ 37.8 million , respectively , and have been recorded in other accrued liabilities in our consolidated balance sheets . the ineffective portions of the changes in fair values resulted in a gain of $ 0.8 million for the year ended december 31 , 2016 , and a loss of $ 0.4 million and $ 0.5 million for the years ended december 31 , 2015 and 2014 , respectively , and have been recorded in other income , net in our consolidated statements of income . total gain ( loss ) recognized in other comprehensive income ( loss ) for fuel hedges ( the effective portion ) was $ 20.7 million , $ ( 2.0 ) million and $ ( 24.2 ) million , for the years ended december 31 , 2016 , 2015 and 2014 , respectively . we classify cash inflows and outflows from our fuel hedges within operating activities in the unaudited consolidated statements of cash flows . recycling commodity hedges revenue from the sale of recycled commodities is primarily from sales of old corrugated containers and old newsprint . from time to time we use derivative instruments such as swaps and costless collars designated as cash flow hedges to manage our exposure to changes in prices of these commodities . during 2016 , we entered into multiple agreements related to the forecasted occ sales . the agreements qualified for , and were designated as , effective hedges of changes in the prices of certain forecasted recycling commodity sales ( commodity hedges ) . we entered into costless collar agreements on forecasted sales of occ . the agreements involve combining a purchased put option giving us the right to sell occ at an established floor strike price with a written call option obligating us to deliver occ at an established cap strike price . the puts and calls have the same settlement dates , are net settled in cash on such dates and have the same terms to expiration . the contemporaneous combination of options resulted in no net premium for us and represents costless collars . under these agreements , we will make or receive no payments as long as the settlement price is between the floor price and cap price ; however , if the settlement price is above the cap , we will pay the counterparty an amount equal to the excess of the settlement price over the cap times the monthly volumes hedged . if the settlement price is below the floor , the counterparty will pay us the deficit of the settlement price below the floor times the monthly volumes hedged . the objective of these agreements is to reduce variability of cash flows for forecasted sales of occ between two designated strike prices. .",
+                "table": {
+                    "gallons hedged": {
+                        "2017": 12000000.0,
+                        "2018": 3000000.0
+                    },
+                    "weighted average contractprice per gallon": {
+                        "2017": 2.92,
+                        "2018": 2.61
+                    }
+                }
+            },
+            "dialogue": {
+                "conv_questions": [
+                    "how much did the gallons hedged in 2018 represent in relation to the ones hedged in 2017?",
+                    "and in the previous year of this period, what was the aggregate fair value of the outstanding fuel hedges?",
+                    "what was it in 2015?",
+                    "how much, then, did the 2016 fair value represent in relation to this 2015 one?"
+                ],
+                "conv_answers": [
+                    "4",
+                    "37.8",
+                    "2.7",
+                    "14"
+                ],
+                "turn_program": [
+                    "divide(12000000, 3000000)",
+                    "37.8",
+                    "2.7",
+                    "divide(37.8, 2.7)"
+                ],
+                "executed_answers": [
+                    0.25,
+                    2700000.0,
+                    37800000.0,
+                    0.0714
+                ],
+                "qa_split": [
+                    false,
+                    true,
+                    true,
+                    true
+                ]
+            },
+            "features": {
+                "num_dialogue_turns": 4,
+                "has_type2_question": true,
+                "has_duplicate_columns": false,
+                "has_non_numeric_values": false
+            }
+        },
+        {
+            "id": "Double_MRO/2015/page_18.pdf",
+            "doc": {
+                "pre_text": "in the ordinary course of business , based on our evaluations of certain geologic trends and prospective economics , we have allowed certain lease acreage to expire and may allow additional acreage to expire in the future . if production is not established or we take no other action to extend the terms of the leases , licenses or concessions , undeveloped acreage listed in the table below will expire over the next three years . we plan to continue the terms of certain of these licenses and concession areas or retain leases through operational or administrative actions ; however , the majority of the undeveloped acres associated with other africa as listed in the table below pertains to our licenses in ethiopia and kenya , for which we executed agreements in 2015 to sell . the kenya transaction closed in february 2016 and the ethiopia transaction is expected to close in the first quarter of 2016 . see item 8 . financial statements and supplementary data - note 5 to the consolidated financial statements for additional information about this disposition . net undeveloped acres expiring year ended december 31 .",
+                "post_text": ".",
+                "table": {
+                    "net undeveloped acres expiring year ended december 31 , 2016": {
+                        "u.s .": 68.0,
+                        "e.g .": 2014.0,
+                        "other africa": 189.0,
+                        "total africa": 189.0,
+                        "other international": 2014.0,
+                        "total": 257.0
+                    },
+                    "net undeveloped acres expiring year ended december 31 , 2017": {
+                        "u.s .": 89.0,
+                        "e.g .": 92.0,
+                        "other africa": 4352.0,
+                        "total africa": 4444.0,
+                        "other international": 2014.0,
+                        "total": 4533.0
+                    },
+                    "net undeveloped acres expiring year ended december 31 , 2018": {
+                        "u.s .": 128.0,
+                        "e.g .": 36.0,
+                        "other africa": 854.0,
+                        "total africa": 890.0,
+                        "other international": 2014.0,
+                        "total": 1018.0
+                    }
+                }
+            },
+            "dialogue": {
+                "conv_questions": [
+                    "what was the total african and us net undeveloped acres expiring in 2016?",
+                    "what percentage of undeveloped acres were in the us in 2018?"
+                ],
+                "conv_answers": [
+                    "257",
+                    "12.6%"
+                ],
+                "turn_program": [
+                    "add(189, 68)",
+                    "divide(128, 1018)"
+                ],
+                "executed_answers": [
+                    257.0,
+                    0.12574
+                ],
+                "qa_split": [
+                    false,
+                    true
+                ]
+            },
+            "features": {
+                "num_dialogue_turns": 2,
+                "has_type2_question": true,
+                "has_duplicate_columns": false,
+                "has_non_numeric_values": false
+            }
+        },
+        {
+            "id": "Single_UNP/2014/page_35.pdf-3",
+            "doc": {
+                "pre_text": "we have adequate access to capital markets to meet any foreseeable cash requirements , and we have sufficient financial capacity to satisfy our current liabilities . cash flows millions 2014 2013 2012 .",
+                "post_text": "operating activities higher net income in 2014 increased cash provided by operating activities compared to 2013 , despite higher income tax payments . 2014 income tax payments were higher than 2013 primarily due to higher income , but also because we paid taxes previously deferred by bonus depreciation ( discussed below ) . higher net income in 2013 increased cash provided by operating activities compared to 2012 . in addition , we made payments in 2012 for past wages as a result of national labor negotiations , which reduced cash provided by operating activities in 2012 . lower tax benefits from bonus depreciation ( as discussed below ) partially offset the increases . federal tax law provided for 100% ( 100 % ) bonus depreciation for qualified investments made during 2011 and 50% ( 50 % ) bonus depreciation for qualified investments made during 2012-2013 . as a result , the company deferred a substantial portion of its 2011-2013 income tax expense , contributing to the positive operating cash flow in those years . congress extended 50% ( 50 % ) bonus depreciation for 2014 , but this extension occurred in december and did not have a significant benefit on our income tax payments during 2014 . investing activities higher capital investments , including the early buyout of the long-term operating lease of our headquarters building for approximately $ 261 million , drove the increase in cash used in investing activities compared to 2013 . significant investments also were made for new locomotives , freight cars and containers , and capacity and commercial facility projects . capital investments in 2014 also included $ 99 million for the early buyout of locomotives and freight cars under long-term operating leases , which we exercised due to favorable economic terms and market conditions . lower capital investments in locomotives and freight cars in 2013 drove the decrease in cash used in investing activities compared to 2012 . included in capital investments in 2012 was $ 75 million for the early buyout of 165 locomotives under long-term operating and capital leases during the first quarter of 2012 , which we exercised due to favorable economic terms and market conditions. .",
+                "table": {
+                    "2014": {
+                        "cash provided by operating activities": 7385.0,
+                        "cash used in investing activities": -4249.0,
+                        "cash used in financing activities": -2982.0,
+                        "net change in cash and cashequivalents": 154.0
+                    },
+                    "2013": {
+                        "cash provided by operating activities": 6823.0,
+                        "cash used in investing activities": -3405.0,
+                        "cash used in financing activities": -3049.0,
+                        "net change in cash and cashequivalents": 369.0
+                    },
+                    "2012": {
+                        "cash provided by operating activities": 6161.0,
+                        "cash used in investing activities": -3633.0,
+                        "cash used in financing activities": -2682.0,
+                        "net change in cash and cashequivalents": -154.0
+                    }
+                }
+            },
+            "dialogue": {
+                "conv_questions": [
+                    "what was the cash provided by operating activities in 2013?",
+                    "and in 2012?",
+                    "so what was the difference in this value between the years?",
+                    "and the value for 2012 again?",
+                    "so what was the percentage change during this time?"
+                ],
+                "conv_answers": [
+                    "6823",
+                    "6161",
+                    "662",
+                    "6161",
+                    "11%"
+                ],
+                "turn_program": [
+                    "6823",
+                    "6161",
+                    "subtract(6823, 6161)",
+                    "6161",
+                    "subtract(6823, 6161), divide(#0, 6161)"
+                ],
+                "executed_answers": [
+                    6823000000.0,
+                    6161000000.0,
+                    662000000.0,
+                    6161000000.0,
+                    0.10745
+                ],
+                "qa_split": [
+                    false,
+                    false,
+                    false,
+                    false,
+                    false
+                ]
+            },
+            "features": {
+                "num_dialogue_turns": 5,
+                "has_type2_question": false,
+                "has_duplicate_columns": false,
+                "has_non_numeric_values": false
+            }
+        },
+        {
+            "id": "Single_DVN/2007/page_58.pdf-3",
+            "doc": {
+                "pre_text": "the acquisition date is on or after the beginning of the first annual reporting period beginning on or after december 15 , 2008 . we will evaluate how the new requirements of statement no . 141 ( r ) would impact any business combinations completed in 2009 or thereafter . in december 2007 , the fasb also issued statement of financial accounting standards no . 160 , noncontrolling interests in consolidated financial statements 2014an amendment of accounting research bulletin no . 51 . a noncontrolling interest , sometimes called a minority interest , is the portion of equity in a subsidiary not attributable , directly or indirectly , to a parent . statement no . 160 establishes accounting and reporting standards for the noncontrolling interest in a subsidiary and for the deconsolidation of a subsidiary . under statement no . 160 , noncontrolling interests in a subsidiary must be reported as a component of consolidated equity separate from the parent 2019s equity . additionally , the amounts of consolidated net income attributable to both the parent and the noncontrolling interest must be reported separately on the face of the income statement . statement no . 160 is effective for fiscal years beginning on or after december 15 , 2008 and earlier adoption is prohibited . we do not expect the adoption of statement no . 160 to have a material impact on our financial statements and related disclosures . 2008 estimates the forward-looking statements provided in this discussion are based on our examination of historical operating trends , the information that was used to prepare the december 31 , 2007 reserve reports and other data in our possession or available from third parties . these forward-looking statements were prepared assuming demand , curtailment , producibility and general market conditions for our oil , natural gas and ngls during 2008 will be substantially similar to those of 2007 , unless otherwise noted . we make reference to the 201cdisclosure regarding forward-looking statements 201d at the beginning of this report . amounts related to canadian operations have been converted to u.s . dollars using a projected average 2008 exchange rate of $ 0.98 u.s . dollar to $ 1.00 canadian dollar . in january 2007 , we announced our intent to divest our west african oil and gas assets and terminate our operations in west africa , including equatorial guinea , cote d 2019ivoire , gabon and other countries in the region . in november 2007 , we announced an agreement to sell our operations in gabon for $ 205.5 million . we are finalizing purchase and sales agreements and obtaining the necessary partner and government approvals for the remaining properties in this divestiture package . we are optimistic we can complete these sales during the first half of 2008 . all west african related revenues , expenses and capital will be reported as discontinued operations in our 2008 financial statements . accordingly , all forward-looking estimates in the following discussion exclude amounts related to our operations in west africa , unless otherwise noted . though we have completed several major property acquisitions and dispositions in recent years , these transactions are opportunity driven . thus , the following forward-looking estimates do not include any financial and operating effects of potential property acquisitions or divestitures that may occur during 2008 , except for west africa as previously discussed . oil , gas and ngl production set forth below are our estimates of oil , gas and ngl production for 2008 . we estimate that our combined 2008 oil , gas and ngl production will total approximately 240 to 247 mmboe . of this total , approximately 92% ( 92 % ) is estimated to be produced from reserves classified as 201cproved 201d at december 31 , 2007 . the following estimates for oil , gas and ngl production are calculated at the midpoint of the estimated range for total production . oil gas ngls total ( mmbbls ) ( bcf ) ( mmbbls ) ( mmboe ) .",
+                "post_text": ".",
+                "table": {
+                    "oil ( mmbbls )": {
+                        "u.s . onshore": 12.0,
+                        "u.s . offshore": 8.0,
+                        "canada": 23.0,
+                        "international": 23.0,
+                        "total": 66.0
+                    },
+                    "gas ( bcf )": {
+                        "u.s . onshore": 626.0,
+                        "u.s . offshore": 68.0,
+                        "canada": 198.0,
+                        "international": 2.0,
+                        "total": 894.0
+                    },
+                    "ngls ( mmbbls )": {
+                        "u.s . onshore": 23.0,
+                        "u.s . offshore": 1.0,
+                        "canada": 4.0,
+                        "international": 2014.0,
+                        "total": 28.0
+                    },
+                    "total ( mmboe )": {
+                        "u.s . onshore": 140.0,
+                        "u.s . offshore": 20.0,
+                        "canada": 60.0,
+                        "international": 23.0,
+                        "total": 243.0
+                    }
+                }
+            },
+            "dialogue": {
+                "conv_questions": [
+                    "what is the amount of oil and gas mmboe from canada divided by the total?",
+                    "what is that times 100?"
+                ],
+                "conv_answers": [
+                    "0.2469",
+                    "24.69"
+                ],
+                "turn_program": [
+                    "divide(60, 243)",
+                    "divide(60, 243), multiply(#0, const_100)"
+                ],
+                "executed_answers": [
+                    0.24691,
+                    24.69136
+                ],
+                "qa_split": [
+                    false,
+                    false
+                ]
+            },
+            "features": {
+                "num_dialogue_turns": 2,
+                "has_type2_question": false,
+                "has_duplicate_columns": false,
+                "has_non_numeric_values": false
+            }
+        },
+        {
+            "id": "Single_AON/2009/page_46.pdf-3",
+            "doc": {
+                "pre_text": "risk and insurance brokerage services .",
+                "post_text": "during 2009 we continued to see a soft market , which began in 2007 , in our retail brokerage product line . in 2007 , we experienced a soft market in many business lines and in many geographic areas . in a 2018 2018soft market , 2019 2019 premium rates flatten or decrease , along with commission revenues , due to increased competition for market share among insurance carriers or increased underwriting capacity . changes in premiums have a direct and potentially material impact on the insurance brokerage industry , as commission revenues are generally based on a percentage of the premiums paid by insureds . prices fell throughout 2007 , with the greatest declines seen in large and middle-market accounts . prices continued to decline during 2008 , although the rate of decline slowed toward the end of the year . in our reinsurance brokerage product line , pricing overall during 2009 was also down , although during a portion of the year it was flat to up slightly . additionally , beginning in late 2008 and continuing throughout 2009 , we faced difficult conditions as a result of unprecedented disruptions in the global economy , the repricing of credit risk and the deterioration of the financial markets . continued volatility and further deterioration in the credit markets have reduced our customers 2019 demand for our retail brokerage and reinsurance brokerage products , which have negatively hurt our operational results . in addition , overall capacity in the industry could decrease if a significant insurer either fails or withdraws from writing insurance coverages that we offer our clients . this failure could reduce our revenues and profitability , since we would no longer have access to certain lines and types of insurance . risk and insurance brokerage services generated approximately 83% ( 83 % ) of our consolidated total revenues in 2009 . revenues are generated primarily through fees paid by clients , commissions and fees paid by insurance and reinsurance companies , and investment income on funds held on behalf of clients . our revenues vary from quarter to quarter throughout the year as a result of the timing of our clients 2019 policy renewals , the net effect of new and lost business , the timing of services provided to our clients , and the income we earn on investments , which is heavily influenced by short-term interest rates . we operate in a highly competitive industry and compete with many retail insurance brokerage and agency firms , as well as with individual brokers , agents , and direct writers of insurance coverage . specifically , we address the highly specialized product development and risk management needs of commercial enterprises , professional groups , insurance companies , governments , healthcare providers , and non-profit groups , among others ; provide affinity products for professional liability , life , disability income , and personal lines for individuals , associations , and businesses ; provide reinsurance services to insurance and reinsurance companies and other risk assumption entities by acting as brokers or intermediaries on all classes of reinsurance ; provide investment banking products and services , including mergers and acquisitions and other financial advisory services , capital raising , contingent capital financing , insurance-linked securitizations and derivative applications ; provide managing underwriting to independent agents and brokers as well as corporate clients ; provide actuarial , loss prevention , and administrative services to businesses and consumers ; and manage captive insurance companies . in november 2008 we expanded our product offerings through the merger with benfield , a leading independent reinsurance intermediary . benfield products have been integrated with our existing reinsurance products in 2009 . in february 2009 , we completed the sale of the u.s . operations of cananwill , our premium finance business . in june and july of 2009 , we entered into agreements with third parties with respect to our .",
+                "table": {
+                    "2009": {
+                        "segment revenue": 6305.0,
+                        "segment operating income": 900.0,
+                        "segment operating income margin": -14.3
+                    },
+                    "2008": {
+                        "segment revenue": 6197.0,
+                        "segment operating income": 846.0,
+                        "segment operating income margin": -13.7
+                    },
+                    "2007": {
+                        "segment revenue": 5918.0,
+                        "segment operating income": 954.0,
+                        "segment operating income margin": -16.1
+                    }
+                }
+            },
+            "dialogue": {
+                "conv_questions": [
+                    "what was the total of risk and insurance brokerage services segment revenue in 2009?",
+                    "and what was that in 2008?",
+                    "what was, then, the change over the year?",
+                    "and how much does this change represent in relation to the 2008 total, in percentage?"
+                ],
+                "conv_answers": [
+                    "6305",
+                    "6197",
+                    "108",
+                    "1.7%"
+                ],
+                "turn_program": [
+                    "6305",
+                    "6197",
+                    "subtract(6305, 6197)",
+                    "subtract(6305, 6197), divide(#0, 6197)"
+                ],
+                "executed_answers": [
+                    6305000000.0,
+                    6197000000.0,
+                    108000000.0,
+                    0.01743
+                ],
+                "qa_split": [
+                    false,
+                    false,
+                    false,
+                    false
+                ]
+            },
+            "features": {
+                "num_dialogue_turns": 4,
+                "has_type2_question": false,
+                "has_duplicate_columns": false,
+                "has_non_numeric_values": false
+            }
+        },
+        {
+            "id": "Single_CDNS/2018/page_31.pdf-1",
+            "doc": {
+                "pre_text": "part ii . item 5 . market for registrant 2019s common equity , related stockholder matters and issuer purchases of equity securities our common stock is traded on the nasdaq global select market under the symbol cdns . as of february 2 , 2019 , we had 523 registered stockholders and approximately 56000 beneficial owners of our common stock . stockholder return performance graph the following graph compares the cumulative 5-year total stockholder return on our common stock relative to the cumulative total return of the nasdaq composite index , the s&p 500 index and the s&p 500 information technology index . the graph assumes that the value of the investment in our common stock and in each index on december 28 , 2013 ( including reinvestment of dividends ) was $ 100 and tracks it each year thereafter on the last day of our fiscal year through december 29 , 2018 and , for each index , on the last day of the calendar year . comparison of 5 year cumulative total return* among cadence design systems , inc. , the nasdaq composite index , the s&p 500 index and the s&p 500 information technology index 12/29/181/2/16 12/30/1712/28/13 12/31/161/3/15 *$ 100 invested on 12/28/13 in stock or index , including reinvestment of dividends . fiscal year ending december 29 . copyright a9 2019 standard & poor 2019s , a division of s&p global . all rights reserved . nasdaq compositecadence design systems , inc . s&p 500 s&p 500 information technology .",
+                "post_text": "the stock price performance included in this graph is not necessarily indicative of future stock price performance. .",
+                "table": {
+                    "12/28/2013": {
+                        "cadence design systems inc .": 100.0,
+                        "nasdaq composite": 100.0,
+                        "s&p 500": 100.0,
+                        "s&p 500 information technology": 100.0
+                    },
+                    "1/3/2015": {
+                        "cadence design systems inc .": 135.18,
+                        "nasdaq composite": 112.6,
+                        "s&p 500": 110.28,
+                        "s&p 500 information technology": 115.49
+                    },
+                    "1/2/2016": {
+                        "cadence design systems inc .": 149.39,
+                        "nasdaq composite": 113.64,
+                        "s&p 500": 109.54,
+                        "s&p 500 information technology": 121.08
+                    },
+                    "12/31/2016": {
+                        "cadence design systems inc .": 181.05,
+                        "nasdaq composite": 133.19,
+                        "s&p 500": 129.05,
+                        "s&p 500 information technology": 144.85
+                    },
+                    "12/30/2017": {
+                        "cadence design systems inc .": 300.22,
+                        "nasdaq composite": 172.11,
+                        "s&p 500": 157.22,
+                        "s&p 500 information technology": 201.1
+                    },
+                    "12/29/2018": {
+                        "cadence design systems inc .": 311.13,
+                        "nasdaq composite": 165.84,
+                        "s&p 500": 150.33,
+                        "s&p 500 information technology": 200.52
+                    }
+                }
+            },
+            "dialogue": {
+                "conv_questions": [
+                    "what is the change in price of the s&p 500 from 2015 to 2016?",
+                    "what is 100000 divided by 100?",
+                    "what is the product of the change by the quotient?"
+                ],
+                "conv_answers": [
+                    "18.77",
+                    "1000",
+                    "1877"
+                ],
+                "turn_program": [
+                    "subtract(129.05, 110.28)",
+                    "subtract(129.05, 110.28), divide(100000, const_100)",
+                    "subtract(129.05, 110.28), divide(100000, const_100), multiply(#1, #0)"
+                ],
+                "executed_answers": [
+                    18.77,
+                    1000.0,
+                    18770.0
+                ],
+                "qa_split": [
+                    false,
+                    false,
+                    false
+                ]
+            },
+            "features": {
+                "num_dialogue_turns": 3,
+                "has_type2_question": false,
+                "has_duplicate_columns": false,
+                "has_non_numeric_values": false
+            }
+        }
+    ]
+}

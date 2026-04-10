@@ -13,7 +13,9 @@ from src.agents.types import State
 class DirectResponse(BaseModel):
     can_answer_directly: bool = Field(description="Indicates if the agent can answer the question without additional computations, based only on the provided information.")
     retrieved_information: str = Field(description="Information retrieved that is relevant to the user's question.")
-    answer: str = Field(description="The concise and accurate answer to the user's question if it can be answered without additional computations; otherwise, None.")
+    answer: str = Field(
+        description="If answering: a single numeric literal only—full magnitude in plain digits (e.g. -4000000 not '-4 million', 93000000 not '93' with a millions note). No currency symbols, units, prose, formulas, or fractions. Otherwise None."
+    )
 
 
 class DirectQA(AgentBase):
@@ -31,6 +33,7 @@ class DirectQA(AgentBase):
                             Information: {retrieved}
                             All non-date table numeric values are in float form rounded to 2 decimal point. Treat the values as is with no scaling factor. Meaning, 1234.00 means one thousand two hundred and thirty four, not one million two hundred and thirty four thousand. The dot does not represent thousands.
                             Remember, all numeric values has no scaling factor unless explicitly stated. Do not assume that a number is in thousands or millions unless explictly stated.
+                            If you output a numeric answer, it must be one plain number string only: the full value (apply any millions/billions scaling yourself so the digits match the true magnitude). No $, no 'per share', no explanatory text, no expressions like a/b.
                             """
             response = self._call_agent(prompt)
 

@@ -8,6 +8,10 @@ venv/
 ########### may unignore the following in the future ###########
 # data/ (let user build their own results)
 data/results/
+data/results_original/
+data/results_v1/
+# Original Data from https://github.com/czyssrs/ConvFinQA/blob/main/data.zip
+data_convfinqa/
 
 # vector_db/ (let user build their own vector db)
 data/vector_db/

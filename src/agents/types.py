@@ -88,6 +88,7 @@ class State(BaseModel):
         serialized_history = []
         for entry in sh:
             serialized_history.append(_serialize_entry(entry))
+        return serialized_history
 
     @field_serializer('errors')
     def serialize_errors(self, e):
@@ -104,23 +105,22 @@ class State(BaseModel):
                 )
                 for k, v in e.items()
             }
-            # If someone passed a single exception or something else by mistake:
         return _serialize_exception(e)
-
 
     @field_validator('step_history', mode='before')
     @classmethod
-    def serialize_step_history(cls, sh):
+    def coerce_step_history(cls, sh):
         if sh is None:
             return None
 
         serialized_history = []
         for entry in sh:
             serialized_history.append(_serialize_entry(entry))
+        return serialized_history
 
     @field_validator('errors', mode='before')
     @classmethod
-    def serialize_errors(cls, e):
+    def coerce_errors(cls, e):
         if e is None:
             return None
 
@@ -130,11 +130,10 @@ class State(BaseModel):
                     _serialize_exception(v)
                     if isinstance(v, BaseException)
                        or (isinstance(v, type) and issubclass(v, BaseException))
-                    else v  # keep non-exception values as-is
+                    else v
                 )
                 for k, v in e.items()
             }
-            # If someone passed a single exception or something else by mistake:
         return _serialize_exception(e)
 
     def __str__(self):
