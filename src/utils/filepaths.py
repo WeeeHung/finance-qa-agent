@@ -31,3 +31,4 @@ vector_db_dir = str(Path(data_dir) / "vector_db")
 
 results_dir = str(Path(data_dir) / "results_original")
 results_v1_dir = str(Path(data_dir) / "results_v1")
+results_v1_rewrite_dir = str(Path(data_dir) / "results_v1_rewrite")

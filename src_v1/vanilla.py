@@ -22,6 +22,17 @@ SYSTEM = """You answer one ConvFinQA-style question from the document (text + ta
 
 **Output:** Exactly one token: plain digits (optional `-`, optional decimal point). For answers that are genuinely a **rate or percent**, you may use a trailing **%** (e.g. `37.5%`). Do **not** use words (million, k, M), scientific notation, `$`, or commas. No sentences or labels."""
 
+# User message is already a single standalone question (after optional rewrite step).
+SYSTEM_REWRITTEN_ONLY = """You answer one self-contained ConvFinQA-style question from the document (text + table).
+
+The user message states one question only (it was rewritten from a multi-turn dialogue so references are explicit). Answer that question.
+
+**Rules:**
+- If the question names a row or metric, use that row’s figures.
+- When the document states amounts are in thousands, millions, billions, etc., **convert to absolute numeric values** in your head and output the **fully expanded** number (no implicit unit). Example: values labeled “in millions” with a change of -4 → output **-4000000**, not **-4**.
+
+**Output:** Exactly one token: plain digits (optional `-`, optional decimal point). For answers that are genuinely a **rate or percent**, you may use a trailing **%** (e.g. `37.5%`). Do **not** use words (million, k, M), scientific notation, `$`, or commas. No sentences or labels."""
+
 
 def run_vanilla_turn(
     raw_data: dict[str, Any],
@@ -30,12 +41,18 @@ def run_vanilla_turn(
     model: str | None = None,
     temperature: float = 0.0,
     verbose: bool = False,
+    answer_style: str = "history_json",
 ) -> dict[str, Any]:
     """
     Returns ``answer_text``, ``latency_ms`` (wall / LLM invoke), and ``steps`` for logging.
+
+    ``answer_style``:
+    - ``history_json`` — user message matches :func:`build_vanilla_user_message` (default ``SYSTEM``).
+    - ``rewritten_only`` — user message is a standalone question (:func:`build_rewritten_answer_user_message`).
     """
     ctx = format_convfinqa_context(raw_data)
-    system = SystemMessage(content=f"{SYSTEM}\n\n=== Document context ===\n{ctx}")
+    sys_block = SYSTEM_REWRITTEN_ONLY if answer_style == "rewritten_only" else SYSTEM
+    system = SystemMessage(content=f"{sys_block}\n\n=== Document context ===\n{ctx}")
     human = HumanMessage(content=user_message)
     chat = make_chat_model(model, temperature)
 

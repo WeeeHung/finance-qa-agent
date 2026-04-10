@@ -26,3 +26,19 @@ def build_vanilla_user_message(question_history: list[str], current_question: st
         "output as **-4000000**, not **-4**. Do not use words (million, k, M), scientific notation, "
         "or currency symbols. No sentences or labels."
     )
+
+
+def build_rewritten_answer_user_message(rewritten_question: str) -> str:
+    """
+    Answer phase when ``--rewrite`` was used: the model only sees this standalone question
+    (plus document in the system message), not the full ``question_history`` JSON.
+    """
+    rq = (rewritten_question or "").strip()
+    return (
+        f"Answer this question using the document in the system message:\n\n{rq}\n\n"
+        "Reply with exactly one answer token: a plain number (or number + trailing % for true "
+        "percentage answers). **Fully expand magnitude** using the document’s stated scale "
+        "(thousands, millions, billions, etc.): e.g. a change of “-4” in “$ millions” must be "
+        "output as **-4000000**, not **-4**. Do not use words (million, k, M), scientific notation, "
+        "or currency symbols. No sentences or labels."
+    )

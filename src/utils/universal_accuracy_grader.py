@@ -101,9 +101,10 @@ def floats_equivalent(a: float, b: float, rtol: float = 1e-5, atol: float = 1e-4
         return False
     if math.isclose(a, b, rel_tol=rtol, abs_tol=atol):
         return True
-    # decimal vs percentage form (e.g. 0.211 vs 21.1, 1.424 vs 142.4)
-    scale_rtol = max(rtol, 1e-4)
-    scale_atol = max(atol, 1e-2)
+    # decimal ratio vs percentage display (e.g. 0.12574 vs 12.6%, 0.10826 vs 10.826%)
+    # Use looser bounds on the *percent* scale: one-decimal rounding can differ by ~0.03–0.05.
+    scale_rtol = max(rtol, 2e-3)
+    scale_atol = max(atol, 0.06)
     if math.isclose(a * 100, b, rel_tol=scale_rtol, abs_tol=scale_atol):
         return True
     if math.isclose(a, b * 100, rel_tol=scale_rtol, abs_tol=scale_atol):

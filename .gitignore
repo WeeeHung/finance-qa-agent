@@ -10,6 +10,7 @@ venv/
 data/results/
 data/results_original/
 data/results_v1/
+data/results_v1_rewrite/
 # Original Data from https://github.com/czyssrs/ConvFinQA/blob/main/data.zip
 data_convfinqa/
 

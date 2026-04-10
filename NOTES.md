@@ -47,7 +47,12 @@ I also realized that while we are using executed_answers as goldens, they are no
 The dataset and task is most probably inspired by the [ConvFinQA Research Paper](https://arxiv.org/pdf/2210.03849). It is written in late 2022 during early GPT3 era. It is targetted to do multi-step, conversational and document-backed reasoning, to answer various contextualised financial questions. The outputs are usually numerical values, deterministic and unambiguous. (ie. there exist golden values)
 
 The paper experimented with **FinQANet with a RoBERTa‑large encoder** and **GPT‑3 (175B param)**, and the former performed better.
-The former has 2 core strengths: Neural network to identify and extract useful numerical information and operations needed, and a symbolic executor to run the sequenced operations. GPT3 back then, however, was only used with few-shot prompting to generate the direct answer. Thus, it lacks reliability in reasoning and mathemical execution.
+The former has 2 core strengths: Neural network to identify and extract useful numerical information and operations needed, and a symbolic executor to run the sequenced operations. GPT3 back then, however, was only used with few-shot prompting to generate the direct answer. Thus, it lacks reliability in reasoning and mathemical execution. Nonetheless, it provides valuable insights that we can apply to the current GPT5 approaches:
+
+- Retrieval was a bigger problem than reasoning,
+- Verification loop is lacking,
+- drift in multi step reasoning exists (good at the start, but worse off later),
+- Arithmetic errors happen
 
 ### ReAct-style agents here — when justified vs overkill
 
@@ -74,7 +79,7 @@ As for the repo, it is not specifically documented. So, I came up with 3 main go
 2. Explainability
 3. Latency
 
-The current scoring pipeline is good as it targets raw accuracy by comparing raw output and golden output. This is best and most important indicator of performance. This is also done with exact match, then LLM-as-a-judge. We can improve this with a deterministic linient matching to reduce the usage of the fallback LLM judge. Example of this is standardising the decimal significance, typing, percentage formats, etc. We could also have separate grading for questions in different turns (ie. Find average of accuracy for Q1s or Q4s). This highlights the significance of multi-turn QA. Theoretically, questions that depend on earlier context should be a more complex question, thus harder to answer and have lower accuracy. Optionally, we can also grade accuracy of retrieval and execution separately to optimize this system. For retrieval, there will be ground truths for correct sources/clauses, thus we can evaluate its recall to ensure high retrieval rate of all necessary information. For execution, we can evaluate number of attempts in running python execution and the code accuracy based on operations. This helps us determine the operations to code quality during tool-use stage.
+The current scoring pipeline is good as it targets raw accuracy by comparing raw output and golden output. This is best and most important indicator of performance. This is also done with exact match, then LLM-as-a-judge. We can improve this with a deterministic linient matching to reduce the usage of the fallback LLM judge. Example of this is standardising the decimal significance, typing, percentage formats, etc. We could also have separate grading for questions in different turns (ie. Find average of accuracy for Q1s or Q4s). This highlights the significance of multi-turn QA. Theoretically, questions that depend on earlier context should be a more complex question, thus harder to answer and have lower accuracy. Optionally, we can also grade accuracy of retrieval and execution separately to optimize this system. For retrieval, there will be ground truths for correct sources/clauses, thus we can evaluate its recall to ensure high retrieval rate of all necessary information. For execution, we can evaluate number of attempts in running python execution and the code accuracy based on operations. This helps us determine the operations to code quality during tool-use stage. A more robust way to grade would take into account error-carry-forward. Some tasks require prior answers in their calculations. Thus, while their steps are correct, their final output might mismatch the golden.
 
 Explainability is also well established in the step-history. This is a good trait for reasoning agents and helps reproduce the answer that the Agent got. To be more transparent, we could also include sources of the retrieved context. LLM Judges are also used to evaluate how well each agent executed their tasks and its faithfulness. Using binary scoring (0 or 1) for LLM Judging also eliminates some ambiguity and subjectivity compared to 1-5 scales.
 
@@ -86,14 +91,20 @@ Explainability is also well established in the step-history. This is a good trai
 
 As I have to experiment with the different approaches, I decided to store them as different versions of source files while using a universal grader for simplicity. We will also just work on the first 10 datasets due to constraint of not having the true golden + save cost of LLM calls during experimentation phase. True evaluation will require running through entire dataset.
 
+Hypothesis:
+
+1. Query Rewrite, Intent classification is important (affects all downstream tasks)
+2. ReAct loop with Python Execution Tool use is essential for accurate numerical reasoning
+3. KB could help shrink context, and accelerate reasoning, while maintaining chain of reasoning
+
 Key changes:
 
 - Build a true golden dataset (first 10 due to time constraint)
 - Evaluate the current SRC code
 - build and eval SRC_V1 -- Single LLM call with question history (Vanilla)
-- build and eval SRC_V2 -- Single LLM call with question rewrite
-- build and eval SRC_V3 -- ReAct Agent with question rewrite + Python Execution Tool
-- build and eval SRC_V4 -- ReAct Agent with question rewrite + Python Execution Tool + KB building
+- build and eval SRC_V1_rewrite -- Single LLM call with question rewrite
+- build and eval SRC_V2 -- ReAct Agent with question rewrite + Python Execution Tool
+- build and eval SRC_V3 -- ReAct Agent with question rewrite + Python Execution Tool + KB building
 
 ### Measurement, profiling, validation
 
