@@ -6,16 +6,14 @@ This repository contains conversational financial QA work on ConvFinQA-style rec
 
 ## Code versions (experimentation)
 
+| Location        | What it is                                                                                                                                                                                                                                                          |
+| --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `**src/`\*\*    | Original stack: planner-led pipeline with clarifier, direct QA short-circuit, decomposer, free agents, aggregator, vector RAG over the record, and persisted step history.                                                                                          |
+| `**src_v1/**`   | Lighter baseline: **vanilla** one LLM call per dialogue turn; optional **rewrite** pass so a first call condenses history + current question and the answer call sees only the rewritten text. Outputs default to `data/results_v1/` or `data/results_v1_rewrite/`. |
+| `**src_v2/`\*\* | ReAct-style direction: rewrite plus **Python execution** as a tool for numerical work.                                                                                                                                                                              |
+| `**src_v3/`\*\* | Extends v2 with a **KB-building** phase to consolidate context before tool use and answering.                                                                                                                                                                       |
 
-| Location      | What it is                                                                                                                                                                                                                                                          |
-| ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `**src/`**    | Original stack: planner-led pipeline with clarifier, direct QA short-circuit, decomposer, free agents, aggregator, vector RAG over the record, and persisted step history.                                                                                          |
-| `**src_v1/**` | Lighter baseline: **vanilla** one LLM call per dialogue turn; optional **rewrite** pass so a first call condenses history + current question and the answer call sees only the rewritten text. Outputs default to `data/results_v1/` or `data/results_v1_rewrite/`. |
-| `**src_v2/`** | ReAct-style direction: rewrite plus **Python execution** as a tool for numerical work.                                                                                                                                                                              |
-| `**src_v3/`** | Extends v2 with a **KB-building** phase to consolidate context before tool use and answering.                                                                                                                                                                       |
-
-
-Cross-version utilities (`.env` loading, canonical `data/` paths, universal graders) live under `**global_utils/`**. Dataset helpers and original-pipeline scoring remain under `**src/utils/`**. Version-specific `runme.py` / CLI entry points live next to each `src_v*` tree.
+Cross-version utilities (`.env` loading, canonical `data/` paths, universal graders) live under `**global_utils/`**. Dataset helpers and original-pipeline scoring remain under `**src/utils/`**. Version-specific `runme.py`/ CLI entry points live next to each`src_v\*` tree.
 
 ## Universal accuracy and latency graders
 
@@ -24,14 +22,14 @@ Cross-version evaluation is centralized so each experiment writes JSON under a r
 - `**global_utils/universal_accuracy_grader.py**` — For each turn, compares model output to golden `**executed_answers**` from a subset JSON (default `data/convfinqa_datasubset.json`). Uses deterministic lenient matching first, then an optional LLM-as-judge fallback. Writes `universal_accuracy_grades.csv` and `universal_accuracy_summary.txt` into the chosen results directory unless you override output paths.
 - `**global_utils/universal_latency_grader.py**` — Reads `**latency_ms**` per turn. In **single-directory** mode it reports distribution stats (min, max, median, quartiles). In **compare** mode it aligns files between a baseline and a candidate directory for old-vs-new timing (see script defaults and flags).
 
-Concrete command lines (including `**results_v1_rewrite`** as the example) are in **[Getting started](#getting-started)** at the end of this file.
+Concrete command lines (including `**results_v1_rewrite`** as the example) are in **[Getting started](#getting-started)\*\* at the end of this file.
 
 ## Environment and configuration
 
 1. Use **Python 3.10** (as in the original project notes).
 2. Install dependencies: `pip install -r requirements.txt`
-3. Copy [.env.example](.env.example) to `**.env`** in the project root. Set `**OPENAI_API_KEY**`. Optionally set `**CRDF_SRC_DIR**` and `**CRDF_DATA_DIR**` if `src` or `data` are not the default paths next to the repo root (see comments in `.env.example`).
-4. Put the **project root** on `**PYTHONPATH`** so imports such as `src`, `global_utils`, and `src_v1` resolve:
+3. Copy [.env.example](.env.example) to `**.env`** in the project root. Set `**OPENAI_API_KEY**`. Optionally set `**CRDF_SRC_DIR**`and`**CRDF_DATA_DIR\*\*`if`src`or`data`are not the default paths next to the repo root (see comments in`.env.example`).
+4. Put the **project root** on `**PYTHONPATH`\*\* so imports such as `src`, `global_utils`, and `src_v1` resolve:
 
 ```bash
 export PYTHONPATH="$(pwd):${PYTHONPATH}"
@@ -100,14 +98,12 @@ With no `--results-dir`, the script runs **compare** mode (baseline vs candidate
 
 Graders: `global_utils.universal_accuracy_grader` and `global_utils.universal_latency_grader` (single-directory mode). Gold labels from `data/convfinqa_datasubset.json`. Latency rows summarize `universal_latency_summary.txt` in each results folder (median / mean LLM steps `reason_pass` / mean sandbox tool invocations where present).
 
-| Pipeline | Results folder | Accuracy | Median latency (ms) | Mean `reason_pass` | Mean sandbox invocations |
-| -------- | -------------- | -------- | ------------------- | -------------------- | ------------------------- |
-| Original multi-agent (`src`) | `data/results/` | 24 / 36 | — | — | — |
-| v1 vanilla | `data/results_v1/` | 33 / 36 | 6,654 | 1.00 | 0 |
-| v1 + rewrite | `data/results_v1_rewrite/` | 34 / 36 | 10,544 | 1.72 | 0 |
-| v2 ReAct + rewrite + Python | `data/results_v2/` | 35 / 36 | 15,456 | 2.58 | 0.86 |
-| v3 v2 + KB phase | `data/results_v3/` | **36 / 36** | 9,018 | 2.11 | 0.39 |
-
-**v2 → v3 latency compare** (`data/results_v3/universal_latency_compare_v2_v3_summary.txt`, baseline `results_v2`, candidate `results_v3`): 35 / 36 turns faster on v3, 1 slower; median latency 15,456 ms → 9,018 ms; mean speedup ratio (baseline / candidate) ≈ **1.97**.
+| Pipeline                      | Results folder             | Accuracy    | Median latency (ms) | Mean `reason_pass` | Mean sandbox invocations |
+| ----------------------------- | -------------------------- | ----------- | ------------------- | ------------------ | ------------------------ |
+| Original multi-agent (`src`)  | `data/results/`            | 24 / 36     | —                   | —                  | —                        |
+| v1 vanilla                    | `data/results_v1/`         | 33 / 36     | 6,654               | 1.00               | 0                        |
+| v1 + rewrite                  | `data/results_v1_rewrite/` | 34 / 36     | 10,544              | 1.72               | 0                        |
+| v2 ReAct + rewrite + Python   | `data/results_v2/`         | 35 / 36     | 15,456              | 2.58               | 0.86                     |
+| v3 ReAct + rewrite + KB phase | `data/results_v3/`         | **36 / 36** | 9,018               | 2.11               | 0.39                     |
 
 Narrative context and caveats live in **[NOTES.md](NOTES.md)** (Research → Evaluation; Improvements → Measurement, Evaluation).

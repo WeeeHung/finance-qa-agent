@@ -127,6 +127,8 @@ AI-Compiled data from local runs.
 
 **Head-to-head v2 vs v3** (file `data/results_v3/universal_latency_compare_v2_v3_summary.txt`, baseline = `results_v2`, candidate = `results_v3`): 35 turns faster on v3, 1 slower, 0 equal; medians **15,455.713 ms → 9,018.438 ms**; mean speedup ratio baseline/candidate **≈ 1.97**; mean sandbox invocations **0.8611 → 0.3889** per turn.
 
+Original multi-agent can have higher accuracy if we rerun with prompts to align with new golden. The results are as above due to misalignment in units (millions), text output from DirectQA Agent. I expect the results to go up to 33/36 (same as vanilla) if we solve these misalignments via prompts + data preprocessing. Nonetheless, i did not rerun on the multi-agent stack these changes as I think pivoting away from Multi Agent (Planner) system is best for this types of task. Also, the latency and cost of running this is observably higher and longer respectively.
+
 v3 is the best performing pipeline due to several advantages.
 
 1. v3 does data preprocessing -- compiles a KB through chunking and extracting explicit facts into both sentences and structured format
