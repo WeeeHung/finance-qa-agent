@@ -95,3 +95,19 @@ python3 -m global_utils.universal_latency_grader --results-dir data/results_v1_r
 ```
 
 With no `--results-dir`, the script runs **compare** mode (baseline vs candidate directories); defaults are wired for other pipelines—see `global_utils/universal_latency_grader.py` if you need `--baseline-dir` / `--candidate-dir`.
+
+## Evaluation snapshot (subset, 10 dev records / 36 turns)
+
+Graders: `global_utils.universal_accuracy_grader` and `global_utils.universal_latency_grader` (single-directory mode). Gold labels from `data/convfinqa_datasubset.json`. Latency rows summarize `universal_latency_summary.txt` in each results folder (median / mean LLM steps `reason_pass` / mean sandbox tool invocations where present).
+
+| Pipeline | Results folder | Accuracy | Median latency (ms) | Mean `reason_pass` | Mean sandbox invocations |
+| -------- | -------------- | -------- | ------------------- | -------------------- | ------------------------- |
+| Original multi-agent (`src`) | `data/results/` | 24 / 36 | — | — | — |
+| v1 vanilla | `data/results_v1/` | 33 / 36 | 6,654 | 1.00 | 0 |
+| v1 + rewrite | `data/results_v1_rewrite/` | 34 / 36 | 10,544 | 1.72 | 0 |
+| v2 ReAct + rewrite + Python | `data/results_v2/` | 35 / 36 | 15,456 | 2.58 | 0.86 |
+| v3 v2 + KB phase | `data/results_v3/` | **36 / 36** | 9,018 | 2.11 | 0.39 |
+
+**v2 → v3 latency compare** (`data/results_v3/universal_latency_compare_v2_v3_summary.txt`, baseline `results_v2`, candidate `results_v3`): 35 / 36 turns faster on v3, 1 slower; median latency 15,456 ms → 9,018 ms; mean speedup ratio (baseline / candidate) ≈ **1.97**.
+
+Narrative context and caveats live in **[NOTES.md](NOTES.md)** (Research → Evaluation; Improvements → Measurement, Evaluation).

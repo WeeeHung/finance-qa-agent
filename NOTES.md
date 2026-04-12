@@ -106,32 +106,45 @@ Key changes:
 - build and eval SRC_V1_rewrite -- Single LLM call with question rewrite
 - build and eval SRC_V2 -- ReAct Agent with question rewrite + Python Execution Tool
 - build and eval SRC_V3 -- ReAct Agent with question rewrite + Python Execution Tool + KB building
-- build actual sandbox to run code,
-- build intent classifier to prevent tool call if calculation is not needed
-- include a run CLI for each versions
 
-### Measurement, profiling, validation
+### Measurement, Evaluation
 
-Discovered that the Data quality can be improved. ie. some important unit metrics were missed out (ie. Double_MRO/2015/page_18.pdf lacked (thousand) from their table headers, GPT managed to include the thousand to be factually correct, but extractively incorrect), questions are ambiguous as they are taken from intermediate steps instead of the original question
+Discovered that the Data quality can be improved. ie. some important unit metrics were missed out (ie. Double_MRO/2015/page_18.pdf lacked (thousand) from their table headers, GPT managed to include the thousand to be factually correct, but extractively incorrect), questions are ambiguous as they are taken from intermediate steps instead of the original question.
 
-- is LLM as a judge needed here for the reAct agent, since we are not giving feedback.
-- do i need to include validation loop and how to do so to ensure quality. the LLM response could be slightly unstable even though the temperature is 0.
-- prompts to improve tool call + reasoning quality + retrieval
-- how to improve retrieval quality, preprocess?
-- in memory saver for each agent, how does it affect
+#### Subset benchmark (universal graders)
+
+On the **first ten dev records** from `convfinqa_datasubset.json` (**36 dialogue turns** total), the repo’s **universal accuracy** and **universal latency** summaries (written next to each run’s JSON under `data/`) currently read as follows. These are end-to-end numbers for whatever model and settings were used when the runs were produced; they are not a claim about a fixed leaderboard setup.
+
+AI-Compiled data from local runs.
+
+| Pipeline                         | Results folder (under `data/`) | Accuracy (`universal_accuracy_summary.txt`) | Median latency (ms) | Mean `reason_pass` | Mean sandbox invocations |
+| -------------------------------- | ------------------------------ | ------------------------------------------- | ------------------- | ------------------ | ------------------------ |
+| Original multi-agent stack       | `results/`                     | 24 / 36                                     | —                   | —                  | —                        |
+| v1 vanilla (one LLM per turn)    | `results_v1/`                  | 33 / 36                                     | 6,654               | 1.00               | 0                        |
+| v1 + rewrite                     | `results_v1_rewrite/`          | 34 / 36                                     | 10,544              | 1.72               | 0                        |
+| v2 ReAct + rewrite + Python tool | `results_v2/`                  | 35 / 36                                     | 15,456              | 2.58               | 0.86                     |
+| v3 (KB-building phase)           | `results_v3/`                  | 36 / 36                                     | 9,018               | 2.11               | 0.39                     |
+
+**Head-to-head v2 vs v3** (file `data/results_v3/universal_latency_compare_v2_v3_summary.txt`, baseline = `results_v2`, candidate = `results_v3`): 35 turns faster on v3, 1 slower, 0 equal; medians **15,455.713 ms → 9,018.438 ms**; mean speedup ratio baseline/candidate **≈ 1.97**; mean sandbox invocations **0.8611 → 0.3889** per turn.
+
+v3 is the best performing pipeline due to several advantages.
+
+1. v3 does data preprocessing -- compiles a KB through chunking and extracting explicit facts into both sentences and structured format
+2. New calculations are appended to the KB as implied knowledge (more questions asked = more comprehensive KB)
+3. I observed that many late qna turns used information from before. This leads to some recalculations + room for error in both retrieval and calculations. By using KB as context, the LLM can work on top of existing knowledge. This is shown from the reduced tool invocation and additional reasoning. From this, we can reduce replicated reasoning on the same problems, and turn these reasoning problems to retrieval problems. This eliminates some stochasticity in LLM reasoning and boost accuracy by encouraging reuse of existing knowledge. Latency is also improved since reasoning - tooluse loop is only used when necessary (unfamiliar questions being asked)
 
 ---
 
 ## 4. Next steps
 
-I imagine if Manus were to have features like this:
+I imagine if Manus were to have features like this, we can do:
 
-- intent classification
-- actual clarification (further questions like in plan mode), because some questions are vague and can go multiple ways, its best to get clarification before running an entire pipeline
-
-### RAG (vector + graph) possibilities + improvements if this scales
-
-### Product / platform (e.g. Manus): intent routing and adapter switching for task-specific stacks
+- intent classification and routing
+- actual clarification (asking users further questions like in plan mode), because some questions are vague and can go multiple ways, its best to get clarification before running an entire pipeline
+- bundle this src as pipeline to route towards-- if accurate numerical answer with steps are required, route to this pipeline. (Alternatively, if financial reasoning is required, we can route it to a Mulit-Agent system similar to the original self-consistent central planner architecture.)
+- work on prompt engineering to improve CoT reasoning + Tool choice (now it relies more on model native behavior)
+- If the documents needs to be used throughout and across chats, the KB can be extended into hybrid (Vector + Graph) RAG. Helpful if those documents are static + to be used frequently. Only when the KB and/or financial document is huge (close to hitting the context window / we observe weaker accuracy), we can justify to build hierarchical KB, RAG DBs, or even SQL, which can work well with our current KB structure.
+- build actual sandbox to run code (in a separate container) to protect process from running malicious code (possible OS-level code)
 
 ---
 
@@ -150,7 +163,7 @@ Initial Code Deep Dive
 - each question take very long. maybe need better parallelism if possible. can do latency check on each stage to improve speed as this user experience isnt the best
 - got 'assistant: I'm sorry, I couldn't find an answer to that question.' after waiting for very long, i suspect some agent has reached the limit. it seems like it managed to get some kind of answer but replied with a fallback instead of giving 'inconfident' answer or 'ran out of steps to think?'
 - what are the params / flags? self consistency seem interesting (self_consistency here only mean ability to rerun a step)
-[Self-consistency = generating multiple independent answers and selecting the most consistent one, normalize, then pick majority / semantic clustering / confidence weight (freq. x confidence) voting]
+  [Self-consistency = generating multiple independent answers and selecting the most consistent one, normalize, then pick majority / semantic clustering / confidence weight (freq. x confidence) voting]
 - clarifier does self clarify? can i ask the users questions to clarify in case the prompt given is not good enough or confusing
 - tool seems to target financial analysts, auditors who need grounded, traceable answers from long PDFs
 - seems like direct qa type questions work quite well
@@ -177,16 +190,13 @@ Initial Code Deep Dive
 
 ### Record Counts by Split
 
-
 | Split     | Number of Records |
 | --------- | ----------------- |
 | Train     | 3,037             |
 | Dev       | 421               |
 | **Total** | **3,458**         |
 
-
 ### TRAIN (n = 3,037 records)
-
 
 | Statistic                             | Min | Median  | Max    |
 | ------------------------------------- | --- | ------- | ------ |
@@ -195,9 +205,7 @@ Initial Code Deep Dive
 | combined pre+post length (characters) | 103 | 3,619.0 | 14,166 |
 | table cell count (sum of row widths)  | 1   | 12.0    | 114    |
 
-
 ### DEV (n = 421 records)
-
 
 | Statistic                             | Min | Median  | Max   |
 | ------------------------------------- | --- | ------- | ----- |
@@ -205,129 +213,3 @@ Initial Code Deep Dive
 | post_text length (characters)         | 1   | 1,750.0 | 5,850 |
 | combined pre+post length (characters) | 210 | 3,479.0 | 8,730 |
 | table cell count (sum of row widths)  | 2   | 12.0    | 48    |
-
-
-[PLAN]
-
-- spend first half of time understanding the objective, data, codebase. This allows me to pick up pros and cons of current implementation to brainstorm on improvements in architecture
-
-Phase 1 (MVP — do this)
-1 LLM planner
-DSL output
-Python executor
-Trace output
-Phase 2 (improve accuracy)
-Add schema constraints
-Improve table grounding
-Add simple verifier
-Phase 3 (research-level)
-Train/fine-tune planner on ConvFinQA
-Add program-of-thought supervision
-Beam search over programs
-
----
-
-## **Phase 1 — Document Preprocessing & Execution Prototype**
-
-**Goal:** Get a working QA pipeline on a single document.
-**Steps:**
-
-1. **Preprocess the document**
-  - Normalize units, numeric formats, and dates.
-  - Extract tables and key sections into structured formats (JSON, tables).
-2. **Contextualized query handling**
-  - Optionally rewrite user queries to explicit forms.
-  - Feed to Planner LLM to generate execution steps (DSL or single-step).
-3. **Programmatic execution**
-  - Compute answers from preprocessed tables or structured data.
-
-**Testing/Grading:**
-
-- Compare output with golden/reference answers for **accuracy**.
-- Log **latency** for end-to-end QA.
-
-**Deliverable:** Working single-document QA prototype.
-
----
-
-## **Phase 2 — Explicit KB Introduction**
-
-**Goal:** Capture all raw facts from the document systematically.
-**Steps:**
-
-1. Extract **explicit knowledge items** from tables and numeric statements.
-2. Store in **KB structure**:
-  - Fields: `id`, `info`, `type: explicit`, `value`, `unit`, `tags`.
-3. Optional: include reasoning placeholders for future implicit facts.
-
-**Testing/Grading:**
-
-- Verify KB contains all expected explicit facts.
-- Compare execution results with and without KB to ensure consistency.
-
-**Deliverable:** Structured KB for explicit information.
-
----
-
-## **Phase 3 — Implicit Knowledge & Reasoning**
-
-**Goal:** Enable multi-step calculations and derived facts.
-**Steps:**
-
-1. Define **reasoning operations** (`subtract`, `percentage_change`, `multiply`, etc.).
-2. Generate **implicit knowledge items** with reasoning chains.
-3. Update execution engine to **read from KB nodes** instead of raw tables where applicable.
-
-**Testing/Grading:**
-
-- Check correctness of **derived facts** against manual calculations.
-- Optional: log **step-level correctness**.
-
-**Deliverable:** KB enriched with both explicit and implicit facts; reasoning chains stored.
-
----
-
-## **Phase 4 — Graph-based RAG & Multi-document Scaling**
-
-**Goal:** Make the system scalable and explainable for large documents.
-**Steps:**
-
-1. Convert KB to **graph structure**:
-  - Nodes = KB items
-  - Edges = `derived_from` relationships
-2. Add **vector embeddings** for semantic retrieval (supporting RAG).
-3. QA execution:
-  - User query → optional rewrite → retrieve relevant KB nodes + raw text chunks → Planner LLM executes reasoning.
-4. Append **new knowledge** back to KB after QA.
-
-**Testing/Grading:**
-
-- Track **final QA accuracy** against golden answers.
-- Log **latency** for end-to-end retrieval + reasoning.
-- Optionally visualize reasoning graph for **explainability**.
-
-**Deliverable:** Scalable QA system with KB + graph reasoning + vector RAG for large documents.
-
----
-
-### **Additional Notes on Grading & Explainability**
-
-- **Grading:** focus primarily on **accuracy**; latency is optional.
-- **Explainability:** store and return **reasoning chains** and links to KB nodes; step-level grading is optional.
-- **Testing Strategy:** start small with single documents, then gradually scale to multi-page or multi-document scenarios.
-
----
-
-- Redesign the agent pipeline to achieve
-
-1. high accuracy in FinQA result (float) -- able to calculate with metrics.
-2. clear Explainable step (bool)
-3. Fast response (float) -- able to get Five-Number Summary of latency.
-
-- Optimization
-
-1. Caching Queries (need to refetch doc qa queries) + calculations (most steps seem to contain duplicates -- might be unnecessary if calculation latency is negligible) (Conversational + Multi-turn Dependency)
-2. Do actual self-consistency (by cross checking answers)
-
----
-
