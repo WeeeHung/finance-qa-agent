@@ -7,14 +7,14 @@ import os
 import time
 from typing import Any, Union
 
-from src.bootstrap_env import load_project_env
+from global_utils.bootstrap_env import load_project_env
 
 load_project_env()
 
 from tqdm import tqdm
 
 from src.utils.data.read_dataset import DatasetDict
-from src.utils.filepaths import dataset_fpath, kb_v3_dir, results_v3_dir
+from global_utils.filepaths import dataset_fpath, kb_v3_dir, results_v3_dir
 from src_v1.prompt import build_rewritten_answer_user_message, build_vanilla_user_message
 from src_v1.rewrite import rewrite_current_question
 from src_v1.serialize import record_to_raw_data

@@ -3,7 +3,7 @@ import os
 import re
 from typing import Dict, Tuple, Union, List
 
-from src.bootstrap_env import load_project_env
+from global_utils.bootstrap_env import load_project_env
 
 load_project_env()
 
@@ -14,7 +14,7 @@ from tqdm import tqdm
 
 from src.utils.data.read_dataset import DatasetDict
 from src.utils.data.types import ConvFinQARecord
-from src.utils.filepaths import results_dir, dataset_fpath
+from global_utils.filepaths import results_dir, dataset_fpath
 
 
 def convert_fname_to_recordid(fname: str) -> str:

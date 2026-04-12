@@ -15,14 +15,14 @@ This repository contains conversational financial QA work on ConvFinQA-style rec
 | `**src_v3/`** | Extends v2 with a **KB-building** phase to consolidate context before tool use and answering.                                                                                                                                                                       |
 
 
-Shared utilities (paths, dataset loading, grading) live under `**src/utils/`**. Version-specific `runme.py` / CLI entry points live next to each `src_v*` tree.
+Cross-version utilities (`.env` loading, canonical `data/` paths, universal graders) live under `**global_utils/`**. Dataset helpers and original-pipeline scoring remain under `**src/utils/`**. Version-specific `runme.py` / CLI entry points live next to each `src_v*` tree.
 
 ## Universal accuracy and latency graders
 
 Cross-version evaluation is centralized so each experiment writes JSON under a results folder and the same tools can grade it.
 
-- `**src/utils/universal_accuracy_grader.py**` — For each turn, compares model output to golden `**executed_answers**` from a subset JSON (default `data/convfinqa_datasubset.json`). Uses deterministic lenient matching first, then an optional LLM-as-judge fallback. Writes `universal_accuracy_grades.csv` and `universal_accuracy_summary.txt` into the chosen results directory unless you override output paths.
-- `**src/utils/universal_latency_grader.py**` — Reads `**latency_ms**` per turn. In **single-directory** mode it reports distribution stats (min, max, median, quartiles). In **compare** mode it aligns files between a baseline and a candidate directory for old-vs-new timing (see script defaults and flags).
+- `**global_utils/universal_accuracy_grader.py**` — For each turn, compares model output to golden `**executed_answers**` from a subset JSON (default `data/convfinqa_datasubset.json`). Uses deterministic lenient matching first, then an optional LLM-as-judge fallback. Writes `universal_accuracy_grades.csv` and `universal_accuracy_summary.txt` into the chosen results directory unless you override output paths.
+- `**global_utils/universal_latency_grader.py**` — Reads `**latency_ms**` per turn. In **single-directory** mode it reports distribution stats (min, max, median, quartiles). In **compare** mode it aligns files between a baseline and a candidate directory for old-vs-new timing (see script defaults and flags).
 
 Concrete command lines (including `**results_v1_rewrite`** as the example) are in **[Getting started](#getting-started)** at the end of this file.
 
@@ -31,7 +31,7 @@ Concrete command lines (including `**results_v1_rewrite`** as the example) are i
 1. Use **Python 3.10** (as in the original project notes).
 2. Install dependencies: `pip install -r requirements.txt`
 3. Copy [.env.example](.env.example) to `**.env`** in the project root. Set `**OPENAI_API_KEY**`. Optionally set `**CRDF_SRC_DIR**` and `**CRDF_DATA_DIR**` if `src` or `data` are not the default paths next to the repo root (see comments in `.env.example`).
-4. Put the **project root** on `**PYTHONPATH`** so imports such as `src` and `src_v1` resolve:
+4. Put the **project root** on `**PYTHONPATH`** so imports such as `src`, `global_utils`, and `src_v1` resolve:
 
 ```bash
 export PYTHONPATH="$(pwd):${PYTHONPATH}"
@@ -81,7 +81,7 @@ If you set `CRDF_DATA_DIR` in `.env`, outputs live under that data directory ins
 Grades pipeline JSON under `--results-dir` against golden `executed_answers` in the subset file (default `data/convfinqa_datasubset.json`). By default it writes `universal_accuracy_grades.csv` and `universal_accuracy_summary.txt` **into** the results directory.
 
 ```bash
-python3 -m src.utils.universal_accuracy_grader --results-dir data/results_v1_rewrite
+python3 -m global_utils.universal_accuracy_grader --results-dir data/results_v1_rewrite
 ```
 
 Use `--subset` if your gold labels live in another JSON file. Use `--skip-llm` for deterministic matching only.
@@ -91,7 +91,7 @@ Use `--subset` if your gold labels live in another JSON file. Use `--skip-llm` f
 **Single-directory** mode (stats only for one run): pass `--results-dir`. Writes `universal_latency_grades.csv` and `universal_latency_summary.txt` into that directory by default.
 
 ```bash
-python3 -m src.utils.universal_latency_grader --results-dir data/results_v1_rewrite
+python3 -m global_utils.universal_latency_grader --results-dir data/results_v1_rewrite
 ```
 
-With no `--results-dir`, the script runs **compare** mode (baseline vs candidate directories); defaults are wired for other pipelines—see `src/utils/universal_latency_grader.py` if you need `--baseline-dir` / `--candidate-dir`.
+With no `--results-dir`, the script runs **compare** mode (baseline vs candidate directories); defaults are wired for other pipelines—see `global_utils/universal_latency_grader.py` if you need `--baseline-dir` / `--candidate-dir`.

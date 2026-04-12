@@ -6,13 +6,13 @@ Defaults are next to the repo root inferred from this file's location.
 import os
 from pathlib import Path
 
-from src.bootstrap_env import load_project_env
+from global_utils.bootstrap_env import load_project_env
 
 load_project_env()
 
 
 def _project_root() -> Path:
-    return Path(__file__).resolve().parent.parent.parent
+    return Path(__file__).resolve().parent.parent
 
 
 def _resolve_dir(env_name: str, default: Path) -> str:

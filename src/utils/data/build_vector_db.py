@@ -5,7 +5,7 @@ import pandas as pd
 from vectordb import Memory
 
 from src.utils.data.read_dataset import DatasetDict
-from src.utils.filepaths import vector_db_dir, dataset_fpath
+from global_utils.filepaths import vector_db_dir, dataset_fpath
 from src.utils.data.types import ConvFinQARecord
 
 

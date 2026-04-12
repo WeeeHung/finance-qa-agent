@@ -13,13 +13,13 @@ import re
 from pathlib import Path
 from typing import Any, List, Optional, Tuple
 
-from src.bootstrap_env import load_project_env
+from global_utils.bootstrap_env import load_project_env
 
 load_project_env()
 
 from pydantic import BaseModel, Field
 
-from src.utils.filepaths import data_dir, results_dir
+from global_utils.filepaths import data_dir, results_dir
 
 SUBSET_DEFAULT = Path(data_dir) / "convfinqa_datasubset.json"
 DEFAULT_GRADES_NAME = "universal_accuracy_grades.csv"

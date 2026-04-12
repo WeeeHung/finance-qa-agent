@@ -2,7 +2,7 @@
 Main typer app for ConvFinQA
 """
 
-from src.bootstrap_env import load_project_env
+from global_utils.bootstrap_env import load_project_env
 
 load_project_env()
 
@@ -14,7 +14,7 @@ from src.agents.planner import Planner
 from src.agents.types import State
 from src.utils.data.build_vector_db import VectorDB
 from src.utils.data.read_dataset import DatasetDict
-from src.utils.filepaths import dataset_fpath
+from global_utils.filepaths import dataset_fpath
 
 app = typer.Typer(
     name="main",

@@ -58,7 +58,7 @@ class DatasetDict:
 
 
 if __name__ == "__main__":
-    from src.utils.filepaths import dataset_fpath
+    from global_utils.filepaths import dataset_fpath
     #print(len(Dataset(dataset_fpath)))
     #doc = Dataset(dataset_fpath).get_record('Single_JKHY/2009/page_28.pdf-3').doc
     #print(doc.table)

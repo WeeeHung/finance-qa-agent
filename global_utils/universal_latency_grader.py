@@ -19,11 +19,11 @@ import statistics
 from pathlib import Path
 from typing import Any, List, Optional
 
-from src.bootstrap_env import load_project_env
+from global_utils.bootstrap_env import load_project_env
 
 load_project_env()
 
-from src.utils.filepaths import results_v1_rewrite_dir, results_v2_dir
+from global_utils.filepaths import results_v1_rewrite_dir, results_v2_dir
 
 DEFAULT_GRADES_NAME = "universal_latency_grades.csv"
 DEFAULT_SUMMARY_NAME = "universal_latency_summary.txt"

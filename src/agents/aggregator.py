@@ -136,7 +136,7 @@ class Aggregator(AgentBase):
 if __name__ == "__main__":
     from src.agents.clarifier import ClarifierAgent
     from src.utils.data.read_dataset import DatasetDict
-    from src.utils.filepaths import dataset_fpath
+    from global_utils.filepaths import dataset_fpath
     from src.agents.direct_qa import DirectQA
     from src.agents.decomposer import Decomposer
     from concurrent.futures import ThreadPoolExecutor, as_completed

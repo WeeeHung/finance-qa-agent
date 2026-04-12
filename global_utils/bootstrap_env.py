@@ -1,4 +1,4 @@
-"""Load ``.env`` from the project root (parent of ``src``)."""
+"""Load ``.env`` from the project root (parent of ``global_utils``)."""
 from pathlib import Path
 
 from dotenv import load_dotenv
