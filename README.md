@@ -1,88 +1,97 @@
-# Getting Started
-## Setting up Environment
-1. Use python=3.10
-2. pip install packages from requirements.txt
-3. Copy [.env.example](.env.example) to `.env` in the project root. Set `OPENAI_API_KEY`. Optionally set `CRDF_SRC_DIR` and `CRDF_DATA_DIR` if your `src` or `data` directories are not the default paths next to the repo root (see comments in `.env.example`).
+# CRDFAgent
 
-# Running the framework
-## Pre-Run Instructions
-1. Set / export the parent folder of `src` to `PYTHONPATH`.
-2. Configure paths and secrets via environment variables as described in [.env.example](.env.example). `runme.py`, `app/cli.py`, and `utils/scoring.py` call `load_project_env()`, which loads `.env` from the project root; you can also `export` the same variables in your shell.
+This repository contains conversational financial QA work on ConvFinQA-style records: a full multi-agent pipeline under `src/`, plus later **attempts and experimentations** in `src_v1`, `src_v2`, and `src_v3`.
 
-## Run on ConFinQA Dataset
-1. Run `src.runme`
-   
-   ```python
-   python path/to/src/runme.py
-   ```
-2. To score the dataset (after running the `runme.py` file to generate the output files required for scoring), run `src.utils.scoring`
-   
-   ```python
-   python path/to/src/utils/scoring.py
-   ```
+**Submission answer (Fully Human written):** the substantive write-up is **[NOTES.md](NOTES.md)**. It follows the flow (analysis → research → improvements → next steps), covers the original architecture, dataset caveats, evaluation goals, hypotheses behind each code path, and what was measured or left for follow-up. Prefer that document for narrative, motivation, and conclusions; this README stays short and practical.
 
-## Run chatbot
-1. Run `src.app.cli`
-   
-   ```python
-   python path/to/src/app/cli.py record_file_name
-   ```
-   where `record_file_name` is the filename of the record (e.g. `Single_UNP/2014/page_35.pdf-3`)
-
-# How it works
-## Agentic Pipeline
-![Agentic Framework diagram](https://raw.githubusercontent.com/lemousehunter/CRDFAgent/main/diagrams/agentic_framework.png)
-
-## Agents
-### 1️⃣ Clarify
-Detects ambiguity and reformulates vague user questions into precise, self-contained forms using conversation history.
-
-### 2️⃣ Route
-Implements a “short-circuit” mechanism to directly answer questions when sufficient context is already available, reducing latency.
-
-### 3️⃣ Decompose & Retrieve
-Breaks complex queries into subproblems and runs parallel retrieval agents to gather supporting facts.
-
-### 4️⃣ Aggregate
-Generates a deterministic Python function to compute the final answer, ensuring reproducibility and auditability.
-
-### 5️⃣ Planner
-A planner agent monitors outputs and injects immediate feedback for retries if needed, ending the pipeline when a direct or aggregated answer is produced.
- 
+## Code versions (experimentation)
 
 
- # Results
- ## Metrics Used
- 1. The first metric used is the 'correctness' of answer - be it via direct matching or tolerance-based evaluation.
- 2. The second metric used modulates the 'Quality of Reasoning' with 'Efficiency of Reasoning'. 'Quality of Reasoning' is defined to be the number of agents used in the pipeline that had successfully completed their tasks (therefore it is a binary number of either 0 or 1). 'Efficiency of Reasoning' is defined to be the number of attempts each agent takes to complete its task. Therefore, the afore-mentioned can be formalized as such:
-    ```math
-      \text{SQ\_METRIC} = \frac{\sum_{i=1}^{N} q_i}{\sum_{i=1}^{N} a_i}
-    ```
-
-where:  
-- $q_i \in \{0, 1\}$ is the quality indicator of agent $i$ (1 if successful, 0 otherwise).  
-- $a_i \in \mathbb{N}^+$ is the number of attempts made by agent $i$.  
-- $N$ is the total number of agents in the pipeline.
-
-## Results
-The pipeline was run on the top 8 records of the `ConvFinQA` dataset to get the agent outputs, before being scored by the scorer. The scores are as follows:
-
- | Agent/Metric              | Score    |
- |---------------------------|----------|
- | ClarifierAgent_score      | 0.862069 |
- | DirectQAAgent_score       | 0.890805 |
- | DecomposerAgent_score     | 0.947368 |
- | FreeAgent_score           | 0.645833 |
- | AggregatorAgent_score     | 0.312500 |
- | `SQ_METRIC`               | 0.583908 |
- | Correctness               | 0.689655 |
- 
+| Location      | What it is                                                                                                                                                                                                                                                          |
+| ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `**src/`**    | Original stack: planner-led pipeline with clarifier, direct QA short-circuit, decomposer, free agents, aggregator, vector RAG over the record, and persisted step history.                                                                                          |
+| `**src_v1/**` | Lighter baseline: **vanilla** one LLM call per dialogue turn; optional **rewrite** pass so a first call condenses history + current question and the answer call sees only the rewritten text. Outputs default to `data/results_v1/` or `data/results_v1_rewrite/`. |
+| `**src_v2/`** | ReAct-style direction: rewrite plus **Python execution** as a tool for numerical work.                                                                                                                                                                              |
+| `**src_v3/`** | Extends v2 with a **KB-building** phase to consolidate context before tool use and answering.                                                                                                                                                                       |
 
 
-# Some notes
-1. This system was developed on mac using pycharm, compatibility with Windows systems cannot be guaranteed
-2. If I had missed out any packages in `requirements.txt`, please let me know :)
-3. The system might get stuck in "reflection" loops, especially at the aggregation stage. If that happens, just re-run the system. An `agent_retry_limit` has already been set (defaults to 5).
-4. Each 'agent' file can be run independently, I developed it as such to test out the pipeline incrementally
-5. Currently, 'gpt-5-mini' is being used as the LLM for all agents. It works fairly well
+Shared utilities (paths, dataset loading, grading) live under `**src/utils/`**. Version-specific `runme.py` / CLI entry points live next to each `src_v*` tree.
 
+## Universal accuracy and latency graders
+
+Cross-version evaluation is centralized so each experiment writes JSON under a results folder and the same tools can grade it.
+
+- `**src/utils/universal_accuracy_grader.py**` — For each turn, compares model output to golden `**executed_answers**` from a subset JSON (default `data/convfinqa_datasubset.json`). Uses deterministic lenient matching first, then an optional LLM-as-judge fallback. Writes `universal_accuracy_grades.csv` and `universal_accuracy_summary.txt` into the chosen results directory unless you override output paths.
+- `**src/utils/universal_latency_grader.py**` — Reads `**latency_ms**` per turn. In **single-directory** mode it reports distribution stats (min, max, median, quartiles). In **compare** mode it aligns files between a baseline and a candidate directory for old-vs-new timing (see script defaults and flags).
+
+Concrete command lines (including `**results_v1_rewrite`** as the example) are in **[Getting started](#getting-started)** at the end of this file.
+
+## Environment and configuration
+
+1. Use **Python 3.10** (as in the original project notes).
+2. Install dependencies: `pip install -r requirements.txt`
+3. Copy [.env.example](.env.example) to `**.env`** in the project root. Set `**OPENAI_API_KEY**`. Optionally set `**CRDF_SRC_DIR**` and `**CRDF_DATA_DIR**` if `src` or `data` are not the default paths next to the repo root (see comments in `.env.example`).
+4. Put the **project root** on `**PYTHONPATH`** so imports such as `src` and `src_v1` resolve:
+
+```bash
+export PYTHONPATH="$(pwd):${PYTHONPATH}"
+```
+
+Runners and graders call `load_project_env()`, which loads `.env` from the project root. The project was developed on **macOS**; other platforms are not guaranteed.
+
+## Original pipeline entry points (`src/`)
+
+For diagrams, agent responsibilities, and pros/cons, see **NOTES.md** (especially §1 Analysis). Overview diagram:
+
+Agentic Framework diagram
+
+- Batch-style driver: `src/runme.py`
+- Interactive CLI over a single record: `src/app/cli.py`
+- Scoring tailored to the original pipeline outputs: `src/utils/scoring.py`
+
+---
+
+# Getting started
+
+This section is a minimal command reference for **vanilla v1** batch runs (including the optional rewrite pass) and for the **universal accuracy** / **universal latency** graders. It assumes the project root is on `PYTHONPATH` (see [Environment and configuration](#environment-and-configuration)). Run commands from the project root unless you adjust paths.
+
+## Vanilla v1 (`src_v1.runme`)
+
+- **Default output**: `data/results_v1/` (first ten dev records, `slice(0, 10)` unless you pass `--start` / `--end`).
+- **With `--rewrite`**: writes to `data/results_v1_rewrite/` (rewrite pass condenses history + current question, then the answer model sees only the rewritten question).
+- `**--overwrite**`: regenerate JSON even when an output file already exists; without it, existing files are skipped.
+
+```bash
+export PYTHONPATH="$(pwd):${PYTHONPATH}"
+
+# v1 without rewrite → data/results_v1/
+python3 -m src_v1.runme --overwrite
+
+# v1 with rewrite → data/results_v1_rewrite/
+python3 -m src_v1.runme --rewrite --overwrite
+
+# Optional: custom slice (inclusive start, exclusive end)
+python3 -m src_v1.runme --rewrite --overwrite --start 0 --end 10
+```
+
+If you set `CRDF_DATA_DIR` in `.env`, outputs live under that data directory instead; paths below should match your configured `data` root.
+
+## Universal accuracy (example: `results_v1_rewrite`)
+
+Grades pipeline JSON under `--results-dir` against golden `executed_answers` in the subset file (default `data/convfinqa_datasubset.json`). By default it writes `universal_accuracy_grades.csv` and `universal_accuracy_summary.txt` **into** the results directory.
+
+```bash
+python3 -m src.utils.universal_accuracy_grader --results-dir data/results_v1_rewrite
+```
+
+Use `--subset` if your gold labels live in another JSON file. Use `--skip-llm` for deterministic matching only.
+
+## Universal latency (example: `results_v1_rewrite`)
+
+**Single-directory** mode (stats only for one run): pass `--results-dir`. Writes `universal_latency_grades.csv` and `universal_latency_summary.txt` into that directory by default.
+
+```bash
+python3 -m src.utils.universal_latency_grader --results-dir data/results_v1_rewrite
+```
+
+With no `--results-dir`, the script runs **compare** mode (baseline vs candidate directories); defaults are wired for other pipelines—see `src/utils/universal_latency_grader.py` if you need `--baseline-dir` / `--candidate-dir`.

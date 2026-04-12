@@ -21,7 +21,7 @@
   "errors": {},
   "step_history": [
     {
-      "agent": "ClarifierAgent",
+    "agent": "ClarifierAgent",
       "input": {
         "question": "what was the change in the unamortized debt issuance costs associated with the senior notes between 2016 and 2017?",
         "previous_questions": []

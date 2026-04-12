@@ -20,11 +20,11 @@ def build_vanilla_user_message(question_history: list[str], current_question: st
         '- "question_history": prior turns in order (context only; do not answer them again).\n'
         '- "current_question": the only question you must answer now.\n\n'
         f"{json.dumps(payload, ensure_ascii=False, indent=2)}\n\n"
-        "Reply with exactly one answer token: a plain number (or number + trailing % for true "
-        "percentage answers). **Fully expand magnitude** using the document’s stated scale "
+        "Your entire reply must be only that answer: a plain number (or number + trailing % for true "
+        "percentage answers), with no other text. **Fully expand magnitude** using the document’s stated scale "
         "(thousands, millions, billions, etc.): e.g. a change of “-4” in “$ millions” must be "
         "output as **-4000000**, not **-4**. Do not use words (million, k, M), scientific notation, "
-        "or currency symbols. No sentences or labels."
+        "or currency symbols. No sentences, labels, or prefixes like \"Answer:\"."
     )
 
 
@@ -36,9 +36,9 @@ def build_rewritten_answer_user_message(rewritten_question: str) -> str:
     rq = (rewritten_question or "").strip()
     return (
         f"Answer this question using the document in the system message:\n\n{rq}\n\n"
-        "Reply with exactly one answer token: a plain number (or number + trailing % for true "
-        "percentage answers). **Fully expand magnitude** using the document’s stated scale "
+        "Your entire reply must be only that answer: a plain number (or number + trailing % for true "
+        "percentage answers), with no other text. **Fully expand magnitude** using the document’s stated scale "
         "(thousands, millions, billions, etc.): e.g. a change of “-4” in “$ millions” must be "
         "output as **-4000000**, not **-4**. Do not use words (million, k, M), scientific notation, "
-        "or currency symbols. No sentences or labels."
+        "or currency symbols. No sentences, labels, or prefixes like \"Answer:\"."
     )

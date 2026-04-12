@@ -11,6 +11,8 @@ data/results/
 data/results_original/
 data/results_v1/
 data/results_v1_rewrite/
+data/results_v2/
+data/results_v3/
 # Original Data from https://github.com/czyssrs/ConvFinQA/blob/main/data.zip
 data_convfinqa/
 

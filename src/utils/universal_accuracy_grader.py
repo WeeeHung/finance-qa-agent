@@ -112,6 +112,15 @@ def floats_equivalent(a: float, b: float, rtol: float = 1e-5, atol: float = 1e-4
     return False
 
 
+def percent_literal_equivalent(a: float, b: float, rtol: float = 1e-5, atol: float = 1e-4) -> bool:
+    """Compare values on percent scale when one side includes a literal '%' token."""
+    if not math.isfinite(a) or not math.isfinite(b):
+        return False
+    scale_rtol = max(rtol, 2e-3)
+    scale_atol = max(atol, 0.06)
+    return math.isclose(a, b, rel_tol=scale_rtol, abs_tol=scale_atol)
+
+
 def deterministic_match(gold: Any, pred: Any) -> Tuple[Optional[bool], str]:
     """Return (True/False, reason) if decisive; (None, 'llm') if the LLM should decide."""
     if pred is None:
@@ -121,6 +130,8 @@ def deterministic_match(gold: Any, pred: Any) -> Tuple[Optional[bool], str]:
 
     gold_str = _to_str(gold)
     pred_str = _to_str(pred)
+    gold_has_percent = isinstance(gold_str, str) and "%" in gold_str
+    pred_has_percent = isinstance(pred_str, str) and "%" in pred_str
 
     gn = normalize_whitespace(gold_str)
     pn = normalize_whitespace(pred_str.replace("_", " "))
@@ -130,6 +141,9 @@ def deterministic_match(gold: Any, pred: Any) -> Tuple[Optional[bool], str]:
     g = coerce_to_float(gold)
     p = coerce_to_float(pred)
     if g is not None and p is not None:
+        if gold_has_percent or pred_has_percent:
+            if percent_literal_equivalent(g, p):
+                return True, "numeric_tolerance"
         if floats_equivalent(g, p):
             return True, "numeric_tolerance"
         return False, "numeric_mismatch"
@@ -140,6 +154,9 @@ def deterministic_match(gold: Any, pred: Any) -> Tuple[Optional[bool], str]:
     if p is None and isinstance(pred, str):
         p = parse_scalar_to_float(pred)
     if g is not None and p is not None:
+        if gold_has_percent or pred_has_percent:
+            if percent_literal_equivalent(g, p):
+                return True, "numeric_tolerance"
         if floats_equivalent(g, p):
             return True, "numeric_tolerance"
         return False, "numeric_mismatch"

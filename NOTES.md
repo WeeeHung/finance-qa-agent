@@ -10,7 +10,7 @@
 
 Current architecture creates a fixed stack of agents that is led by the Planner Agent. The Document QA is initialized by first embedding the table and text data into a local vectorDB. Each question would then trigger a sequential chain (Clarifier -> DirectQA -> Decomposer -> Free Agents -> Aggregator). Planner will trigger a rerun with feedback when `self_consistency` and `further_action_required` is true. Each agent has their own memory thread and a fixed retry attempts to improve their output given feedback. Each retry mean pushing the agent back in the stack pipeline.
 
-Essentially, each agent makes an LLM call with their customized prompts and input, and output things required as inputs for subsequent agents. These inputs and outputs are persisted in states and shared amongst agents.
+Essentially, each agent makes an LLM call with their customized prompts and input, and output things required as inputs for subsequent agents. These inputs and outputs are persisted in states and shared amongst agents. This architecture is valuable when we expect well thought out responses, semantic accuracy in context, specific constraints and expectations in the output.
 
 ### Pros of this approach
 
@@ -25,10 +25,11 @@ Essentially, each agent makes an LLM call with their customized prompts and inpu
 1. React Agent might be an overkill in this case as all of the agents are not equipped with tools -> no reasoning-tooluse loop
 2. Planner agent always runs, and the feedback could go unused.
 3. It is very slow as many sequential LLM calls has to be made. (min 10 and max 58 + 7N calls if the run completes the stack with aggregator agent! min 4 calls if DirectQA exits early)
-4. Vector RAG could be overkill given the size of the record. Also, default chunking (240 words with 8-word sliding window) + top K is being used. This could introduce noise in the retrieved context.
+4. Vector RAG could be overkill given the size of the record. Also, default chunking (240 words with 8-word sliding window) + top 5 is being used. This could introduce noise in the retrieved context.
 5. No caching attempts for retrieval (many related questions could use previous RAG results)
 6. The sequential LLM calls could lead to weaker data preservation and propagate effects of hallucination. (ie. if Clarifier Agent rewrites question and misses out on a point, all agents in the chain will suffer from the loss of information).
 7. Manual Python Exec is not entirely safe with restricted builtins. Running on the same process can be dangerous and a sandbox to execute code is safer. (ie. SystemExit can bypass except Exception)
+8. Current DirectQA Agent can output response that are sentences (no strict enforcement for numerical output like Aggregator Agent)
 
 ### Data and context (text, tables, splits); implications for chunking, retrieval, and prompting
 
@@ -36,7 +37,7 @@ Texts and tables are well parsed in the `convfinqa_dataset.json`. After scanning
 
 Units of the numerical values are often included in the texts, texts near tables, or table headers. It is important that we parse that information out as it is essential for accurate data retrieval and calculation, especially since the tasks expects raw numerical outputs. It is also important that we save context of previous questions as the QnA is asked sequentially and contextualized. Some questions might be financial-specific, thus we could few-shot prompt to have the LLM understand the question requirements better.
 
-I also realized that while we are using executed_answers as goldens, they are not always TRUE. (ie. Double_HII/2017/page_104.pdf q1 and q2). That is possibly because in the original dataset, our conv_questions were dialogue_break, and thus the intermediate questions are not fully validated. ("exe_ans" is golden but "exe_ans_list" is not)
+I also realized that while we are using executed_answers as goldens, they are not always TRUE. (ie. Double_HII/2017/page_104.pdf q1 and q2). That is possibly because in the original dataset, our conv_questions were dialogue_break, and thus the intermediate questions are not fully validated. ("exe_ans" is golden but "exe_ans_list" is not). Also the parsing of table is not entirely accurate, some table jsons missed out important details, like units, from header. These were discovered from diving into the original dataset, thus, i curated a new golden subset for testing.
 
 ---
 
@@ -83,7 +84,7 @@ The current scoring pipeline is good as it targets raw accuracy by comparing raw
 
 Explainability is also well established in the step-history. This is a good trait for reasoning agents and helps reproduce the answer that the Agent got. To be more transparent, we could also include sources of the retrieved context. LLM Judges are also used to evaluate how well each agent executed their tasks and its faithfulness. Using binary scoring (0 or 1) for LLM Judging also eliminates some ambiguity and subjectivity compared to 1-5 scales.
 
-## Latency is mostly related to the user experience. This goal is included as I faced long waiting time when executing the multi-agent pipeline. Rationally, as an end-user, the response time should be faster than if I were to reference the document and answer the question manually. This also assumes that this tool is not used as a background agent where latency is less of a concern. This is a reasonable assumption since its a QA system which suggests an end user chatting with the agent. To evaluate, we can easily track latency at all stages of the ReAct loop and use it to compare cross systems or optimize current system. We can use LangSmith for this.
+Latency is mostly related to the user experience. This goal is included as I faced long waiting time when executing the multi-agent pipeline. Rationally, as an end-user, the response time should be faster than if I were to reference the document and answer the question manually. This also assumes that this tool is not used as a background agent where latency is less of a concern. This is a reasonable assumption since its a QA system which suggests an end user chatting with the agent. To evaluate, we can easily track latency at all stages of the ReAct loop and use it to compare cross systems or optimize current system. We can use LangSmith for this.
 
 ## 3. Improvements
 
@@ -95,7 +96,7 @@ Hypothesis:
 
 1. Query Rewrite, Intent classification is important (affects all downstream tasks)
 2. ReAct loop with Python Execution Tool use is essential for accurate numerical reasoning
-3. KB could help shrink context, and accelerate reasoning, while maintaining chain of reasoning
+3. KB could help shrink context, accelerate reasoning, allow consistency in results while maintaining chain of reasoning (able to trace how answers are gotten)
 
 Key changes:
 
@@ -105,16 +106,30 @@ Key changes:
 - build and eval SRC_V1_rewrite -- Single LLM call with question rewrite
 - build and eval SRC_V2 -- ReAct Agent with question rewrite + Python Execution Tool
 - build and eval SRC_V3 -- ReAct Agent with question rewrite + Python Execution Tool + KB building
+- build actual sandbox to run code,
+- build intent classifier to prevent tool call if calculation is not needed
+- include a run CLI for each versions
 
 ### Measurement, profiling, validation
 
-### Backlog
+Discovered that the Data quality can be improved. ie. some important unit metrics were missed out (ie. Double_MRO/2015/page_18.pdf lacked (thousand) from their table headers, GPT managed to include the thousand to be factually correct, but extractively incorrect), questions are ambiguous as they are taken from intermediate steps instead of the original question
+
+- is LLM as a judge needed here for the reAct agent, since we are not giving feedback.
+- do i need to include validation loop and how to do so to ensure quality. the LLM response could be slightly unstable even though the temperature is 0.
+- prompts to improve tool call + reasoning quality + retrieval
+- how to improve retrieval quality, preprocess?
+- in memory saver for each agent, how does it affect
 
 ---
 
 ## 4. Next steps
 
-### Model adaptation (LoRA / similar): specialization, data, signals
+I imagine if Manus were to have features like this:
+
+- intent classification
+- actual clarification (further questions like in plan mode), because some questions are vague and can go multiple ways, its best to get clarification before running an entire pipeline
+
+### RAG (vector + graph) possibilities + improvements if this scales
 
 ### Product / platform (e.g. Manus): intent routing and adapter switching for task-specific stacks
 
@@ -135,7 +150,7 @@ Initial Code Deep Dive
 - each question take very long. maybe need better parallelism if possible. can do latency check on each stage to improve speed as this user experience isnt the best
 - got 'assistant: I'm sorry, I couldn't find an answer to that question.' after waiting for very long, i suspect some agent has reached the limit. it seems like it managed to get some kind of answer but replied with a fallback instead of giving 'inconfident' answer or 'ran out of steps to think?'
 - what are the params / flags? self consistency seem interesting (self_consistency here only mean ability to rerun a step)
-  [Self-consistency = generating multiple independent answers and selecting the most consistent one, normalize, then pick majority / semantic clustering / confidence weight (freq. x confidence) voting]
+[Self-consistency = generating multiple independent answers and selecting the most consistent one, normalize, then pick majority / semantic clustering / confidence weight (freq. x confidence) voting]
 - clarifier does self clarify? can i ask the users questions to clarify in case the prompt given is not good enough or confusing
 - tool seems to target financial analysts, auditors who need grounded, traceable answers from long PDFs
 - seems like direct qa type questions work quite well
@@ -162,13 +177,16 @@ Initial Code Deep Dive
 
 ### Record Counts by Split
 
+
 | Split     | Number of Records |
 | --------- | ----------------- |
 | Train     | 3,037             |
 | Dev       | 421               |
 | **Total** | **3,458**         |
 
+
 ### TRAIN (n = 3,037 records)
+
 
 | Statistic                             | Min | Median  | Max    |
 | ------------------------------------- | --- | ------- | ------ |
@@ -177,7 +195,9 @@ Initial Code Deep Dive
 | combined pre+post length (characters) | 103 | 3,619.0 | 14,166 |
 | table cell count (sum of row widths)  | 1   | 12.0    | 114    |
 
+
 ### DEV (n = 421 records)
+
 
 | Statistic                             | Min | Median  | Max   |
 | ------------------------------------- | --- | ------- | ----- |
@@ -185,6 +205,7 @@ Initial Code Deep Dive
 | post_text length (characters)         | 1   | 1,750.0 | 5,850 |
 | combined pre+post length (characters) | 210 | 3,479.0 | 8,730 |
 | table cell count (sum of row widths)  | 2   | 12.0    | 48    |
+
 
 [PLAN]
 
@@ -212,15 +233,13 @@ Beam search over programs
 **Steps:**
 
 1. **Preprocess the document**
-   - Normalize units, numeric formats, and dates.
-   - Extract tables and key sections into structured formats (JSON, tables).
-
+  - Normalize units, numeric formats, and dates.
+  - Extract tables and key sections into structured formats (JSON, tables).
 2. **Contextualized query handling**
-   - Optionally rewrite user queries to explicit forms.
-   - Feed to Planner LLM to generate execution steps (DSL or single-step).
-
+  - Optionally rewrite user queries to explicit forms.
+  - Feed to Planner LLM to generate execution steps (DSL or single-step).
 3. **Programmatic execution**
-   - Compute answers from preprocessed tables or structured data.
+  - Compute answers from preprocessed tables or structured data.
 
 **Testing/Grading:**
 
@@ -238,8 +257,7 @@ Beam search over programs
 
 1. Extract **explicit knowledge items** from tables and numeric statements.
 2. Store in **KB structure**:
-   - Fields: `id`, `info`, `type: explicit`, `value`, `unit`, `tags`.
-
+  - Fields: `id`, `info`, `type: explicit`, `value`, `unit`, `tags`.
 3. Optional: include reasoning placeholders for future implicit facts.
 
 **Testing/Grading:**
@@ -275,13 +293,11 @@ Beam search over programs
 **Steps:**
 
 1. Convert KB to **graph structure**:
-   - Nodes = KB items
-   - Edges = `derived_from` relationships
-
+  - Nodes = KB items
+  - Edges = `derived_from` relationships
 2. Add **vector embeddings** for semantic retrieval (supporting RAG).
 3. QA execution:
-   - User query → optional rewrite → retrieve relevant KB nodes + raw text chunks → Planner LLM executes reasoning.
-
+  - User query → optional rewrite → retrieve relevant KB nodes + raw text chunks → Planner LLM executes reasoning.
 4. Append **new knowledge** back to KB after QA.
 
 **Testing/Grading:**
@@ -314,3 +330,4 @@ Beam search over programs
 2. Do actual self-consistency (by cross checking answers)
 
 ---
+

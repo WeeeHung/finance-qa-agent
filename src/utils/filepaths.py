@@ -25,10 +25,13 @@ def _resolve_dir(env_name: str, default: Path) -> str:
 src_dir = _resolve_dir("CRDF_SRC_DIR", _project_root() / "src")
 data_dir = _resolve_dir("CRDF_DATA_DIR", _project_root() / "data")
 
-dataset_fpath = str(Path(data_dir) / "convfinqa_dataset.json")
+dataset_fpath = str(Path(data_dir) / "convfinqa_datasubset.json")
 
 vector_db_dir = str(Path(data_dir) / "vector_db")
 
 results_dir = str(Path(data_dir) / "results_original")
 results_v1_dir = str(Path(data_dir) / "results_v1")
 results_v1_rewrite_dir = str(Path(data_dir) / "results_v1_rewrite")
+results_v2_dir = str(Path(data_dir) / "results_v2")
+results_v3_dir = str(Path(data_dir) / "results_v3")
+kb_v3_dir = str(Path(results_v3_dir) / "kb")

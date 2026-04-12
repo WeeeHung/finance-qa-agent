@@ -18,7 +18,7 @@ def format_convfinqa_context(raw_data: dict[str, Any]) -> str:
     if isinstance(table, dict) and table:
         try:
             df = pd.DataFrame.from_dict(table)
-            table_block = df.to_string(index=False)
+            table_block = df.to_string(index=True)
         except (ValueError, TypeError):
             table_block = str(table)
     else:

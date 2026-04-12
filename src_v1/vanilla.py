@@ -20,7 +20,7 @@ SYSTEM = """You answer one ConvFinQA-style question from the document (text + ta
 - If the question names a row or metric, use that row’s figures.
 - When the document states amounts are in thousands, millions, billions, etc., **convert to absolute numeric values** in your head and output the **fully expanded** number (no implicit unit). Example: values labeled “in millions” with a change of -4 → output **-4000000**, not **-4**.
 
-**Output:** Exactly one token: plain digits (optional `-`, optional decimal point). For answers that are genuinely a **rate or percent**, you may use a trailing **%** (e.g. `37.5%`). Do **not** use words (million, k, M), scientific notation, `$`, or commas. No sentences or labels."""
+**Output:** Your entire reply must be **only** the final numeric value: optional leading `-`, digits, optional `.` and fractional digits. For answers that are genuinely a **rate or percent**, you may use a trailing **%** (e.g. `37.5%`). Do **not** use words (million, k, M), scientific notation, `$`, or commas. No sentences, labels, or prefixes like ``Answer:``."""
 
 # User message is already a single standalone question (after optional rewrite step).
 SYSTEM_REWRITTEN_ONLY = """You answer one self-contained ConvFinQA-style question from the document (text + table).
@@ -31,7 +31,7 @@ The user message states one question only (it was rewritten from a multi-turn di
 - If the question names a row or metric, use that row’s figures.
 - When the document states amounts are in thousands, millions, billions, etc., **convert to absolute numeric values** in your head and output the **fully expanded** number (no implicit unit). Example: values labeled “in millions” with a change of -4 → output **-4000000**, not **-4**.
 
-**Output:** Exactly one token: plain digits (optional `-`, optional decimal point). For answers that are genuinely a **rate or percent**, you may use a trailing **%** (e.g. `37.5%`). Do **not** use words (million, k, M), scientific notation, `$`, or commas. No sentences or labels."""
+**Output:** Your entire reply must be **only** the final numeric value: optional leading `-`, digits, optional `.` and fractional digits. For answers that are genuinely a **rate or percent**, you may use a trailing **%** (e.g. `37.5%`). Do **not** use words (million, k, M), scientific notation, `$`, or commas. No sentences, labels, or prefixes like ``Answer:``."""
 
 
 def run_vanilla_turn(

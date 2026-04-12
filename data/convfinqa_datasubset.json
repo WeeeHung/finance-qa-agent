@@ -335,7 +335,7 @@
                 "pre_text": "in the ordinary course of business , based on our evaluations of certain geologic trends and prospective economics , we have allowed certain lease acreage to expire and may allow additional acreage to expire in the future . if production is not established or we take no other action to extend the terms of the leases , licenses or concessions , undeveloped acreage listed in the table below will expire over the next three years . we plan to continue the terms of certain of these licenses and concession areas or retain leases through operational or administrative actions ; however , the majority of the undeveloped acres associated with other africa as listed in the table below pertains to our licenses in ethiopia and kenya , for which we executed agreements in 2015 to sell . the kenya transaction closed in february 2016 and the ethiopia transaction is expected to close in the first quarter of 2016 . see item 8 . financial statements and supplementary data - note 5 to the consolidated financial statements for additional information about this disposition . net undeveloped acres expiring year ended december 31 .",
                 "post_text": ".",
                 "table": {
-                    "net undeveloped acres expiring year ended december 31 , 2016": {
+                    "net undeveloped acres expiring year ended december 31 , 2016 (in thousands)": {
                         "u.s .": 68.0,
                         "e.g .": 2014.0,
                         "other africa": 189.0,
@@ -343,7 +343,7 @@
                         "other international": 2014.0,
                         "total": 257.0
                     },
-                    "net undeveloped acres expiring year ended december 31 , 2017": {
+                    "net undeveloped acres expiring year ended december 31 , 2017 (in thousands)": {
                         "u.s .": 89.0,
                         "e.g .": 92.0,
                         "other africa": 4352.0,
@@ -351,7 +351,7 @@
                         "other international": 2014.0,
                         "total": 4533.0
                     },
-                    "net undeveloped acres expiring year ended december 31 , 2018": {
+                    "net undeveloped acres expiring year ended december 31 , 2018 (in thousands)": {
                         "u.s .": 128.0,
                         "e.g .": 36.0,
                         "other africa": 854.0,
@@ -375,7 +375,7 @@
                     "divide(128, 1018)"
                 ],
                 "executed_answers": [
-                    257.0,
+                    257000.0,
                     0.12574
                 ],
                 "qa_split": [
@@ -633,7 +633,7 @@
             },
             "dialogue": {
                 "conv_questions": [
-                    "what is the change in price of the s&p 500 from 2015 to 2016?",
+                    "what is the change in price of the s&p 500 from start of 2015 to end of 2016?",
                     "what is 100000 divided by 100?",
                     "what is the product of the change by the quotient?"
                 ],
