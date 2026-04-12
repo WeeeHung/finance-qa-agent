@@ -110,6 +110,26 @@ def _sanitize_append_items(items: list[KBItemDraft], *, allowed_refs: set[int]) 
     return cleaned
 
 
+def empty_turn_kb_updates(*, reason: str = "no_execute_python") -> dict[str, Any]:
+    """Same shape as ``extract_turn_kb_updates`` when no LLM append is needed (e.g. no tool runs)."""
+    return {
+        "items": [],
+        "llm_ms_total": 0.0,
+        "llm_invocations": 0,
+        "steps": [
+            {
+                "type": "kb_extraction",
+                "stage": "append",
+                "skipped": True,
+                "reason": reason,
+                "llm_ms_total": 0.0,
+                "extracted_items": 0,
+                "accepted_items": 0,
+            },
+        ],
+    }
+
+
 def extract_initial_kb(
     raw_data: dict[str, Any],
     *,

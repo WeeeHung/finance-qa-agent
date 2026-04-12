@@ -18,7 +18,7 @@ from src.utils.filepaths import dataset_fpath, kb_v3_dir, results_v3_dir
 from src_v1.prompt import build_rewritten_answer_user_message, build_vanilla_user_message
 from src_v1.rewrite import rewrite_current_question
 from src_v1.serialize import record_to_raw_data
-from src_v3.kb_extract import extract_initial_kb, extract_turn_kb_updates
+from src_v3.kb_extract import empty_turn_kb_updates, extract_initial_kb, extract_turn_kb_updates
 from src_v3.kb_store import KnowledgeBase
 from src_v3.react_turn import run_react_turn
 
@@ -155,13 +155,16 @@ def run(
             answer_text = out["answer_text"]
             qa_wall_ms = (time.perf_counter() - qa_t0) * 1000.0
 
-            kb_upd = extract_turn_kb_updates(
-                kb=kb,
-                question_history=list(prev),
-                question=q,
-                rewritten_question=rewritten,
-                final_answer=answer_text,
-            )
+            if n_sandbox == 0:
+                kb_upd = empty_turn_kb_updates()
+            else:
+                kb_upd = extract_turn_kb_updates(
+                    kb=kb,
+                    question_history=list(prev),
+                    question=q,
+                    rewritten_question=rewritten,
+                    final_answer=answer_text,
+                )
             kb_added = kb.append_drafts(kb_upd["items"])
             kb_size_after = len(kb.items)
 
