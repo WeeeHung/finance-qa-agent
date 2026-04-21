@@ -121,10 +121,11 @@ class Planner(AgentBase):
                 print(f"====== {current_agent} finished execution ======")
                 if self.verbose_mode in ['debug', 'error']:
                     print(state.step_history[-1])
-            prompt = f"You are a planner agent that gives feedback to the {current_agent} agent based on its execution summary. {self.feedback_mapping[current_agent]}'s execution summary is as follows:\n{state.step_history[-1]}"
-            response = self._call_agent(prompt)
-
+            
             if self.self_consistency:
+                prompt = f"You are a planner agent that gives feedback to the {current_agent} agent based on its execution summary. {self.feedback_mapping[current_agent]}'s execution summary is as follows:\n{state.step_history[-1]}"
+                response = self._call_agent(prompt)
+
                 further_action_required = response['structured_response'].further_action_required
                 if further_action_required:
                     feedback = response['structured_response'].feedback

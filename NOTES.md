@@ -18,7 +18,7 @@ Essentially, each agent makes an LLM call with their customized prompts and inpu
 2. The pipeline breaks down roles for each specialised agent to execute with their customized prompts.
 3. Agents can execute with a customized feedback loop, and regenerate for better output when self-consistency flag is activated.
 4. Runs Free Agent on parallel as the subproblems are not dependent on each other.
-5. Every Agent updates step history which makes AI response explainable and transparent.
+5. Every Agent updates step history and state which makes AI response explainable and transparent.
 
 ### Cons, risks, and failure modes
 
@@ -80,7 +80,7 @@ As for the repo, it is not specifically documented. So, I came up with 3 main go
 2. Explainability
 3. Latency
 
-The current scoring pipeline is good as it targets raw accuracy by comparing raw output and golden output. This is best and most important indicator of performance. This is also done with exact match, then LLM-as-a-judge. We can improve this with a deterministic linient matching to reduce the usage of the fallback LLM judge. Example of this is standardising the decimal significance, typing, percentage formats, etc. We could also have separate grading for questions in different turns (ie. Find average of accuracy for Q1s or Q4s). This highlights the significance of multi-turn QA. Theoretically, questions that depend on earlier context should be a more complex question, thus harder to answer and have lower accuracy. Optionally, we can also grade accuracy of retrieval and execution separately to optimize this system. For retrieval, there will be ground truths for correct sources/clauses, thus we can evaluate its recall to ensure high retrieval rate of all necessary information. For execution, we can evaluate number of attempts in running python execution and the code accuracy based on operations. This helps us determine the operations to code quality during tool-use stage. A more robust way to grade would take into account error-carry-forward. Some tasks require prior answers in their calculations. Thus, while their steps are correct, their final output might mismatch the golden.
+The current scoring pipeline is good as it targets raw accuracy by comparing raw output and golden output. This is best and most important indicator of performance. This is also done with exact match, then LLM-as-a-judge. We can improve this with a deterministic lenient matching to reduce the usage of the fallback LLM judge. Example of this is standardising the decimal significance, typing, percentage formats, etc. We could also have separate grading for questions in different turns (ie. Find average of accuracy for Q1s or Q4s). This highlights the significance of multi-turn QA. Theoretically, questions that depend on earlier context should be a more complex question, thus harder to answer and have lower accuracy. Optionally, we can also grade accuracy of retrieval and execution separately to optimize this system. For retrieval, there will be ground truths for correct sources/clauses, thus we can evaluate its recall to ensure high retrieval rate of all necessary information. For execution, we can evaluate number of attempts in running python execution and the code accuracy based on operations. This helps us determine the operations to code quality during tool-use stage. A more robust way to grade would take into account error-carry-forward. Some tasks require prior answers in their calculations. Thus, while their steps are correct, their final output might mismatch the golden.
 
 Explainability is also well established in the step-history. This is a good trait for reasoning agents and helps reproduce the answer that the Agent got. To be more transparent, we could also include sources of the retrieved context. LLM Judges are also used to evaluate how well each agent executed their tasks and its faithfulness. Using binary scoring (0 or 1) for LLM Judging also eliminates some ambiguity and subjectivity compared to 1-5 scales.
 
@@ -117,6 +117,7 @@ On the **first ten dev records** from `convfinqa_datasubset.json` (**36 dialogue
 
 AI-Compiled data from local runs.
 
+
 | Pipeline                         | Results folder (under `data/`) | Accuracy (`universal_accuracy_summary.txt`) | Median latency (ms) | Mean `reason_pass` | Mean sandbox invocations |
 | -------------------------------- | ------------------------------ | ------------------------------------------- | ------------------- | ------------------ | ------------------------ |
 | Original multi-agent stack       | `results/`                     | 24 / 36                                     | —                   | —                  | —                        |
@@ -124,6 +125,7 @@ AI-Compiled data from local runs.
 | v1 + rewrite                     | `results_v1_rewrite/`          | 34 / 36                                     | 10,544              | 1.72               | 0                        |
 | v2 ReAct + rewrite + Python tool | `results_v2/`                  | 35 / 36                                     | 15,456              | 2.58               | 0.86                     |
 | v3 (KB-building phase)           | `results_v3/`                  | 36 / 36                                     | 9,018               | 2.11               | 0.39                     |
+
 
 **Head-to-head v2 vs v3** (file `data/results_v3/universal_latency_compare_v2_v3_summary.txt`, baseline = `results_v2`, candidate = `results_v3`): 35 turns faster on v3, 1 slower, 0 equal; medians **15,455.713 ms → 9,018.438 ms**; mean speedup ratio baseline/candidate **≈ 1.97**; mean sandbox invocations **0.8611 → 0.3889** per turn.
 
@@ -165,7 +167,7 @@ Initial Code Deep Dive
 - each question take very long. maybe need better parallelism if possible. can do latency check on each stage to improve speed as this user experience isnt the best
 - got 'assistant: I'm sorry, I couldn't find an answer to that question.' after waiting for very long, i suspect some agent has reached the limit. it seems like it managed to get some kind of answer but replied with a fallback instead of giving 'inconfident' answer or 'ran out of steps to think?'
 - what are the params / flags? self consistency seem interesting (self_consistency here only mean ability to rerun a step)
-  [Self-consistency = generating multiple independent answers and selecting the most consistent one, normalize, then pick majority / semantic clustering / confidence weight (freq. x confidence) voting]
+[Self-consistency = generating multiple independent answers and selecting the most consistent one, normalize, then pick majority / semantic clustering / confidence weight (freq. x confidence) voting]
 - clarifier does self clarify? can i ask the users questions to clarify in case the prompt given is not good enough or confusing
 - tool seems to target financial analysts, auditors who need grounded, traceable answers from long PDFs
 - seems like direct qa type questions work quite well
@@ -192,13 +194,16 @@ Initial Code Deep Dive
 
 ### Record Counts by Split
 
+
 | Split     | Number of Records |
 | --------- | ----------------- |
 | Train     | 3,037             |
 | Dev       | 421               |
 | **Total** | **3,458**         |
 
+
 ### TRAIN (n = 3,037 records)
+
 
 | Statistic                             | Min | Median  | Max    |
 | ------------------------------------- | --- | ------- | ------ |
@@ -207,7 +212,9 @@ Initial Code Deep Dive
 | combined pre+post length (characters) | 103 | 3,619.0 | 14,166 |
 | table cell count (sum of row widths)  | 1   | 12.0    | 114    |
 
+
 ### DEV (n = 421 records)
+
 
 | Statistic                             | Min | Median  | Max   |
 | ------------------------------------- | --- | ------- | ----- |
@@ -215,3 +222,5 @@ Initial Code Deep Dive
 | post_text length (characters)         | 1   | 1,750.0 | 5,850 |
 | combined pre+post length (characters) | 210 | 3,479.0 | 8,730 |
 | table cell count (sum of row widths)  | 2   | 12.0    | 48    |
+
+
